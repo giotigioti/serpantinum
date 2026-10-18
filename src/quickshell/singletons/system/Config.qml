@@ -23,6 +23,10 @@ Item {
         let v = (rawSettings && rawSettings.bar) ? Number(rawSettings.bar.margin) : NaN;
         return isFinite(v) && v >= 0 ? v : 4;
     }
+    readonly property real barThickness: {
+        let v = (rawSettings && rawSettings.bar && rawSettings.bar.height !== undefined) ? Number(rawSettings.bar.height) : 40;
+        return Math.max(28, Math.min(48, isNaN(v) ? 40 : v));
+    }
     property bool isWriting: false
     property var pendingPayload: null
     property string lastWrittenContent: ""

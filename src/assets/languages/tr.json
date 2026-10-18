@@ -101,6 +101,10 @@
         "title": "Boş merkez animasyonu",
         "desc": "Bildirim merkezi boşken uyuyan kedi görselini gösterin"
       },
+      "right_click_close": {
+        "title": "Sağ tıkla kapat",
+        "desc": "Bildirimi sağ tıklayarak kapat"
+      },
       "test": "Test bildirimi",
       "test_desc": "Bu bir test bildirimidir"
     },
@@ -165,7 +169,11 @@
       "hooks": {
         "title": "Kancalar (kabuk komutları)"
       },
-      "custom_action_desc": "Özel zaman aşımı eylemi ve komutu"
+      "custom_action_desc": "Özel zaman aşımı eylemi ve komutu",
+      "lock_on_sleep": {
+        "title": "Uykudan önce kilitle",
+        "desc": "Kapak kapatıldığında olduğu gibi sistem askıya alınmadan önce oturumu kilitle"
+      }
     },
     "welcome": {
       "by_author": "@{author} tarafından",
@@ -288,19 +296,19 @@
               "pacman": "Pacman"
             }
           },
-          "name": "Çalışma Alanları"
+          "name": "Çalışma alanları"
         },
         "media": "Medya",
         "tray": "Sistem Tepsisi",
         "keyboard": "Klavye",
         "network": "Ağ",
         "bluetooth": "Bluetooth",
-        "volume": "Ses Seviyesi",
+        "volume": "Ses seviyesi",
         "battery": "Pil",
         "focus": "Odak",
         "sysmon": "Sistem monitörü",
         "timedate": {
-          "name": "Saat ve Tarih",
+          "name": "Saat ve tarih",
           "style": {
             "name": {
               "classic": "Klasik",
@@ -324,6 +332,11 @@
         "title": "Çubuk genişliği",
         "desc": "Çubuk genişliğini yüzde olarak ayarlayın"
       },
+      "center_by_edges": {
+        "title": "Kenarlara göre ortala",
+        "desc": "Orta modüle göre ortalamak yerine çubuğun sol ve sağ kenarlarında eşit boşluk bırakır",
+        "desc_vertical": "Orta modüle göre ortalamak yerine çubuğun üst ve alt kenarlarında eşit boşluk bırakır"
+      },
       "workspaces": {
         "title": "Görüntülenecek çalışma alanı miktarını seçin",
         "disc": "Not: Bu, birleştiricideki gerçek çalışma alanı sayısını etkilemez",
@@ -336,10 +349,6 @@
           "title": "Stil",
           "desc": "Çalışma alanı göstergeleri için görsel stili seçin"
         }
-      },
-      "opacity": {
-        "title": "Çubuk opaklığı",
-        "desc": "Çubuk opaklığını yüzde olarak ayarlayın"
       },
       "scale": {
         "title": "Çubuk ölçeği",
@@ -387,7 +396,7 @@
       },
       "timedate": {
         "show_date": {
-          "title": "Tarihi Göster",
+          "title": "Tarihi göster",
           "desc": "Saatin yanında tarih metnini görüntüleyin"
         },
         "style": {
@@ -397,7 +406,7 @@
       },
       "vis": {
         "bars": {
-          "title": "Çubuk Sayısı",
+          "title": "Çubuk sayısı",
           "desc": "Görüntülenecek frekans çubuğu sayısı"
         },
         "alignment": {
@@ -412,23 +421,23 @@
           "right": "Sağ"
         },
         "continuous": {
-          "title": "Sürekli Dalga",
+          "title": "Sürekli dalga",
           "desc": "Ayrı çubuklar yerine pürüzsüz akıcı bir dalga çizin"
         }
       },
       "sysmon": {
         "style": {
-          "title": "Halka Stili",
+          "title": "Halka stili",
           "desc": "İlerleme halkalarının görsel görünümü",
           "wave": "Dalga",
           "circle": "Daire"
         },
         "cpu": {
-          "title": "CPU Kullanımı",
+          "title": "CPU kullanımı",
           "desc": "İşlemci kullanım halkasını görüntüleyin"
         },
         "ram": {
-          "title": "Bellek Kullanımı",
+          "title": "Bellek kullanımı",
           "desc": "Bellek (RAM) kullanım halkasını görüntüleyin"
         },
         "temp": {
@@ -436,21 +445,21 @@
           "desc": "Sistem sıcaklığı halkasını görüntüleyin"
         },
         "disk": {
-          "title": "Disk Kullanımı",
+          "title": "Disk kullanımı",
           "desc": "Depolama diski kullanım halkasını görüntüleyin"
         }
       },
       "bat": {
         "show_percent": {
-          "title": "Yüzdeyi Göster",
+          "title": "Yüzdeyi göster",
           "desc": "Sayısal pil şarjı yüzdesini görüntüleyin"
         },
         "show_icon": {
-          "title": "Simgeyi Göster",
+          "title": "Simgeyi göster",
           "desc": "Pil simgesini veya grafik göstergesini görüntüleyin"
         },
         "style": {
-          "title": "Pil Stili",
+          "title": "Pil stili",
           "desc": "Pil göstergesinin görsel görünümünü seçin",
           "name": {
             "classic": "Klasik",
@@ -464,11 +473,11 @@
       },
       "wifi": {
         "show_icon": {
-          "title": "Simgeyi Göster",
+          "title": "Simgeyi göster",
           "desc": "Ağ simgesini veya sinyal göstergesini görüntüleyin"
         },
         "show_name": {
-          "title": "Adı Göster",
+          "title": "Adı göster",
           "desc": "Ağ SSID'sini veya bağlantı durumu metnini görüntüleyin"
         },
         "style": {
@@ -484,11 +493,11 @@
       },
       "bt": {
         "show_icon": {
-          "title": "Simgeyi Göster",
+          "title": "Simgeyi göster",
           "desc": "Bluetooth durum simgesini görüntüleyin"
         },
         "show_name": {
-          "title": "Adı Göster",
+          "title": "Adı göster",
           "desc": "Bağlı bluetooth cihazının adını görüntüleyin"
         },
         "style": {
@@ -504,11 +513,11 @@
       },
       "vol": {
         "show_icon": {
-          "title": "Simgeyi Göster",
+          "title": "Simgeyi göster",
           "desc": "Ses hoparlör simgesini görüntüleyin"
         },
         "show_percent": {
-          "title": "Yüzdeyi Göster",
+          "title": "Yüzdeyi göster",
           "desc": "Sayısal ses seviyesi yüzdesini görüntüleyin"
         },
         "style": {
@@ -524,7 +533,7 @@
       },
       "kb": {
         "show_icon": {
-          "title": "Simgeyi Göster",
+          "title": "Simgeyi göster",
           "desc": "Klavye düzeni simgesini görüntüleyin"
         },
         "style": {
@@ -536,6 +545,54 @@
           },
           "button": "Arka planlı etkileşimli düğme hapı",
           "text": "Arka plan olmadan sade metin ve simge"
+        }
+      },
+      "media": {
+        "info_mode": {
+          "title": "Secondary info",
+          "desc": "Choose whether to show the song duration or its author",
+          "duration": "Duration",
+          "author": "Author"
+        },
+        "width": {
+          "title": "Width",
+          "desc": "Width of the song title area"
+        },
+        "show_icon": {
+          "title": "Simgeyi göster",
+          "desc": "Albüm kapağını veya müzik simgesini görüntüleyin"
+        },
+        "show_controls": {
+          "title": "Kontrolleri göster",
+          "desc": "Önceki, oynat ve sonraki düğmelerini görüntüleyin"
+        },
+        "preview": {
+          "title": "Şarkı adı",
+          "author": "Song author"
+        }
+      },
+      "thickness": {
+        "title": "Çubuk kalınlığı",
+        "desc": "Çubuğun kalınlığını değiştirin, modüller buna uyum sağlar"
+      },
+      "menu": {
+        "show_settings": {
+          "title": "Ayarlar simgesini göster",
+          "desc": "Ayarları açan düğmeyi gösterir"
+        },
+        "show_launcher": {
+          "title": "Başlatıcı simgesini göster",
+          "desc": "Başlatıcıyı açan arama düğmesini gösterir"
+        },
+        "style": {
+          "title": "Stil",
+          "desc": "Menü modülünün görünümünü seçin",
+          "name": {
+            "button": "Düğme",
+            "icon": "Simge"
+          },
+          "button": "Arka planlı etkileşimli simge düğmeleri",
+          "icon": "Arka plansız sade simgeler"
         }
       }
     },
@@ -562,6 +619,18 @@
         "select_wallpaper": "Duvar kâğıdı seç",
         "no_wallpaper_selected": "Duvar kâğıdı seçilmedi",
         "select": "Duvar Kâğıdı"
+      },
+      "element_opacity": {
+        "title": "Öğe opaklığı",
+        "desc": "Çubuğun, dock'un, widget'ların ve diğer tüm kabuk öğelerinin opaklığı"
+      },
+      "blur_background": {
+        "title": "Bulanık duvar kağıdı arka planı ekle",
+        "desc": "Saydamlık kullanan her öğenin arkasındaki duvar kağıdını bulanıklaştırır",
+        "style": {
+          "blur": "Bulanıklık",
+          "liquid": "Sıvı cam"
+        }
       }
     },
     "file_picker": {
@@ -770,10 +839,6 @@
         "done": "Tamam",
         "empty": "Eşleşen uygulama yok"
       },
-      "opacity": {
-        "title": "Dock opaklığı",
-        "desc": "Dock arka planı opaklık seviyesini ayarlayın"
-      },
       "override_bounds": {
         "title": "Ekran sınırları dışı boyut düzeltmesini geçersiz kıl",
         "desc": "Dock ekran sınırlarını aşsa bile özel öge boyutunu koruyun"
@@ -912,6 +977,11 @@
       "authenticating": "Kimlik doğrulanıyor...",
       "enter_pin": "PIN girin"
     },
+    "fingerprint": {
+      "ready": "Sensöre dokunun",
+      "not_recognized": "Parmak izi tanınmadı",
+      "recognized": "Parmak izi tanındı"
+    },
     "power": {
       "suspend": "Askıya al",
       "reboot": "Yeniden başlat",
@@ -947,7 +1017,27 @@
     "searching_lyrics": "Şarkı sözleri aranıyor...",
     "no_lyrics": "Şarkı sözü bulunamadı",
     "select_local_file": "Yerel bir dosya seçin",
-    "lyrics": "Şarkı Sözleri"
+    "lyrics": "Şarkı Sözleri",
+    "audio": {
+      "title": "Ses",
+      "balance": "Kanal dengesi",
+      "reset": "Sıfırla",
+      "centered": "Ortalanmış",
+      "left_slightly_favored": "Hafifçe sola ağırlıklı",
+      "right_slightly_favored": "Hafifçe sağa ağırlıklı",
+      "left_only": "Yalnızca sol kanal",
+      "right_only": "Yalnızca sağ kanal",
+      "left_favored": "Sola ağırlıklı",
+      "right_favored": "Sağa ağırlıklı",
+      "test": "Test",
+      "stop_test": "Durdur",
+      "mono": "Mono ses",
+      "swap": "Sol/sağ değiştir",
+      "dynamic_range": "Dinamik aralık",
+      "off": "Kapalı",
+      "balanced": "Dengeli",
+      "night": "Gece"
+    }
   },
   "network": {
     "tabs": {
@@ -970,7 +1060,8 @@
     },
     "actions": {
       "unpair": "Eşleşmeyi kaldır",
-      "scan": "Tara"
+      "scan": "Tara",
+      "sign_in": "Oturum aç"
     }
   },
   "notifications": {
@@ -1491,7 +1582,11 @@
     "deploy": {
       "configuring_sddm": "SDDM giriş yöneticisi yapılandırılıyor...",
       "disabling_dm": "-> Çakışan giriş yöneticisi devre dışı bırakılıyor: {dm}",
-      "sddm_success": "-> SDDM material you teması kuruldu ve hizmet etkinleştirildi [ TAMAM ]"
+      "sddm_success": "-> SDDM material you teması kuruldu ve hizmet etkinleştirildi [ TAMAM ]",
+      "sddm_no_wayland_compositor": "Giriş ekranı için desteklenen bir Wayland kompozitörü (kwin_wayland/weston) bulunamadı, SDDM için X11 kullanılıyor.",
+      "sddm_no_xorg": "Xorg bulunamadı, SDDM için {compositor} kullanılıyor.",
+      "sddm_no_backend": "/usr/local/bin, /usr/bin veya /bin içinde ne Xorg ne de giriş ekranı için desteklenen bir Wayland kompozitörü (kwin_wayland/weston) bulundu.",
+      "sddm_skipped": "SDDM kurulumu atlandı: kullanılabilir bir ekran sunucusu veya giriş kompozitörü bulunamadı. Mevcut ekran yöneticisi değiştirilmedi."
     }
   },
   "translator": {
