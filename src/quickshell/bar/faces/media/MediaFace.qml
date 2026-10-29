@@ -225,7 +225,7 @@ Item {
                                     visible: !root.hasArt
                                 }
 
-                                Image {
+                                BoundedImage {
                                     id: mediaArtImg
                                     anchors.fill: parent
                                     source: root.hasArt ? (MprisController.artUrl.startsWith("file://") || MprisController.artUrl.startsWith("http") ? MprisController.artUrl : "file://" + MprisController.artUrl) : ""
@@ -409,7 +409,7 @@ Item {
                         visible: !isMediaActive || root.activeArtUrl === ""
                     }
 
-                    Image {
+                    BoundedImage {
                         id: sideArtImg
                         anchors.fill: parent
                         source: isMediaActive ? root.activeArtUrl : ""
