@@ -207,6 +207,19 @@
         "select": "Select",
         "select_image_path": "Select image path..."
       },
+      "quote": {
+        "title": "Motto & Quote",
+        "desc": "Display a personal quote on lock screen and desktop widget",
+        "placeholder": "Enter your quote or motto...",
+        "lock_position": {
+          "title": "Lock screen quote position",
+          "desc": "Select where the quote appears on the lock screen"
+        },
+        "pos_both": "Both (Clock & Avatar)",
+        "pos_clock": "Under Clock only",
+        "pos_dialog": "Under Avatar only",
+        "pos_off": "Off"
+      },
       "mutesfx": {
         "title": "Mute SFX",
         "desc": "Disable user interface sound effects"
@@ -392,6 +405,14 @@
           "title": "Style",
           "desc": "Choose the visual style for workspace indicators"
         }
+      },
+      "scale": {
+        "title": "Bar scale",
+        "desc": "Scale the whole bar, including its modules, icons and text"
+      },
+      "margin": {
+        "title": "Bar margin",
+        "desc": "Set the gap between the bar and the screen edges in pixels"
       },
       "style": {
         "title": "Bar style",
@@ -585,6 +606,20 @@
         }
       },
       "media": {
+        "source": {
+          "title": "Media source",
+          "desc": "Choose an MPRIS application for bars and desktop widgets. The music popup can select its own player.",
+          "automatic": "Automatic",
+          "unavailable": "Unavailable"
+        },
+        "hide_idle": {
+          "title": "Hide media when no track is available",
+          "desc": "Keep Media visible while paused. Hide it when no track is available."
+        },
+        "hide_lyrics": {
+          "title": "Hide unavailable lyrics",
+          "desc": "Hide desktop lyrics and their background while no lyrics are available or a search is in progress. Widgets remain editable in the desktop editor."
+        },
         "info_mode": {
           "title": "Secondary info",
           "desc": "Choose whether to show the song duration or its author",
@@ -1555,13 +1590,15 @@
       "battery": "Battery",
       "github": "Github",
       "time": "Time",
-      "notes": "Notes"
+      "notes": "Notes",
+      "quote": "Quote"
     },
     "variants": {
       "digital": "Digital",
       "analog": "Analog",
       "full": "Full",
       "minimal": "Minimal",
+      "card": "Card",
       "round": "Round",
       "compact": "Compact",
       "rect": "Rect",
@@ -1869,5 +1906,8 @@
   },
   "common": {
     "select": "Select..."
+  },
+  "quote": {
+    "default_text": "The only way to do great work is to love what you do."
   }
 }
