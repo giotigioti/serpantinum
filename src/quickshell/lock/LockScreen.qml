@@ -95,25 +95,6 @@ FocusScope {
         return Boolean(n && n.dnd);
     }
 
-    property var quoteData: (typeof Config !== "undefined" && typeof Config.getSetting === "function") ? Config.getSetting("quote", {}) : ({})
-    property bool quoteEnabled: quoteData && quoteData.enabled !== false && quoteData.enabled !== undefined ? !!quoteData.enabled : true
-    readonly property string defaultQuoteText: "The only way to do great work is to love what you do."
-    property string quoteText: {
-        let _lang = (typeof I18n !== "undefined") ? I18n.currentLang : "";
-        let _ready = (typeof I18n !== "undefined") ? I18n.isReady : false;
-        let customText = quoteData && quoteData.text !== undefined ? String(quoteData.text).trim() : "";
-        if (customText !== "") return customText;
-        return I18n.t("quote.default") || defaultQuoteText;
-    }
-    property string quoteLockPosition: (quoteData && quoteData.lockScreenPosition !== undefined) ? String(quoteData.lockScreenPosition) : "both"
-
-    Connections {
-        target: typeof Config !== "undefined" ? Config : null
-        function onSettingsLoaded() {
-            lockScreenRoot.quoteData = Config.getSetting("quote", {});
-        }
-    }
-
     property var weatherFullData: Weather.data
     property var hourlyForecastList: []
 
@@ -268,6 +249,12 @@ FocusScope {
     }
 
     Keys.onPressed: (event) => {
+        // A stalled compositor can hold back the key release (e.g. on resume from suspend),
+        // and the client-side repeat would then fill the password field. Only Backspace repeats.
+        if (event.isAutoRepeat && event.key !== Qt.Key_Backspace) {
+            event.accepted = true;
+            return;
+        }
         if (!lockScreenRoot.isPlayingIntro && !lockScreenRoot.isUnlocking) {
             if (!lockScreenRoot.inputActive) {
                 if (event.key !== Qt.Key_Escape) {
@@ -577,6 +564,8 @@ FocusScope {
         }
     }
 
+    readonly property bool backdropSettled: backdrop.wallpaperSettled
+
     LockBackdrop {
         id: backdrop
         screenRoot: lockScreenRoot
@@ -591,18 +580,18 @@ FocusScope {
                 property: "panelReveal"
                 from: 0.0
                 to: 1.0
-                duration: 750
-                easing.type: Easing.OutCubic
+                duration: 600
+                easing.type: Easing.Linear
             }
 
             SequentialAnimation {
-                PauseAnimation { duration: 250 }
+                PauseAnimation { duration: 460 }
                 NumberAnimation {
                     target: lockScreenRoot
                     property: "contentReveal"
                     from: 0.0
                     to: 1.0
-                    duration: 250
+                    duration: 140
                     easing.type: Easing.OutCubic
                 }
             }

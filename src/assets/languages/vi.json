@@ -390,14 +390,6 @@
           "desc": "Chọn kiểu hiển thị cho các chỉ báo không gian làm việc"
         }
       },
-      "scale": {
-        "title": "Tỷ lệ thanh tác vụ",
-        "desc": "Thay đổi tỷ lệ của toàn bộ thanh tác vụ, bao gồm các mô-đun, biểu tượng và văn bản"
-      },
-      "margin": {
-        "title": "Lề thanh tác vụ",
-        "desc": "Đặt khoảng cách giữa thanh tác vụ và mép màn hình theo pixel"
-      },
       "style": {
         "title": "Kiểu thanh tác vụ",
         "desc": "Chọn giữa kiểu mô-đun, đặc hoặc đầy đủ",
@@ -1111,6 +1103,9 @@
       },
       "setting": {
         "show_text": "Hiện văn bản"
+      },
+      "category": {
+        "lockscreen": "Màn hình khóa"
       }
     }
   },
@@ -1519,11 +1514,21 @@
     },
     "redactor": {
       "no_widgets_active": "Không có tiện ích nào hoạt động",
-      "click_to_add": "Nhấp vào biểu tượng tiện ích ở thanh công cụ phía dưới để thêm",
+      "click_to_add": "Chọn một danh mục hoặc tìm kiếm ở thanh công cụ phía dưới để thêm tiện ích",
       "done": "Hoàn tất",
       "widget_singular": "tiện ích",
       "widgets_plural": "tiện ích",
-      "widgets_short": "tiện ích"
+      "widgets_short": "tiện ích",
+      "category": {
+        "time": "Thời gian và văn bản",
+        "media": "Đa phương tiện",
+        "system": "Hệ thống",
+        "info": "Thông tin",
+        "other": "Khác"
+      },
+      "search": "Tìm tiện ích",
+      "results": "Kết quả",
+      "no_results": "Không tìm thấy gì"
     },
     "types": {
       "clock": "Đồng hồ",
@@ -1536,7 +1541,8 @@
       "battery": "Pin",
       "github": "Github",
       "time": "Thời gian",
-      "notes": "Ghi chú"
+      "notes": "Ghi chú",
+      "text": "Văn bản"
     },
     "variants": {
       "digital": "Điện tử",
@@ -1585,7 +1591,8 @@
     },
     "settings": {
       "lyricsLines": "Dòng",
-      "lyricsAlignment": "Căn chỉnh"
+      "lyricsAlignment": "Căn chỉnh",
+      "textContent": "Văn bản"
     },
     "align": {
       "left": "Trái",
@@ -1594,6 +1601,9 @@
     },
     "notes": {
       "empty": "Chưa có ghi chú"
+    },
+    "text": {
+      "placeholder": "Nhập văn bản"
     }
   },
   "cli": {

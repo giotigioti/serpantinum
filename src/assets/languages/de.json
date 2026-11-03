@@ -391,14 +391,6 @@
           "desc": "Wählen Sie das visuelle Design der Arbeitsflächen-Indikatoren"
         }
       },
-      "scale": {
-        "title": "Leistenskalierung",
-        "desc": "Die gesamte Leiste einschließlich ihrer Module, Symbole und Texte skalieren"
-      },
-      "margin": {
-        "title": "Leistenabstand",
-        "desc": "Abstand zwischen Leiste und Bildschirmrändern in Pixeln festlegen"
-      },
       "style": {
         "title": "Leistenstil",
         "desc": "Zwischen modularer, durchgehender oder ausgefüllter Leiste wählen",
@@ -1155,6 +1147,9 @@
       },
       "setting": {
         "show_text": "Text anzeigen"
+      },
+      "category": {
+        "lockscreen": "Sperrbildschirm"
       }
     }
   },
@@ -1566,11 +1561,21 @@
     },
     "redactor": {
       "no_widgets_active": "Keine Widgets aktiv",
-      "click_to_add": "Auf ein Widget-Symbol in der unteren Leiste klicken, um es hinzuzufügen",
+      "click_to_add": "Eine Kategorie wählen oder in der unteren Leiste suchen, um ein Widget hinzuzufügen",
       "done": "Fertig",
       "widget_singular": "Widget",
       "widgets_plural": "Widgets",
-      "widgets_short": "W"
+      "widgets_short": "W",
+      "category": {
+        "time": "Zeit und Text",
+        "media": "Medien",
+        "system": "System",
+        "info": "Info",
+        "other": "Sonstiges"
+      },
+      "search": "Widgets suchen",
+      "results": "Ergebnisse",
+      "no_results": "Nichts gefunden"
     },
     "types": {
       "clock": "Uhr",
@@ -1583,7 +1588,8 @@
       "battery": "Akku",
       "github": "GitHub",
       "time": "Zeit",
-      "notes": "Notizen"
+      "notes": "Notizen",
+      "text": "Text"
     },
     "variants": {
       "digital": "Digital",
@@ -1632,7 +1638,8 @@
     },
     "settings": {
       "lyricsLines": "Zeilen",
-      "lyricsAlignment": "Ausrichtung"
+      "lyricsAlignment": "Ausrichtung",
+      "textContent": "Text"
     },
     "align": {
       "left": "Links",
@@ -1641,6 +1648,9 @@
     },
     "notes": {
       "empty": "Noch keine Notizen"
+    },
+    "text": {
+      "placeholder": "Text eingeben"
     }
   },
   "cli": {

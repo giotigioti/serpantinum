@@ -388,14 +388,6 @@
           "desc": "İş sahələri indikatorlarının vizual stilini seçin"
         }
       },
-      "scale": {
-        "title": "Zolağın miqyası",
-        "desc": "Modulları, nişanları və mətnləri daxil olmaqla bütün zolağı miqyaslayın"
-      },
-      "margin": {
-        "title": "Zolağın kənar boşluğu",
-        "desc": "Zolaqla ekran kənarları arasındakı boşluğu piksellə təyin edin"
-      },
       "style": {
         "title": "Zolağın üslubu",
         "desc": "Hissələrə bölünmüş, bütöv və ya doldurulmuş zolaq görünüşünü seçin",
@@ -1105,6 +1097,9 @@
       },
       "setting": {
         "show_text": "Mətni göstər"
+      },
+      "category": {
+        "lockscreen": "Kilid ekranı"
       }
     }
   },
@@ -1513,11 +1508,21 @@
     },
     "redactor": {
       "no_widgets_active": "Fəal vidcet yoxdur",
-      "click_to_add": "Vidcet əlavə etmək üçün aşağıdakı alətlər zolağında onun nişanına klikləyin",
+      "click_to_add": "Vidcet əlavə etmək üçün aşağıdakı alətlər zolağında kateqoriya seçin və ya axtarın",
       "done": "Hazırdır",
       "widget_singular": "vidcet",
       "widgets_plural": "vidcet",
-      "widgets_short": "v"
+      "widgets_short": "v",
+      "category": {
+        "time": "Vaxt və mətn",
+        "media": "Media",
+        "system": "Sistem",
+        "info": "Məlumat",
+        "other": "Digər"
+      },
+      "search": "Vidcetləri axtar",
+      "results": "Nəticələr",
+      "no_results": "Heç nə tapılmadı"
     },
     "types": {
       "clock": "Saat",
@@ -1530,7 +1535,8 @@
       "battery": "Batareya",
       "github": "Github",
       "time": "Vaxt",
-      "notes": "Qeydlər"
+      "notes": "Qeydlər",
+      "text": "Mətn"
     },
     "variants": {
       "digital": "Rəqəmsal",
@@ -1579,7 +1585,8 @@
     },
     "settings": {
       "lyricsLines": "Sətirlər",
-      "lyricsAlignment": "Hizalama"
+      "lyricsAlignment": "Hizalama",
+      "textContent": "Mətn"
     },
     "align": {
       "left": "Sol",
@@ -1588,6 +1595,9 @@
     },
     "notes": {
       "empty": "Hələ qeyd yoxdur"
+    },
+    "text": {
+      "placeholder": "Mətn daxil edin"
     }
   },
   "cli": {

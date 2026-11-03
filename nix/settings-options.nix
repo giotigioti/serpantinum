@@ -41,8 +41,6 @@ let
     position = mkOpt (types.enum [ "left" "right" "top" "bottom" ]) "Which screen edge the bar docks to.";
     width = mkOpt types.ints.positive "Bar thickness in pixels or percentage.";
     opacity = mkOpt (types.ints.between 0 100) "Bar background opacity, 0-100.";
-    scale = mkOpt types.number "Scale of the whole bar (modules, icons, text), 0.75-1.5 (default 1.0).";
-    margin = mkOpt types.ints.unsigned "Gap between the bar and the screen edges in pixels (default 4).";
     style = mkOpt (types.enum [ "solid" "fill" "modular" ]) "Bar visual style.";
     distinctPills = mkOpt types.bool "Render distinct background pills for bar modules in solid/fill style.";
     centerByEdges = mkOpt types.bool "Keep equal margins on both ends of the bar instead of centering by the middle module.";
@@ -220,25 +218,11 @@ let
     };
   };
 
-  quoteSubmodule = freeform {
-    enabled = mkOpt types.bool "Whether quote display is enabled.";
-    text = mkOpt types.str "Quote text to display.";
-    lockScreenPosition = mkOpt (types.enum [ "both" "clock" "dialog" "off" ]) "Where to display the quote on the lock screen.";
-  };
 in
 {
   settingsSubmodule = freeform {
     general = mkOption { type = generalSubmodule; default = { }; };
     bar = mkOption { type = barSubmodule; default = { }; };
-    media = mkOption {
-      type = freeform {
-        musicSource = mkOpt types.str "Global MPRIS application key selected in Settings, or automatic (the default).";
-        musicSourceName = mkOpt types.str "Display name retained when the selected MPRIS application is unavailable. Defaults to an empty string.";
-        hideWhenIdle = mkOpt types.bool "Hide the bar media module when no track is available. Keep media and available lyrics visible while paused. Defaults to false.";
-        hideUnavailableLyrics = mkOpt types.bool "Hide desktop lyrics content and background while lyrics are unavailable or loading. Defaults to false.";
-      };
-      default = { };
-    };
     dock = mkOption { type = dockSubmodule; default = { }; };
     launcher = mkOption { type = launcherSubmodule; default = { }; };
     osd = mkOption { type = osdSubmodule; default = { }; };
@@ -248,7 +232,6 @@ in
     inputs = mkOption { type = inputsSubmodule; default = { }; };
     notifications = mkOption { type = notificationsSubmodule; default = { }; };
     display = mkOption { type = displaySubmodule; default = { }; };
-    quote = mkOption { type = quoteSubmodule; default = { }; };
     wallpaperDir = mkOpt types.str ''
       Directory Serpantinum reads wallpapers from.
     '';

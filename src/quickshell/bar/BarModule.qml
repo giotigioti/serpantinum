@@ -50,7 +50,7 @@ Rectangle {
     property real targetX: isVertical ? (barWindow ? ((barWindow.baseOffsetX !== undefined ? barWindow.baseOffsetX : 0) + (barWindow.barHeight - width) / 2) : 0) : 0
     property real targetY: 0
 
-    readonly property real thickness: barWindow ? (isGrouped ? barWindow.barHeight - barWindow.s(8) : ((isSolid && distinctPills) ? barWindow.barHeight - barWindow.s(6) : barWindow.barHeight)) : (isGrouped ? 22 : ((isSolid && distinctPills) ? 24 : 30))
+    readonly property real thickness: barWindow ? (isGrouped ? barWindow.barHeight - 8 : ((isSolid && distinctPills) ? barWindow.barHeight - 6 : barWindow.barHeight)) : (isGrouped ? 22 : ((isSolid && distinctPills) ? 24 : 30))
 
     readonly property real effectiveTargetLength: {
         if (!moduleActive) return 0;
@@ -116,25 +116,21 @@ Rectangle {
     }
 
     readonly property bool isFaceVisible: faceLoader.item ? (faceLoader.item.isFaceVisible !== undefined ? faceLoader.item.isFaceVisible : true) : true
-    readonly property bool animateFaceVisibility: !!(faceLoader.item && faceLoader.item.animateVisibility)
     readonly property bool effectiveVisible: moduleActive && isFaceVisible && (isVertical ? targetHeight : targetWidth) > 0
 
     opacity: effectiveVisible ? 1.0 : 0.0
     visible: false
     function updateVisible() {
-        let length = animateFaceVisibility ? (isVertical ? height : width) : (isVertical ? targetHeight : targetWidth);
-        visible = opacity > 0 && length > 0;
+        visible = opacity > 0 && (isVertical ? targetHeight : targetWidth) > 0;
     }
     onOpacityChanged: updateVisible()
     onTargetWidthChanged: updateVisible()
     onTargetHeightChanged: updateVisible()
     onIsVerticalChanged: updateVisible()
-    onWidthChanged: updateVisible()
-    onHeightChanged: updateVisible()
-    enabled: moduleActive && (!animateFaceVisibility || effectiveVisible)
+    enabled: moduleActive
 
     Behavior on opacity {
-        NumberAnimation { duration: root.animateFaceVisibility ? 250 : 150; easing.type: Easing.OutCubic }
+        NumberAnimation { duration: 150; easing.type: Easing.OutCubic }
     }
 
     readonly property url faceSource: BarModuleRegistry.faceFile(moduleId, variant)

@@ -5,9 +5,7 @@ import "../../"
 Item {
     id: root
     clip: true
-    property var lyricsService: Lyrics
-    visible: root.lyricsService.hasLyrics
-    onLyricsServiceChanged: Qt.callLater(root.resetView)
+    visible: Lyrics.hasLyrics
 
     function s(val) {
         return (typeof Scaler !== "undefined") ? Scaler.s(val) : val;
@@ -54,17 +52,17 @@ Item {
 
     readonly property real autoY: {
         let center = root.height * root.centerRatio;
-        if (root.lyricsService.currentIndex >= 0 && root.lyricsService.hasLyrics) {
+        if (Lyrics.currentIndex >= 0 && Lyrics.hasLyrics) {
             if (root.activeItemCenterY > 0) {
                 return center - root.activeItemCenterY;
             }
-            if (lyricsRepeater && lyricsRepeater.count > root.lyricsService.currentIndex) {
-                let it = lyricsRepeater.itemAt(root.lyricsService.currentIndex);
-                if (it && (root.lyricsService.currentIndex === 0 || it.y > 0)) {
+            if (lyricsRepeater && lyricsRepeater.count > Lyrics.currentIndex) {
+                let it = lyricsRepeater.itemAt(Lyrics.currentIndex);
+                if (it && (Lyrics.currentIndex === 0 || it.y > 0)) {
                     return center - (it.y + it.height / 2);
                 }
             }
-            return center - (root.lyricsService.currentIndex * root.itemStep + root.lineHeight / 2);
+            return center - (Lyrics.currentIndex * root.itemStep + root.lineHeight / 2);
         }
         return center - (root.lineHeight / 2);
     }
@@ -86,7 +84,7 @@ Item {
     }
 
     function scrollBy(delta) {
-        if (!root.lyricsService.hasLyrics || !root.lyricsService.lyrics || root.lyricsService.lyrics.length === 0) return;
+        if (!Lyrics.hasLyrics || !Lyrics.lyrics || Lyrics.lyrics.length === 0) return;
 
         let step = Math.max(root.s(20), root.itemStep);
         let scrollAmount = (delta / 120.0) * step * 1.5;
@@ -106,11 +104,13 @@ Item {
     }
 
     function seekToTimestamp(t) {
-        let p = root.lyricsService.player;
+        let p = (typeof Lyrics !== "undefined" && Lyrics.player) ? Lyrics.player : ((typeof MprisController !== "undefined" && MprisController.activePlayer) ? MprisController.activePlayer : null);
         if (p && p.canSeek) {
             p.position = t;
-            root.lyricsService.noteSeek(t);
-            if (p === MprisController.activePlayer) {
+            if (typeof Lyrics !== "undefined") {
+                Lyrics.noteSeek(t);
+            }
+            if (typeof MprisController !== "undefined") {
                 MprisController.livePosition = t;
             }
         }
@@ -125,26 +125,22 @@ Item {
         }
     }
 
-    function resetView() {
-        userScrollTimer.stop();
-        root.userScrolling = false;
-        root.animate = false;
-        root.activeItemCenterY = 0;
-        root.targetY = root.autoY;
-    }
-
     Connections {
-        target: root.lyricsService
+        target: Lyrics
         function onLyricsChanged() {
-            root.resetView();
+            userScrollTimer.stop();
+            root.userScrolling = false;
+            root.animate = false;
+            root.activeItemCenterY = 0;
+            root.targetY = root.autoY;
         }
         function onCurrentIndexChanged() {
             if (root.activeItemCenterY > 0) {
                 root.animate = true;
             }
-            if (root.lyricsService.currentIndex >= 0 && lyricsRepeater && lyricsRepeater.count > root.lyricsService.currentIndex) {
-                let it = lyricsRepeater.itemAt(root.lyricsService.currentIndex);
-                if (it && (root.lyricsService.currentIndex === 0 || it.y > 0)) {
+            if (Lyrics.currentIndex >= 0 && lyricsRepeater && lyricsRepeater.count > Lyrics.currentIndex) {
+                let it = lyricsRepeater.itemAt(Lyrics.currentIndex);
+                if (it && (Lyrics.currentIndex === 0 || it.y > 0)) {
                     root.activeItemCenterY = it.y + it.height / 2;
                 }
             }
@@ -212,14 +208,14 @@ Item {
 
             Repeater {
                 id: lyricsRepeater
-                model: root.lyricsService.lyrics
+                model: Lyrics.lyrics
 
                 delegate: Item {
                     id: lineDelegate
                     width: lyricsColumn.width
                     height: Math.max(root.lineHeight, lineText.implicitHeight)
 
-                    readonly property bool isCurrent: index === root.lyricsService.currentIndex
+                    readonly property bool isCurrent: index === Lyrics.currentIndex
 
                     readonly property bool isWithinRange: {
                         if (root.userScrolling) return true;
@@ -227,7 +223,7 @@ Item {
                         let after = root.effectiveLinesAfter;
                         if (behind < 0 && after < 0) return true;
 
-                        let cur = root.lyricsService.currentIndex >= 0 ? root.lyricsService.currentIndex : 0;
+                        let cur = (typeof Lyrics !== "undefined" && Lyrics.currentIndex >= 0) ? Lyrics.currentIndex : 0;
                         let diff = index - cur;
                         if (diff < 0) {
                             return behind < 0 || (-diff) <= behind;
@@ -279,27 +275,27 @@ Item {
                         font.family: root.fontFamily
                         font.weight: root.fontWeight
                         font.pixelSize: root.baseActiveFont
-                        color: (index === root.lyricsService.currentIndex && (!modelData.words || modelData.words.length === 0)) ? root.activeLineColor : root.inactiveLineColor
+                        color: (index === Lyrics.currentIndex && (!modelData.words || modelData.words.length === 0)) ? root.activeLineColor : root.inactiveLineColor
                         opacity: {
                             if (!lineDelegate.isWithinRange) return 0.0;
-                            if (index === root.lyricsService.currentIndex) return 1.0;
+                            if (index === Lyrics.currentIndex) return 1.0;
                             if (root.inactiveOpacity >= 0) return root.inactiveOpacity;
-                            return root.lyricsService.getLineOpacity(index, root.lyricsService.currentIndex);
+                            return (typeof Lyrics !== "undefined" && typeof Lyrics.getLineOpacity === "function") ? Lyrics.getLineOpacity(index, Lyrics.currentIndex) : 0.4;
                         }
                         visible: opacity > 0.0
                         scale: {
-                            if (index === root.lyricsService.currentIndex) return 1.0;
-                            let d = Math.abs(index - root.lyricsService.currentIndex);
+                            if (index === Lyrics.currentIndex) return 1.0;
+                            let d = Math.abs(index - Lyrics.currentIndex);
                             if (d === 1) return 0.88;
                             return 0.80;
                         }
                         transformOrigin: root.effectiveTransformOrigin
 
-                        textFormat: (index === root.lyricsService.currentIndex && modelData.words && modelData.words.length > 0) ? Text.StyledText : Text.PlainText
+                        textFormat: (index === Lyrics.currentIndex && modelData.words && modelData.words.length > 0) ? Text.StyledText : Text.PlainText
 
                         text: {
-                            if (index === root.lyricsService.currentIndex && modelData.words && modelData.words.length > 0) {
-                                return root.lyricsService.renderActiveLineText(modelData, root.lyricsService.currentPosition, root.activeLineColor, root.inactiveLineColor);
+                            if (index === Lyrics.currentIndex && modelData.words && modelData.words.length > 0) {
+                                return Lyrics.renderActiveLineText(modelData, Lyrics.currentPosition, root.activeLineColor, root.inactiveLineColor);
                             }
                             return modelData.text !== "" ? modelData.text : "♪";
                         }

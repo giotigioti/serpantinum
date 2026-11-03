@@ -295,7 +295,7 @@ PanelWindow {
 
     property real barHeight: {
         let dummy = configRevision;
-        return s(Config.barThickness * Config.barScale);
+        return (typeof Config !== "undefined" && Config.rawSettings && Config.rawSettings.bar && Config.rawSettings.bar.height) ? s(Config.rawSettings.bar.height) : s(40);
     }
 
     property bool isBarAttachable: barStyle === "solid" || barStyle === "fill"

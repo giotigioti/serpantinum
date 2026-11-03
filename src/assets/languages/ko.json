@@ -390,14 +390,6 @@
           "desc": "워크스페이스 표시기의 시각적 스타일을 선택합니다"
         }
       },
-      "scale": {
-        "title": "바 배율",
-        "desc": "모듈, 아이콘, 텍스트를 포함한 바 전체의 크기를 조정합니다"
-      },
-      "margin": {
-        "title": "바 여백",
-        "desc": "바와 화면 가장자리 사이 간격을 픽셀 단위로 설정합니다"
-      },
       "style": {
         "title": "바 스타일",
         "desc": "모듈형, 단색, 채움 스타일 중에서 선택합니다",
@@ -1111,6 +1103,9 @@
       },
       "setting": {
         "show_text": "텍스트 표시"
+      },
+      "category": {
+        "lockscreen": "잠금 화면"
       }
     }
   },
@@ -1519,11 +1514,21 @@
     },
     "redactor": {
       "no_widgets_active": "활성화된 위젯 없음",
-      "click_to_add": "아래 도구 모음에서 위젯 아이콘을 클릭해 추가하세요",
+      "click_to_add": "아래 도구 모음에서 카테고리를 선택하거나 검색해 위젯을 추가하세요",
       "done": "완료",
       "widget_singular": "개 위젯",
       "widgets_plural": "개 위젯",
-      "widgets_short": "개"
+      "widgets_short": "개",
+      "category": {
+        "time": "시간 및 텍스트",
+        "media": "미디어",
+        "system": "시스템",
+        "info": "정보",
+        "other": "기타"
+      },
+      "search": "위젯 검색",
+      "results": "결과",
+      "no_results": "찾을 수 없음"
     },
     "types": {
       "clock": "시계",
@@ -1536,7 +1541,8 @@
       "battery": "배터리",
       "github": "Github",
       "time": "시간",
-      "notes": "메모"
+      "notes": "메모",
+      "text": "텍스트"
     },
     "variants": {
       "digital": "디지털",
@@ -1585,7 +1591,8 @@
     },
     "settings": {
       "lyricsLines": "줄 수",
-      "lyricsAlignment": "정렬"
+      "lyricsAlignment": "정렬",
+      "textContent": "텍스트"
     },
     "align": {
       "left": "왼쪽",
@@ -1594,6 +1601,9 @@
     },
     "notes": {
       "empty": "아직 메모가 없습니다"
+    },
+    "text": {
+      "placeholder": "텍스트 입력"
     }
   },
   "cli": {
