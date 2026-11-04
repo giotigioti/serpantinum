@@ -7,15 +7,14 @@ url='https://github.com/ilyamiro/serpantinum'
 license=('AGPL-3.0-only')
 depends=(
     'kitty' 'cava' 'zbar' 'tesseract' 'tesseract-data-eng' 'pavucontrol' 'alsa-utils'
-    'wl-clipboard' 'fd' 'qt6-multimedia' 'qt6-5compat' 'ripgrep'
+    'wl-clipboard' 'fd' 'qt6-multimedia' 'ripgrep'
     'cliphist' 'jq' 'socat' 'inotify-tools' 'pamixer' 'brightnessctl' 'ddcutil' 'acpi' 'iw'
     'bluez' 'bluez-utils' 'libnotify' 'networkmanager' 'lm_sensors' 'bc' 'matugen'
     'pipewire' 'wireplumber' 'pipewire-pulse' 'pipewire-alsa' 'libpulse' 'python'
     'imagemagick' 'wget' 'file' 'git' 'psmisc'
     'ffmpeg' 'fastfetch' 'quickshell' 'unzip' 'python-websockets' 'python-jeepney' 'qt6-websockets'
     'grim' 'playerctl' 'satty' 'xdg-desktop-portal-gtk' 'slurp' 'wmctrl' 'power-profiles-daemon'
-    'qt5-wayland' 'qt5-quickcontrols' 'qt5-quickcontrols2'
-    'qt5-graphicaleffects' 'qt6-wayland' 'qt5ct' 'qt6ct' 'adwaita-icon-theme' 'gpu-screen-recorder'
+    'qt6-wayland' 'qt6ct' 'adwaita-icon-theme' 'gpu-screen-recorder'
     'wf-recorder' 'adw-gtk-theme' 'wl-gammarelay-rs'
     'ttf-iosevka-nerd' 'pambase' 'curl' 'pciutils'
 )
@@ -31,13 +30,13 @@ optdepends=(
 conflicts=('quickshell-git')
 backup=('etc/pam.d/serpantinum')
 install=serpantinum.install
-_skiver=0.4.8
+_skiver=0.5.1
 _audiover=0.3.0
 source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz"
         "ski-$_skiver-x86_64-linux.tar.gz::https://github.com/ilyamiro/Ski/releases/download/v$_skiver/ski-$_skiver-x86_64-linux.tar.gz"
         "serpantinum-audio-$_audiover-x86_64-linux.tar.gz::https://github.com/ilyamiro/serpantinum-audio/releases/download/v$_audiover/serpantinum-audio-$_audiover-x86_64-linux.tar.gz")
 sha256sums=('63dde78567668c0882b6da28f5f310179f2ccb21991dbd136551c6ae473f08d6'
-            '3920bbda1b5a7585ee9ecc44b02544a1c3bc832958ffa56dd450e6bc29beda06'
+            'b5bc1c00ebdf5b7700419f6aaf59e17e46a42262ef1388113909e6f81591edf6'
             '1f31e0ae00abb731c0a5633447ce773642da6543dfe1f586cd3a88f8cecb2541')
 
 package() {
@@ -67,9 +66,6 @@ package() {
 auth        include      system-auth
 account     include      system-auth
 EOF
-
-    install -Dm644 packaging/desktop/serpantinum-settings.desktop "$pkgdir/usr/share/applications/serpantinum-settings.desktop"
-    install -Dm644 packaging/desktop/serpantinum-settings.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/serpantinum-settings.svg"
 
     cp -a "$srcdir/usr/." "$pkgdir/usr/"
 
