@@ -44,7 +44,9 @@
       "bar_modules": "Modüller",
       "bar_side_modules": "Yan modüller",
       "display_lockscreen": "Kilit ekranı",
-      "screenshot": "Ekran görüntüsü"
+      "screenshot": "Ekran görüntüsü",
+      "theme_appearance": "Görünüm",
+      "theme_apps": "Uygulama temaları"
     },
     "launcher": {
       "position": {
@@ -278,7 +280,11 @@
           "title": "Düzenleyicide çubuğu gizle",
           "desc": "Düzenleyici modunda widget'ları düzenlerken çubuğu otomatik olarak gizleyin"
         },
-        "hide_presets": "Ön Ayarları Gizle",
+        "show_distances": {
+          "title": "Mesafeleri göster",
+          "desc": "Düzenleyicide widget'ları taşırken veya yeniden boyutlandırırken aralarındaki mesafeleri göster"
+        },
+        "hide_presets": "Ön ayarları gizle",
         "choose_preset": "Bir ön ayar seçin",
         "presets": {
           "title": "Widget Ön Ayarları"
@@ -663,6 +669,43 @@
           "blur": "Bulanıklık",
           "liquid": "Sıvı cam"
         }
+      },
+      "apps": {
+        "loading": "Yüklü uygulamalar aranıyor...",
+        "status": {
+          "error": "Uygulanamadı: {detail}"
+        },
+        "issue": {
+          "missing_config": "Yapılandırma bulunamadı. Bunu {file} dosyasına ekleyin: {line}",
+          "system_config": "Yapılandırmanız {file}. Buna şunu ekleyin: {line}",
+          "read_only": "{file} salt okunur. Buna şunu ekleyin: {line}",
+          "manual": "Yapılandırma güvenle düzenlenemedi. Bunu {file} dosyasına ekleyin: {line}",
+          "no_theme": "GTK 3 uygulamalarının da paleti izlemesi için {line} temasını yükleyin",
+          "env": "Oturum ortamında {line} ayarlayın",
+          "requires": "Qt uygulamalarına tema uygulamak için {line} yükleyin",
+          "failed": "Yapılandırma güncellenemedi: {line}"
+        },
+        "hint": {
+          "select_in_app": "Uygulama ayarlarında Serpantinum temasını seçin",
+          "restart": "Yeni renkleri görmek için açık pencereleri yeniden başlatın",
+          "neovim": "Kullanmak için :colorscheme serpantinum çalıştırın",
+          "helix": "Yeni renkleri görmek için açık düzenleyicilerde :config-reload çalıştırın",
+          "fastfetch": "Kullanmak için fastfetch -c serpantinum çalıştırın",
+          "spicetify": "spicetify config current_theme Serpantinum ve ardından spicetify apply çalıştırın",
+          "discord": "İstemcinin tema ayarlarında Serpantinum'u etkinleştirin",
+          "emacs": "Kullanmak için M-x load-theme serpantinum komutunu çalıştırın",
+          "steam": "Material-Theme'i Millennium ile kurun, ardından renk ayarlarında Matugen'i seçin",
+          "heroic": "Heroic'in özel temalar yolunu tema klasörüne ayarlayın, ardından serpantinum'u seçin",
+          "telegram": "Tema dosyasını Telegram'ın sohbet ayarlarından yükleyin"
+        },
+        "list": {
+          "title": "Temalı uygulamalar",
+          "desc": "Kabuk renklerini izleyen uygulamalar. Listeden daha fazlasını ekleyin"
+        },
+        "add": {
+          "title": "Uygulama ekle"
+        },
+        "empty": "Henüz temalı uygulama yok. Listeden bir tane ekleyin"
       }
     },
     "file_picker": {
@@ -1428,7 +1471,8 @@
       "generating_thumbnails": "Küçük resimler oluşturuluyor...",
       "no_wallpapers_found": "Duvar kâğıdı bulunamadı",
       "videos": "Videolar",
-      "history": "Son uygulananlar"
+      "history": "Son uygulananlar",
+      "favorites": "Favoriler"
     },
     "filters": {
       "all": "Tümü",
@@ -1688,7 +1732,8 @@
     "info_desc": "Bir ayarın geçerli durumunu göster (notifications, idle, dock, sfx, theme, lang, wallpaper, monitors, updates)",
     "set_desc": "Bir ayarı değiştir (notifications, idle, dock, sfx, theme, lang, wallpaper)",
     "trigger_desc": "Tek seferlik bir eylem çalıştır (idle, notifications, theme, firstlaunch)",
-    "settings_desc": "Ayarlar penceresini aç (isteğe bağlı olarak belirli bir sekmede)"
+    "settings_desc": "Ayarlar penceresini aç (isteğe bağlı olarak belirli bir sekmede)",
+    "error_unknown_app": "Hata: bilinmeyen uygulama '{ID}'."
   },
   "daemon": {
     "already_running": "Arka plan programı zaten çalışıyor. Çıkılıyor...",

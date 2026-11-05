@@ -241,17 +241,14 @@ DockWindowApps {
     }
 
     Component.onCompleted: {
-        let de = (typeof SystemInfo !== "undefined" && SystemInfo.desktopEnv) ? SystemInfo.desktopEnv.toLowerCase() : "";
-        dockWindowRoot.isNiri = Boolean(Quickshell.env("NIRI_SOCKET")) || de.indexOf("niri") !== -1;
-        dockWindowRoot.isHyprland = Boolean(Quickshell.env("HYPRLAND_INSTANCE_SIGNATURE")) || de.indexOf("hyprland") !== -1;
-        if (dockWindowRoot.isNiri) {
+        if (Compositor.name === "niri") {
             NiriState.subscribe();
         }
-        if (dockWindowRoot.isSway && !dockWindowRoot.isNiri) {
+        if (Compositor.name === "sway") {
             dockWindowRoot.swaySubscribed = true;
             SwayState.subscribe();
         }
-        if (dockWindowRoot.isMango) {
+        if (Compositor.name === "mango") {
             MangoState.subscribe();
         }
         if (typeof WindowTracker !== "undefined") {
@@ -263,10 +260,10 @@ DockWindowApps {
     }
 
     Component.onDestruction: {
-        if (dockWindowRoot.isNiri) {
+        if (Compositor.name === "niri") {
             NiriState.unsubscribe();
         }
-        if (dockWindowRoot.isMango) {
+        if (Compositor.name === "mango") {
             MangoState.unsubscribe();
         }
         if (dockWindowRoot.swaySubscribed) {

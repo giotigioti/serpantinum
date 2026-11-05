@@ -44,7 +44,9 @@
       "bar_modules": "Modules",
       "bar_side_modules": "Side modules",
       "display_lockscreen": "Lock screen",
-      "screenshot": "Screenshot"
+      "screenshot": "Screenshot",
+      "theme_appearance": "Appearance",
+      "theme_apps": "App theming"
     },
     "launcher": {
       "position": {
@@ -278,7 +280,11 @@
           "title": "Hide the bar in the redactor",
           "desc": "Automatically hide the bar when editing widgets in redactor mode"
         },
-        "hide_presets": "Hide Presets",
+        "show_distances": {
+          "title": "Show distances",
+          "desc": "Show the distances between widgets while moving or resizing them in the redactor"
+        },
+        "hide_presets": "Hide presets",
         "choose_preset": "Choose a preset",
         "presets": {
           "title": "Widget Presets"
@@ -383,6 +389,14 @@
         "hide_empty": {
           "title": "Hide empty workspaces",
           "desc": "Show only occupied workspaces and the active one"
+        },
+        "per_monitor": {
+          "title": "Per-monitor numbering",
+          "desc": "Hyprland only. Number workspaces from 1 on each monitor and set how many workspaces each monitor owns",
+          "unavailable": "Available only on Hyprland"
+        },
+        "monitor_count": {
+          "desc": "Workspaces this monitor owns"
         },
         "style": {
           "title": "Style",
@@ -668,6 +682,43 @@
         "select_wallpaper": "Select wallpaper",
         "no_wallpaper_selected": "No wallpaper selected",
         "select": "Wallpaper"
+      },
+      "apps": {
+        "loading": "Looking for installed apps...",
+        "status": {
+          "error": "Couldn't apply: {detail}"
+        },
+        "issue": {
+          "missing_config": "Config not found. Add this to {file}: {line}",
+          "system_config": "Your config is {file}. Add this to it: {line}",
+          "read_only": "{file} is read-only. Add this to it: {line}",
+          "manual": "Couldn't edit the config safely. Add this to {file}: {line}",
+          "no_theme": "Install the {line} theme so GTK 3 apps follow the palette too",
+          "env": "Set {line} in your session environment",
+          "requires": "Install {line} to theme Qt apps",
+          "failed": "Couldn't update the config: {line}"
+        },
+        "hint": {
+          "select_in_app": "Pick the Serpantinum theme in the app's settings",
+          "restart": "Restart open windows to see new colors",
+          "neovim": "Run :colorscheme serpantinum to use it",
+          "helix": "Run :config-reload in open editors to see new colors",
+          "fastfetch": "Run fastfetch -c serpantinum to use it",
+          "spicetify": "Run spicetify config current_theme Serpantinum, then spicetify apply",
+          "discord": "Enable Serpantinum in the client's theme settings",
+          "emacs": "Run M-x load-theme serpantinum to use it",
+          "steam": "Install Material-Theme with Millennium, then pick Matugen in its color settings",
+          "heroic": "Set Heroic's custom themes path to its themes folder, then pick serpantinum",
+          "telegram": "Load the theme file from Telegram's chat settings"
+        },
+        "list": {
+          "title": "Themed apps",
+          "desc": "Apps that follow the shell colors. Add more from the list"
+        },
+        "add": {
+          "title": "Add app"
+        },
+        "empty": "No apps are themed yet. Add one from the list"
       }
     },
     "file_picker": {
@@ -1452,7 +1503,8 @@
       "generating_thumbnails": "Generating thumbnails...",
       "no_wallpapers_found": "No wallpapers found",
       "videos": "Videos",
-      "history": "Recently applied"
+      "history": "Recently applied",
+      "favorites": "Favorites"
     },
     "filters": {
       "all": "All",
@@ -1721,7 +1773,8 @@
     "info_desc": "Show the current state of a setting (notifications, idle, dock, sfx, theme, lang, wallpaper, monitors, updates)",
     "set_desc": "Change a setting (notifications, idle, dock, sfx, theme, lang, wallpaper)",
     "trigger_desc": "Run a one-off action (idle, notifications, theme, firstlaunch)",
-    "settings_desc": "Open the settings window, optionally on a given tab"
+    "settings_desc": "Open the settings window, optionally on a given tab",
+    "error_unknown_app": "Error: unknown app '{ID}'."
   },
   "daemon": {
     "already_running": "Daemon is already running. Exiting...",
@@ -1861,6 +1914,15 @@
       "sddm_no_xorg": "Xorg not found, using {compositor} for SDDM.",
       "sddm_no_backend": "Neither Xorg nor a supported Wayland greeter compositor (kwin_wayland/weston) was found in /usr/local/bin, /usr/bin or /bin.",
       "sddm_skipped": "Skipping SDDM setup: no usable display server or greeter compositor found. The current display manager is left unchanged."
+    },
+    "gamma": {
+      "installing": "Installing the Serpantinum blue light filter...",
+      "up_to_date": "-> Serpantinum blue light filter {version} is already installed.",
+      "installed": "Installed the Serpantinum blue light filter {version}",
+      "install_failed": "Failed to install the Serpantinum blue light filter. It will not work until it is installed from github.com/ilyamiro/serpantinum-gamma.",
+      "download_failed": "Could not download the Serpantinum blue light filter, skipping. You can install it later from github.com/ilyamiro/serpantinum-gamma.",
+      "checksum_failed": "The blue light filter download failed its checksum check, skipping.",
+      "unsupported_arch": "Prebuilt blue light filter packages exist only for x86_64, skipping."
     }
   },
   "translator": {

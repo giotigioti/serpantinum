@@ -7,7 +7,6 @@ import "../../"
 Item {
     id: root
 
-    readonly property bool isSway: Boolean(Quickshell.env("SWAYSOCK")) || ((typeof SystemInfo !== "undefined" && SystemInfo.desktopEnv) ? (SystemInfo.desktopEnv.toLowerCase().indexOf("sway") !== -1) : false)
 
     property int activeIndex: 0
     property var activeIndicesByOutput: ({})
@@ -77,9 +76,12 @@ Item {
         Quickshell.execDetached(["swaymsg", "workspace", "number", String(index + 1)]);
     }
 
-    onIsSwayChanged: {
-        _sync();
-        _refreshAll();
+    Connections {
+        target: Compositor
+        function onNameChanged() {
+            root._sync();
+            root._refreshAll();
+        }
     }
 
     function _sync() {
@@ -87,7 +89,7 @@ Item {
         if (workspaceSubscribers > 0 || windowSubscribers > 0) types.push("workspace", "window");
         if (workspaceSubscribers > 0) types.push("output");
         if (keyboardSubscribers > 0) types.push("input");
-        let spec = (isSway && types.length > 0) ? JSON.stringify(types) : "";
+        let spec = (Compositor.name === "sway" && types.length > 0) ? JSON.stringify(types) : "";
         if (spec === root._eventSpec) return;
         root._eventSpec = spec;
         eventStream.running = false;
@@ -108,7 +110,7 @@ Item {
     property bool _inputsPending: false
 
     function _requestWorkspaces() {
-        if (!isSway) return;
+        if (Compositor.name !== "sway") return;
         if (workspacesProc.running) {
             root._workspacesPending = true;
             return;
@@ -117,7 +119,7 @@ Item {
     }
 
     function _requestTree() {
-        if (!isSway) return;
+        if (Compositor.name !== "sway") return;
         if (treeProc.running) {
             root._treePending = true;
             return;
@@ -126,7 +128,7 @@ Item {
     }
 
     function _requestInputs() {
-        if (!isSway) return;
+        if (Compositor.name !== "sway") return;
         if (inputsProc.running) {
             root._inputsPending = true;
             return;

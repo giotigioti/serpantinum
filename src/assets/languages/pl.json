@@ -452,7 +452,8 @@
       "generating_thumbnails": "Generowanie miniatur...",
       "no_wallpapers_found": "Nie znaleziono tapet",
       "videos": "Wideo",
-      "history": "Ostatnio zastosowane"
+      "history": "Ostatnio zastosowane",
+      "favorites": "Ulubione"
     },
     "filters": {
       "all": "Wszystkie",
@@ -712,7 +713,8 @@
     "info_desc": "Pokaż bieżący stan ustawienia (notifications, idle, dock, sfx, theme, lang, wallpaper, monitors, updates)",
     "set_desc": "Zmień ustawienie (notifications, idle, dock, sfx, theme, lang, wallpaper)",
     "trigger_desc": "Uruchom jednorazową akcję (idle, notifications, theme, firstlaunch)",
-    "settings_desc": "Otwórz okno ustawień (opcjonalnie na wybranej karcie)"
+    "settings_desc": "Otwórz okno ustawień (opcjonalnie na wybranej karcie)",
+    "error_unknown_app": "Błąd: nieznana aplikacja '{ID}'."
   },
   "daemon": {
     "already_running": "Demon jest już uruchomiony. Kończenie pracy...",
@@ -896,7 +898,9 @@
       "bar_modules": "Moduły",
       "bar_side_modules": "Moduły boczne",
       "display_lockscreen": "Ekran blokady",
-      "screenshot": "Zrzut ekranu"
+      "screenshot": "Zrzut ekranu",
+      "theme_appearance": "Wygląd",
+      "theme_apps": "Motywy aplikacji"
     },
     "launcher": {
       "position": {
@@ -1129,6 +1133,10 @@
         "hide_bar": {
           "title": "Ukryj pasek w edytorze",
           "desc": "Automatycznie ukrywaj pasek podczas edycji widżetów w trybie edytora"
+        },
+        "show_distances": {
+          "title": "Pokazuj odległości",
+          "desc": "Pokazuj odległości między widżetami podczas ich przesuwania lub zmiany rozmiaru w edytorze"
         },
         "hide_presets": "Ukryj szablony",
         "choose_preset": "Wybierz szablon",
@@ -1515,6 +1523,43 @@
           "blur": "Rozmycie",
           "liquid": "Płynne szkło"
         }
+      },
+      "apps": {
+        "loading": "Wyszukiwanie zainstalowanych aplikacji...",
+        "status": {
+          "error": "Nie udało się zastosować: {detail}"
+        },
+        "issue": {
+          "missing_config": "Nie znaleziono konfiguracji. Dodaj to do {file}: {line}",
+          "system_config": "Twoja konfiguracja to {file}. Dodaj do niej: {line}",
+          "read_only": "{file} jest tylko do odczytu. Dodaj do niego: {line}",
+          "manual": "Nie można bezpiecznie edytować konfiguracji. Dodaj to do {file}: {line}",
+          "no_theme": "Zainstaluj motyw {line}, aby aplikacje GTK 3 też korzystały z palety",
+          "env": "Ustaw {line} w środowisku sesji",
+          "requires": "Zainstaluj {line}, aby zmienić motyw aplikacji Qt",
+          "failed": "Nie udało się zaktualizować konfiguracji: {line}"
+        },
+        "hint": {
+          "select_in_app": "Wybierz motyw Serpantinum w ustawieniach aplikacji",
+          "restart": "Uruchom ponownie otwarte okna, aby zobaczyć nowe kolory",
+          "neovim": "Uruchom :colorscheme serpantinum, aby go użyć",
+          "helix": "Uruchom :config-reload w otwartych edytorach, aby zobaczyć nowe kolory",
+          "fastfetch": "Uruchom fastfetch -c serpantinum, aby go użyć",
+          "spicetify": "Uruchom spicetify config current_theme Serpantinum, a potem spicetify apply",
+          "discord": "Włącz Serpantinum w ustawieniach motywów klienta",
+          "emacs": "Uruchom M-x load-theme serpantinum, aby go użyć",
+          "steam": "Zainstaluj Material-Theme przez Millennium, a potem wybierz Matugen w jego ustawieniach kolorów",
+          "heroic": "Ustaw w Heroic ścieżkę własnych motywów na jego folder motywów, a potem wybierz serpantinum",
+          "telegram": "Wczytaj plik motywu z ustawień czatu w Telegramie"
+        },
+        "list": {
+          "title": "Aplikacje z motywem",
+          "desc": "Aplikacje, które korzystają z kolorów powłoki. Dodaj więcej z listy"
+        },
+        "add": {
+          "title": "Dodaj aplikację"
+        },
+        "empty": "Brak aplikacji z motywem. Dodaj jedną z listy"
       }
     },
     "file_picker": {

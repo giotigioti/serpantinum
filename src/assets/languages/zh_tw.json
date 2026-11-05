@@ -44,7 +44,9 @@
       "bar_modules": "模組",
       "bar_side_modules": "側邊模組",
       "display_lockscreen": "鎖定畫面",
-      "screenshot": "螢幕截圖"
+      "screenshot": "螢幕截圖",
+      "theme_appearance": "外觀",
+      "theme_apps": "應用程式主題"
     },
     "launcher": {
       "position": {
@@ -277,6 +279,10 @@
         "hide_bar": {
           "title": "在編輯器中隱藏狀態列",
           "desc": "在編輯器模式下編輯小工具時自動隱藏狀態列"
+        },
+        "show_distances": {
+          "title": "顯示間距",
+          "desc": "在編輯器中移動或調整小工具大小時顯示它們之間的間距"
         },
         "hide_presets": "隱藏預設集",
         "choose_preset": "選擇預設集",
@@ -663,6 +669,43 @@
           "blur": "模糊",
           "liquid": "液態玻璃"
         }
+      },
+      "apps": {
+        "loading": "正在尋找已安裝的應用程式...",
+        "status": {
+          "error": "無法套用：{detail}"
+        },
+        "issue": {
+          "missing_config": "找不到設定。請將以下內容加入 {file}：{line}",
+          "system_config": "你的設定是 {file}。請加入：{line}",
+          "read_only": "{file} 為唯讀。請加入：{line}",
+          "manual": "無法安全地修改設定。請將以下內容加入 {file}：{line}",
+          "no_theme": "安裝 {line} 主題，讓 GTK 3 應用程式也跟隨調色盤",
+          "env": "請在工作階段環境中設定 {line}",
+          "requires": "安裝 {line} 以為 Qt 應用程式套用主題",
+          "failed": "無法更新設定：{line}"
+        },
+        "hint": {
+          "select_in_app": "在應用程式設定中選擇 Serpantinum 主題",
+          "restart": "重新啟動已開啟的視窗以查看新顏色",
+          "neovim": "執行 :colorscheme serpantinum 以使用",
+          "helix": "在已開啟的編輯器中執行 :config-reload 以查看新顏色",
+          "fastfetch": "執行 fastfetch -c serpantinum 以使用",
+          "spicetify": "執行 spicetify config current_theme Serpantinum，然後執行 spicetify apply",
+          "discord": "在用戶端的主題設定中啟用 Serpantinum",
+          "emacs": "執行 M-x load-theme serpantinum 即可使用",
+          "steam": "使用 Millennium 安裝 Material-Theme，然後在其色彩設定中選擇 Matugen",
+          "heroic": "將 Heroic 的自訂主題路徑設為其主題資料夾，然後選擇 serpantinum",
+          "telegram": "在 Telegram 的聊天設定中載入主題檔案"
+        },
+        "list": {
+          "title": "已套用主題的應用程式",
+          "desc": "跟隨桌面顏色的應用程式。可從清單中新增更多"
+        },
+        "add": {
+          "title": "新增應用程式"
+        },
+        "empty": "尚未套用主題。請從清單中新增"
       }
     },
     "file_picker": {
@@ -1428,7 +1471,8 @@
       "generating_thumbnails": "正在產生縮圖...",
       "no_wallpapers_found": "找不到任何桌布",
       "videos": "影片",
-      "history": "最近套用"
+      "history": "最近套用",
+      "favorites": "收藏"
     },
     "filters": {
       "all": "全部",
@@ -1688,7 +1732,8 @@
     "info_desc": "顯示設定的目前狀態 (notifications, idle, dock, sfx, theme, lang, wallpaper, monitors, updates)",
     "set_desc": "變更設定 (notifications, idle, dock, sfx, theme, lang, wallpaper)",
     "trigger_desc": "執行一次性操作 (idle, notifications, theme, firstlaunch)",
-    "settings_desc": "開啟設定視窗（可指定分頁）"
+    "settings_desc": "開啟設定視窗（可指定分頁）",
+    "error_unknown_app": "錯誤：未知的應用程式 '{ID}'。"
   },
   "daemon": {
     "already_running": "常駐程式已在執行中。正在結束...",

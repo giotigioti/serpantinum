@@ -44,7 +44,9 @@
       "bar_modules": "Modul",
       "bar_side_modules": "Modul samping",
       "display_lockscreen": "Layar kunci",
-      "screenshot": "Tangkapan layar"
+      "screenshot": "Tangkapan layar",
+      "theme_appearance": "Tampilan",
+      "theme_apps": "Tema aplikasi"
     },
     "launcher": {
       "position": {
@@ -278,7 +280,11 @@
           "title": "Sembunyikan bilah di redaktur",
           "desc": "Sembunyikan bilah secara otomatis saat mengedit widget dalam mode redaktur"
         },
-        "hide_presets": "Sembunyikan Prasetel",
+        "show_distances": {
+          "title": "Tampilkan jarak",
+          "desc": "Tampilkan jarak antar widget saat memindahkan atau mengubah ukurannya di redaktur"
+        },
+        "hide_presets": "Sembunyikan prasetel",
         "choose_preset": "Pilih prasetel",
         "presets": {
           "title": "Prasetel Widget"
@@ -663,6 +669,43 @@
           "blur": "Buram",
           "liquid": "Kaca cair"
         }
+      },
+      "apps": {
+        "loading": "Mencari aplikasi yang terpasang...",
+        "status": {
+          "error": "Gagal menerapkan: {detail}"
+        },
+        "issue": {
+          "missing_config": "Konfigurasi tidak ditemukan. Tambahkan ini ke {file}: {line}",
+          "system_config": "Konfigurasi Anda adalah {file}. Tambahkan ini ke sana: {line}",
+          "read_only": "{file} hanya-baca. Tambahkan ini ke sana: {line}",
+          "manual": "Tidak dapat mengubah konfigurasi dengan aman. Tambahkan ini ke {file}: {line}",
+          "no_theme": "Pasang tema {line} agar aplikasi GTK 3 juga mengikuti palet",
+          "env": "Atur {line} di lingkungan sesi",
+          "requires": "Pasang {line} untuk memberi tema aplikasi Qt",
+          "failed": "Gagal memperbarui konfigurasi: {line}"
+        },
+        "hint": {
+          "select_in_app": "Pilih tema Serpantinum di pengaturan aplikasi",
+          "restart": "Mulai ulang jendela yang terbuka untuk melihat warna baru",
+          "neovim": "Jalankan :colorscheme serpantinum untuk memakainya",
+          "helix": "Jalankan :config-reload di editor yang terbuka untuk melihat warna baru",
+          "fastfetch": "Jalankan fastfetch -c serpantinum untuk memakainya",
+          "spicetify": "Jalankan spicetify config current_theme Serpantinum, lalu spicetify apply",
+          "discord": "Aktifkan Serpantinum di pengaturan tema klien",
+          "emacs": "Jalankan M-x load-theme serpantinum untuk menggunakannya",
+          "steam": "Pasang Material-Theme dengan Millennium, lalu pilih Matugen di pengaturan warnanya",
+          "heroic": "Atur jalur tema kustom Heroic ke folder temanya, lalu pilih serpantinum",
+          "telegram": "Muat file tema dari pengaturan obrolan Telegram"
+        },
+        "list": {
+          "title": "Aplikasi bertema",
+          "desc": "Aplikasi yang mengikuti warna shell. Tambahkan lainnya dari daftar"
+        },
+        "add": {
+          "title": "Tambah aplikasi"
+        },
+        "empty": "Belum ada aplikasi bertema. Tambahkan dari daftar"
       }
     },
     "file_picker": {
@@ -1428,7 +1471,8 @@
       "generating_thumbnails": "Membuat gambar mini...",
       "no_wallpapers_found": "Gambar latar tidak ditemukan",
       "videos": "Video",
-      "history": "Baru saja diterapkan"
+      "history": "Baru saja diterapkan",
+      "favorites": "Favorit"
     },
     "filters": {
       "all": "Semua",
@@ -1688,7 +1732,8 @@
     "info_desc": "Tampilkan status pengaturan saat ini (notifications, idle, dock, sfx, theme, lang, wallpaper, monitors, updates)",
     "set_desc": "Ubah pengaturan (notifications, idle, dock, sfx, theme, lang, wallpaper)",
     "trigger_desc": "Jalankan tindakan sekali jalan (idle, notifications, theme, firstlaunch)",
-    "settings_desc": "Buka jendela pengaturan (opsional pada tab tertentu)"
+    "settings_desc": "Buka jendela pengaturan (opsional pada tab tertentu)",
+    "error_unknown_app": "Kesalahan: aplikasi tidak dikenal '{ID}'."
   },
   "daemon": {
     "already_running": "Daemon sudah berjalan. Keluar...",

@@ -9,12 +9,7 @@ Item {
 
     signal settingsChanged()
 
-    readonly property string compositor: {
-        let de = (typeof SystemInfo !== "undefined" && SystemInfo.desktopEnv) ? SystemInfo.desktopEnv.toLowerCase() : "";
-        if (de.indexOf("niri") !== -1) return "niri";
-        if (de.indexOf("sway") !== -1) return "sway";
-        return "hyprland";
-    }
+    readonly property string compositor: Compositor.name
 
     property var defaultDisplaySettings: ({ "monitors": {} })
     property var pendingTargets: ({})
@@ -186,7 +181,16 @@ Item {
         onTriggered: root.scheduleNext()
     }
 
+    function isConnected(monName) {
+        if (!monName || typeof Quickshell === "undefined" || !Quickshell.screens || Quickshell.screens.length === 0) return true;
+        for (let i = 0; i < Quickshell.screens.length; i++) {
+            if (Quickshell.screens[i] && Quickshell.screens[i].name === monName) return true;
+        }
+        return false;
+    }
+
     function apply(monName, enabled, temp, autoMode) {
+        if (!isConnected(monName)) return;
         let key = monName || "global";
         let normEn = !!enabled;
         let normAu = !!autoMode;
@@ -449,6 +453,7 @@ Item {
         target: typeof Quickshell !== "undefined" ? Quickshell : null
         ignoreUnknownSignals: true
         function onScreensChanged() {
+            root.appliedStates = ({});
             root.applyAll();
         }
     }

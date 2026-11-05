@@ -8,14 +8,7 @@ import "../"
 Item {
     id: idleRoot
 
-    property bool isNiri: {
-        let de = (typeof SystemInfo !== "undefined" && SystemInfo.desktopEnv) ? SystemInfo.desktopEnv.toLowerCase() : "";
-        if (de.indexOf("niri") !== -1) return true;
-        let xdg = (typeof Quickshell !== "undefined" && Quickshell.env) ? (Quickshell.env("XDG_CURRENT_DESKTOP") || "") : "";
-        return xdg.toLowerCase().indexOf("niri") !== -1;
-    }
 
-    readonly property bool isMango: MangoState.isMango
 
     property var defaultIdleSettings: ({
         "enabled": false,
@@ -246,21 +239,21 @@ Item {
     }
 
     function dpmsOff() {
-        if (idleRoot.isNiri) {
+        if (Compositor.name === "niri") {
             Quickshell.execDetached(["niri", "msg", "action", "power-off-monitors"]);
-        } else if (idleRoot.isMango) {
+        } else if (Compositor.name === "mango") {
             Quickshell.execDetached(["sh", "-c", "mmsg get all-monitors 2>/dev/null | jq -r '.monitors[]?.name' | while read -r mon; do mmsg dispatch \"sleep_monitor,$mon\"; done"]);
-        } else {
+        } else if (Compositor.name === "hyprland") {
             Quickshell.execDetached(["sh", "-c", "hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })' 2>/dev/null || hyprctl dispatch 'hl.dsp.dpms({ action = \"off\" })' 2>/dev/null || hyprctl dispatch dpms off"]);
         }
     }
 
     function dpmsOn() {
-        if (idleRoot.isNiri) {
+        if (Compositor.name === "niri") {
             Quickshell.execDetached(["niri", "msg", "action", "power-on-monitors"]);
-        } else if (idleRoot.isMango) {
+        } else if (Compositor.name === "mango") {
             Quickshell.execDetached(["sh", "-c", "mmsg get all-monitors 2>/dev/null | jq -r '.monitors[]?.name' | while read -r mon; do mmsg dispatch \"wakeup_monitor,$mon\"; done"]);
-        } else {
+        } else if (Compositor.name === "hyprland") {
             Quickshell.execDetached(["sh", "-c", "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })' 2>/dev/null || hyprctl dispatch 'hl.dsp.dpms({ action = \"on\" })' 2>/dev/null || hyprctl dispatch dpms on"]);
         }
     }

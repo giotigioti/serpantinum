@@ -42,7 +42,9 @@
       "osd": "OSD",
       "dock": "Док",
       "display_lockscreen": "Екран блокування",
-      "screenshot": "Знімок екрана"
+      "screenshot": "Знімок екрана",
+      "theme_appearance": "Оформлення",
+      "theme_apps": "Теми застосунків"
     },
     "launcher": {
       "position": {
@@ -275,6 +277,10 @@
         "hide_bar": {
           "title": "Приховувати панель у редакторі",
           "desc": "Автоматично приховувати панель під час редагування віджетів у режимі редактора"
+        },
+        "show_distances": {
+          "title": "Показувати відстані",
+          "desc": "Показувати відстані між віджетами під час їх переміщення або зміни розміру в редакторі"
         },
         "hide_presets": "Приховати пресети",
         "choose_preset": "Обрати пресет",
@@ -647,6 +653,43 @@
           "blur": "Розмиття",
           "liquid": "Рідке скло"
         }
+      },
+      "apps": {
+        "loading": "Пошук встановлених застосунків...",
+        "status": {
+          "error": "Не вдалося застосувати: {detail}"
+        },
+        "issue": {
+          "missing_config": "Конфігурацію не знайдено. Додайте це до {file}: {line}",
+          "system_config": "Ваша конфігурація — {file}. Додайте до неї: {line}",
+          "read_only": "{file} доступний лише для читання. Додайте до нього: {line}",
+          "manual": "Не вдалося безпечно змінити конфігурацію. Додайте це до {file}: {line}",
+          "no_theme": "Встановіть тему {line}, щоб застосунки GTK 3 теж дотримувалися палітри",
+          "env": "Задайте {line} в оточенні сесії",
+          "requires": "Встановіть {line}, щоб застосувати тему до застосунків Qt",
+          "failed": "Не вдалося оновити конфігурацію: {line}"
+        },
+        "hint": {
+          "select_in_app": "Виберіть тему Serpantinum у налаштуваннях застосунку",
+          "restart": "Перезапустіть відкриті вікна, щоб побачити нові кольори",
+          "neovim": "Виконайте :colorscheme serpantinum, щоб використати її",
+          "helix": "Виконайте :config-reload у відкритих редакторах, щоб побачити нові кольори",
+          "fastfetch": "Виконайте fastfetch -c serpantinum, щоб використати його",
+          "spicetify": "Виконайте spicetify config current_theme Serpantinum, потім spicetify apply",
+          "discord": "Увімкніть Serpantinum у налаштуваннях тем клієнта",
+          "emacs": "Виконайте M-x load-theme serpantinum, щоб використати її",
+          "steam": "Встановіть Material-Theme через Millennium, потім виберіть Matugen у його налаштуваннях кольорів",
+          "heroic": "Вкажіть у Heroic шлях до власних тем у його теці тем, потім виберіть serpantinum",
+          "telegram": "Завантажте файл теми в налаштуваннях чатів Telegram"
+        },
+        "list": {
+          "title": "Застосунки з темою",
+          "desc": "Застосунки, що слідують кольорам оболонки. Додайте ще зі списку"
+        },
+        "add": {
+          "title": "Додати застосунок"
+        },
+        "empty": "Поки немає застосунків з темою. Додайте зі списку"
       }
     },
     "file_picker": {
@@ -1448,7 +1491,8 @@
       "generating_thumbnails": "Створення мініатюр...",
       "no_wallpapers_found": "Шпалер не знайдено",
       "videos": "Відео",
-      "history": "Нещодавно застосовані"
+      "history": "Нещодавно застосовані",
+      "favorites": "Обране"
     },
     "filters": {
       "all": "Усі",
@@ -1711,7 +1755,8 @@
     "info_desc": "Показати поточний стан налаштування (notifications, idle, dock, sfx, theme, lang, wallpaper, monitors, updates)",
     "set_desc": "Змінити налаштування (notifications, idle, dock, sfx, theme, lang, wallpaper)",
     "trigger_desc": "Виконати одноразову дію (idle, notifications, theme, firstlaunch)",
-    "settings_desc": "Відкрити вікно налаштувань (за потреби на потрібній вкладці)"
+    "settings_desc": "Відкрити вікно налаштувань (за потреби на потрібній вкладці)",
+    "error_unknown_app": "Помилка: невідомий застосунок '{ID}'."
   },
   "daemon": {
     "already_running": "Службу вже запущено. Вихід...",

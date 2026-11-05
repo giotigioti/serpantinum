@@ -44,7 +44,9 @@
       "bar_modules": "ماژول‌ها",
       "bar_side_modules": "ماژول‌های جانبی",
       "display_lockscreen": "صفحه قفل",
-      "screenshot": "عکس صفحه"
+      "screenshot": "عکس صفحه",
+      "theme_appearance": "ظاهر",
+      "theme_apps": "پوسته برنامه‌ها"
     },
     "launcher": {
       "position": {
@@ -277,6 +279,10 @@
         "hide_bar": {
           "title": "پنهان کردن نوار در ویرایشگر",
           "desc": "پنهان کردن خودکار نوار هنگام ویرایش ابزارک‌ها در حالت ویرایشگر"
+        },
+        "show_distances": {
+          "title": "نمایش فاصله‌ها",
+          "desc": "نمایش فاصله بین ابزارک‌ها هنگام جابه‌جایی یا تغییر اندازه آن‌ها در ویرایشگر"
         },
         "hide_presets": "پنهان کردن پیش‌تنظیم‌ها",
         "choose_preset": "انتخاب یک پیش‌تنظیم",
@@ -663,6 +669,43 @@
           "blur": "تاری",
           "liquid": "شیشه مایع"
         }
+      },
+      "apps": {
+        "loading": "در حال جستجوی برنامه‌های نصب‌شده...",
+        "status": {
+          "error": "اعمال نشد: {detail}"
+        },
+        "issue": {
+          "missing_config": "پیکربندی پیدا نشد. این را به {file} اضافه کنید: {line}",
+          "system_config": "پیکربندی شما {file} است. این را به آن اضافه کنید: {line}",
+          "read_only": "{file} فقط‌خواندنی است. این را به آن اضافه کنید: {line}",
+          "manual": "ویرایش ایمن پیکربندی ممکن نشد. این را به {file} اضافه کنید: {line}",
+          "no_theme": "پوسته {line} را نصب کنید تا برنامه‌های GTK 3 هم از پالت پیروی کنند",
+          "env": "{line} را در محیط نشست تنظیم کنید",
+          "requires": "برای پوسته‌دهی برنامه‌های Qt، {line} را نصب کنید",
+          "failed": "به‌روزرسانی پیکربندی ممکن نشد: {line}"
+        },
+        "hint": {
+          "select_in_app": "پوسته Serpantinum را در تنظیمات برنامه انتخاب کنید",
+          "restart": "برای دیدن رنگ‌های جدید، پنجره‌های باز را دوباره اجرا کنید",
+          "neovim": "برای استفاده، ‎:colorscheme serpantinum را اجرا کنید",
+          "helix": "برای دیدن رنگ‌های جدید، ‎:config-reload را در ویرایشگرهای باز اجرا کنید",
+          "fastfetch": "برای استفاده، fastfetch -c serpantinum را اجرا کنید",
+          "spicetify": "spicetify config current_theme Serpantinum و سپس spicetify apply را اجرا کنید",
+          "discord": "Serpantinum را در تنظیمات پوسته کلاینت فعال کنید",
+          "emacs": "برای استفاده، M-x load-theme serpantinum را اجرا کنید",
+          "steam": "Material-Theme را با Millennium نصب کنید، سپس Matugen را در تنظیمات رنگ آن انتخاب کنید",
+          "heroic": "مسیر پوسته‌های سفارشی Heroic را روی پوشهٔ پوسته‌های آن تنظیم کنید، سپس serpantinum را انتخاب کنید",
+          "telegram": "فایل پوسته را از تنظیمات گفتگوی Telegram بارگذاری کنید"
+        },
+        "list": {
+          "title": "برنامه‌های دارای پوسته",
+          "desc": "برنامه‌هایی که از رنگ‌های پوسته پیروی می‌کنند. موارد بیشتری را از فهرست اضافه کنید"
+        },
+        "add": {
+          "title": "افزودن برنامه"
+        },
+        "empty": "هنوز برنامه‌ای پوسته ندارد. یکی را از فهرست اضافه کنید"
       }
     },
     "file_picker": {
@@ -1428,7 +1471,8 @@
       "generating_thumbnails": "در حال ایجاد تصاویر بندانگشتی...",
       "no_wallpapers_found": "هیچ پس‌زمینه‌ای پیدا نشد",
       "videos": "ویدیوها",
-      "history": "اخیراً اِعمال‌شده"
+      "history": "اخیراً اِعمال‌شده",
+      "favorites": "علاقه‌مندی‌ها"
     },
     "filters": {
       "all": "همه",
@@ -1688,7 +1732,8 @@
     "info_desc": "نمایش وضعیت فعلی یک تنظیم (notifications, idle, dock, sfx, theme, lang, wallpaper, monitors, updates)",
     "set_desc": "تغییر یک تنظیم (notifications, idle, dock, sfx, theme, lang, wallpaper)",
     "trigger_desc": "اجرای یک عملیات یک‌باره (idle, notifications, theme, firstlaunch)",
-    "settings_desc": "باز کردن پنجره تنظیمات (در صورت نیاز روی یک زبانه مشخص)"
+    "settings_desc": "باز کردن پنجره تنظیمات (در صورت نیاز روی یک زبانه مشخص)",
+    "error_unknown_app": "خطا: برنامه ناشناخته '{ID}'."
   },
   "daemon": {
     "already_running": "دیمن در حال حاضر در حال اجرا است. در حال خروج...",

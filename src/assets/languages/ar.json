@@ -108,7 +108,8 @@
     "info_desc": "عرض الحالة الحالية لإعداد (notifications, idle, dock, sfx, theme, lang, wallpaper, monitors, updates)",
     "set_desc": "تغيير إعداد (notifications, idle, dock, sfx, theme, lang, wallpaper)",
     "trigger_desc": "تشغيل إجراء لمرة واحدة (idle, notifications, theme, firstlaunch)",
-    "settings_desc": "فتح نافذة الإعدادات (اختياريًا على تبويب محدد)"
+    "settings_desc": "فتح نافذة الإعدادات (اختياريًا على تبويب محدد)",
+    "error_unknown_app": "خطأ: تطبيق غير معروف '{ID}'."
   },
   "clipboard": {
     "clear": "مسح",
@@ -553,6 +554,10 @@
         "hide_bar": {
           "desc": "إخفاء الشريط تلقائيًا عند تعديل الأدوات في وضع المحرر",
           "title": "إخفاء الشريط في المحرر"
+        },
+        "show_distances": {
+          "title": "إظهار المسافات",
+          "desc": "إظهار المسافات بين الأدوات أثناء نقلها أو تغيير حجمها في المحرر"
         },
         "hide_presets": "إخفاء الإعدادات المسبقة",
         "open": "فتح المحرر",
@@ -999,7 +1004,9 @@
       "welcome": "مرحبًا بك",
       "wellbeing": "الرفاهية الرقمية",
       "display_lockscreen": "شاشة القفل",
-      "screenshot": "لقطة الشاشة"
+      "screenshot": "لقطة الشاشة",
+      "theme_appearance": "المظهر",
+      "theme_apps": "سمات التطبيقات"
     },
     "theme": {
       "colors": {
@@ -1036,6 +1043,43 @@
           "blur": "تمويه",
           "liquid": "زجاج سائل"
         }
+      },
+      "apps": {
+        "loading": "جارٍ البحث عن التطبيقات المثبتة...",
+        "status": {
+          "error": "تعذّر التطبيق: {detail}"
+        },
+        "issue": {
+          "missing_config": "لم يُعثر على الإعدادات. أضف هذا إلى {file}: {line}",
+          "system_config": "إعداداتك في {file}. أضف هذا إليها: {line}",
+          "read_only": "{file} للقراءة فقط. أضف هذا إليه: {line}",
+          "manual": "تعذّر تعديل الإعدادات بأمان. أضف هذا إلى {file}: {line}",
+          "no_theme": "ثبّت سمة {line} لكي تتبع تطبيقات GTK 3 لوحة الألوان أيضًا",
+          "env": "اضبط {line} في بيئة الجلسة",
+          "requires": "ثبّت {line} لتطبيق السمة على تطبيقات Qt",
+          "failed": "تعذّر تحديث الإعدادات: {line}"
+        },
+        "hint": {
+          "select_in_app": "اختر سمة Serpantinum في إعدادات التطبيق",
+          "restart": "أعد تشغيل النوافذ المفتوحة لرؤية الألوان الجديدة",
+          "neovim": "نفّذ ‎:colorscheme serpantinum لاستخدامها",
+          "helix": "نفّذ ‎:config-reload في المحررات المفتوحة لرؤية الألوان الجديدة",
+          "fastfetch": "نفّذ fastfetch -c serpantinum لاستخدامه",
+          "spicetify": "نفّذ spicetify config current_theme Serpantinum ثم spicetify apply",
+          "discord": "فعّل Serpantinum في إعدادات سمات العميل",
+          "emacs": "نفّذ M-x load-theme serpantinum لاستخدامه",
+          "steam": "ثبّت Material-Theme عبر Millennium، ثم اختر Matugen في إعدادات الألوان الخاصة به",
+          "heroic": "اضبط مسار السمات المخصصة في Heroic على مجلد السمات الخاص به، ثم اختر serpantinum",
+          "telegram": "حمّل ملف السمة من إعدادات الدردشة في Telegram"
+        },
+        "list": {
+          "title": "التطبيقات ذات السمة",
+          "desc": "تطبيقات تتبع ألوان الواجهة. أضف المزيد من القائمة"
+        },
+        "add": {
+          "title": "إضافة تطبيق"
+        },
+        "empty": "لا توجد تطبيقات بسمة بعد. أضف واحدًا من القائمة"
       }
     },
     "theme_editor": {
@@ -1704,7 +1748,8 @@
       "search_paused": "تم إيقاف البحث مؤقتًا",
       "searching_ddg": "جارٍ البحث عن خلفيات...",
       "type_to_search": "اكتب شيئًا للبحث...",
-      "videos": "مقاطع الفيديو"
+      "videos": "مقاطع الفيديو",
+      "favorites": "المفضلة"
     }
   },
   "weather": {

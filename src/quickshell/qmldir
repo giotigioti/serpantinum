@@ -37,6 +37,7 @@ singleton MprisController 1.0 singletons/audio/MprisController.qml
 singleton Sounds 1.0 singletons/audio/Sounds.qml
 singleton Lyrics 1.0 singletons/audio/Lyrics.qml
 
+singleton AppTheming 1.0 singletons/theme/AppTheming.qml
 singleton Matugen 1.0 singletons/theme/Matugen.qml
 singleton Scaler 1.0 singletons/theme/Scaler.qml
 singleton ThemeBackend 1.0 singletons/theme/ThemeBackend.qml
@@ -48,6 +49,7 @@ singleton Weather 1.0 singletons/environment/Weather.qml
 
 singleton AppMatcher 1.0 singletons/system/AppMatcher.qml
 singleton Caching 1.0 singletons/system/Caching.qml
+singleton Compositor 1.0 singletons/system/Compositor.qml
 singleton Config 1.0 singletons/system/Config.qml
 singleton CurrentFocus 1.0 singletons/system/CurrentFocus.qml
 singleton DateTime 1.0 singletons/system/DateTime.qml
@@ -65,6 +67,9 @@ singleton WindowTracker 1.0 singletons/system/WindowTracker.qml
 
 singleton SysData 1.0 singletons/info/SysData.qml
 singleton SystemInfo 1.0 singletons/info/SystemInfo.qml
+
+ScreenToggleController 1.0 singletons/widgetcontrols/ScreenToggleController.qml
+HoverMenuController 1.0 singletons/widgetcontrols/HoverMenuController.qml
 
 singleton ClipboardController 1.0 singletons/widgetcontrols/ClipboardController.qml
 singleton FloatingController 1.0 singletons/widgetcontrols/FloatingController.qml

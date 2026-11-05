@@ -132,10 +132,6 @@ PanelWindow {
         return Boolean(val);
     }
 
-    property bool isNiri: false
-    readonly property bool isSway: SwayState.isSway
-    property bool isHyprland: false
-    readonly property bool isMango: MangoState.isMango
     readonly property string myOutput: (dockWindow.screen && dockWindow.screen.name) ? dockWindow.screen.name : ""
     readonly property int niriActiveIndex: NiriState.activeIndexFor(myOutput)
     readonly property var niriOccupiedMap: NiriState.occupiedMap
@@ -147,13 +143,13 @@ PanelWindow {
 
     property int activeIndex: {
         let idx = -1;
-        if (isNiri) {
+        if (Compositor.name === "niri") {
             idx = niriActiveIndex;
-        } else if (isSway) {
+        } else if (Compositor.name === "sway") {
             idx = swayActiveIndex;
-        } else if (isMango) {
+        } else if (Compositor.name === "mango") {
             idx = mangoActiveIndex;
-        } else if (isHyprland || typeof Hyprland !== "undefined") {
+        } else if (Compositor.name === "hyprland" || typeof Hyprland !== "undefined") {
             const mon = (typeof Hyprland !== "undefined" && Hyprland.monitors && Hyprland.monitors.values) ? Hyprland.monitors.values.find(m => m.name === myOutput) : null;
             const ws = (mon && mon.activeWorkspace) ? mon.activeWorkspace : ((typeof Hyprland !== "undefined") ? Hyprland.focusedWorkspace : null);
             if (!ws) return -1;
@@ -162,17 +158,51 @@ PanelWindow {
         return idx >= 0 ? idx : -1;
     }
 
+    readonly property var hyprMonitor: (typeof Hyprland !== "undefined" && Hyprland.monitors && Hyprland.monitors.values) ? (Hyprland.monitors.values.find(m => m.name === myOutput) ?? null) : null
+    // Name of the special workspace shown on this monitor ("" when none).
+    // Hyprland never reports it as the monitor's activeWorkspace.
+    property string hyprSpecialName: ""
+
+    function _syncHyprSpecial() {
+        const sp = (hyprMonitor && hyprMonitor.lastIpcObject) ? hyprMonitor.lastIpcObject.specialWorkspace : null;
+        dockWindow.hyprSpecialName = (sp && sp.name) ? sp.name : "";
+    }
+
+    readonly property var hyprSpecialWorkspace: (hyprSpecialName !== "" && typeof Hyprland !== "undefined" && Hyprland.workspaces && Hyprland.workspaces.values) ? (Hyprland.workspaces.values.find(w => w.name === hyprSpecialName) ?? null) : null
+
+    onHyprMonitorChanged: _syncHyprSpecial()
+
+    Connections {
+        target: dockWindow.hyprMonitor
+        function onLastIpcObjectChanged() { dockWindow._syncHyprSpecial(); }
+    }
+
+    Connections {
+        target: (typeof Hyprland !== "undefined") ? Hyprland : null
+        function onRawEvent(event) {
+            // activespecial>>WORKSPACENAME,MONITORNAME (empty name when it closes)
+            if (event.name !== "activespecial") return;
+            const data = event.data || "";
+            const sep = data.lastIndexOf(",");
+            if (sep < 0 || data.substring(sep + 1) !== dockWindow.myOutput) return;
+            dockWindow.hyprSpecialName = data.substring(0, sep);
+        }
+    }
+
     readonly property bool isWorkspaceBusy: {
-        if (isNiri) {
+        if (Compositor.name === "niri") {
             return !!niriOccupiedMap[activeIndex];
         }
-        if (isSway) {
+        if (Compositor.name === "sway") {
             return !!swayOccupiedMap[activeIndex];
         }
-        if (isMango) {
+        if (Compositor.name === "mango") {
             return !!(mangoOccupiedMap && MangoState.isOccupied(myOutput, activeIndex));
         }
         if (typeof Hyprland !== "undefined") {
+            if (hyprSpecialWorkspace && hyprSpecialWorkspace.toplevels && hyprSpecialWorkspace.toplevels.values.length > 0) {
+                return true;
+            }
             let ws = null;
             if (dockWindow.screen && Hyprland.monitors && Hyprland.monitors.values) {
                 let mon = Hyprland.monitors.values.find(m => m.name === dockWindow.screen.name);
@@ -348,15 +378,14 @@ PanelWindow {
         } catch (e) {}
         return false;
     }
+    // Fullscreen on the workspaces shown on this dock's monitor, not on the focused one.
     readonly property bool isHyprlandFullscreen: {
-        try {
-            if (typeof Hyprland !== "undefined" && Hyprland.focusedWorkspace) {
-                return Boolean(Hyprland.focusedWorkspace.hasFullscreen || (Hyprland.activeToplevel && Hyprland.activeToplevel.fullscreen));
-            }
-        } catch (e) {}
-        return false;
+        if (!hyprMonitor) return false;
+        if (hyprMonitor.activeWorkspace && hyprMonitor.activeWorkspace.hasFullscreen) return true;
+        return Boolean(hyprSpecialWorkspace && hyprSpecialWorkspace.hasFullscreen);
     }
-    readonly property bool isFullscreenActive: isOsdFullscreen || isToplevelFullscreen || isHyprlandFullscreen
+    // OsdController.isFullscreen is shared by every screen, so on Hyprland the per-monitor check replaces it.
+    readonly property bool isFullscreenActive: hyprMonitor ? (isHyprlandFullscreen || isToplevelFullscreen) : (isOsdFullscreen || isToplevelFullscreen)
 
     readonly property bool isBarEffectivelyHidden: barAutohide || isFullscreenActive
     readonly property bool sameSideAsBar: (dockPosition === barPosition) && !isBarEffectivelyHidden

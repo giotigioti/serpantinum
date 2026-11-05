@@ -44,7 +44,9 @@
       "bar_modules": "Moduli",
       "bar_side_modules": "Moduli laterali",
       "display_lockscreen": "Schermata di blocco",
-      "screenshot": "Screenshot"
+      "screenshot": "Screenshot",
+      "theme_appearance": "Aspetto",
+      "theme_apps": "Tema delle app"
     },
     "launcher": {
       "position": {
@@ -277,6 +279,10 @@
         "hide_bar": {
           "title": "Nascondi barra nel redattore",
           "desc": "Nascondi automaticamente la barra durante la modifica dei widget in modalità redattore"
+        },
+        "show_distances": {
+          "title": "Mostra distanze",
+          "desc": "Mostra le distanze tra i widget durante lo spostamento o il ridimensionamento nel redattore"
         },
         "hide_presets": "Nascondi predefiniti",
         "choose_preset": "Scegli un predefinito",
@@ -662,6 +668,43 @@
           "blur": "Sfocatura",
           "liquid": "Vetro liquido"
         }
+      },
+      "apps": {
+        "loading": "Ricerca delle app installate...",
+        "status": {
+          "error": "Impossibile applicare: {detail}"
+        },
+        "issue": {
+          "missing_config": "Configurazione non trovata. Aggiungi questo a {file}: {line}",
+          "system_config": "La tua configurazione è {file}. Aggiungi questo: {line}",
+          "read_only": "{file} è di sola lettura. Aggiungi questo: {line}",
+          "manual": "Impossibile modificare la configurazione in sicurezza. Aggiungi questo a {file}: {line}",
+          "no_theme": "Installa il tema {line} perché anche le app GTK 3 seguano la tavolozza",
+          "env": "Imposta {line} nell'ambiente di sessione",
+          "requires": "Installa {line} per applicare il tema alle app Qt",
+          "failed": "Impossibile aggiornare la configurazione: {line}"
+        },
+        "hint": {
+          "select_in_app": "Scegli il tema Serpantinum nelle impostazioni dell'app",
+          "restart": "Riavvia le finestre aperte per vedere i nuovi colori",
+          "neovim": "Esegui :colorscheme serpantinum per usarlo",
+          "helix": "Esegui :config-reload negli editor aperti per vedere i nuovi colori",
+          "fastfetch": "Esegui fastfetch -c serpantinum per usarlo",
+          "spicetify": "Esegui spicetify config current_theme Serpantinum, poi spicetify apply",
+          "discord": "Attiva Serpantinum nelle impostazioni dei temi del client",
+          "emacs": "Esegui M-x load-theme serpantinum per usarlo",
+          "steam": "Installa Material-Theme con Millennium, poi scegli Matugen nelle sue impostazioni colore",
+          "heroic": "Imposta il percorso dei temi personalizzati di Heroic sulla sua cartella dei temi, poi scegli serpantinum",
+          "telegram": "Carica il file del tema dalle impostazioni chat di Telegram"
+        },
+        "list": {
+          "title": "App con tema",
+          "desc": "App che seguono i colori della shell. Aggiungine altre dall'elenco"
+        },
+        "add": {
+          "title": "Aggiungi app"
+        },
+        "empty": "Nessuna app con tema per ora. Aggiungine una dall'elenco"
       }
     },
     "file_picker": {
@@ -1424,7 +1467,8 @@
       "generating_thumbnails": "Generazione miniature...",
       "no_wallpapers_found": "Nessuno sfondo trovato",
       "videos": "Video",
-      "history": "Applicati di recente"
+      "history": "Applicati di recente",
+      "favorites": "Preferiti"
     },
     "filters": {
       "all": "Tutti",
@@ -1687,7 +1731,8 @@
     "info_desc": "Mostra lo stato attuale di un'impostazione (notifications, idle, dock, sfx, theme, lang, wallpaper, monitors, updates)",
     "set_desc": "Modifica un'impostazione (notifications, idle, dock, sfx, theme, lang, wallpaper)",
     "trigger_desc": "Esegui un'azione singola (idle, notifications, theme, firstlaunch)",
-    "settings_desc": "Apri la finestra delle impostazioni (facoltativamente su una scheda)"
+    "settings_desc": "Apri la finestra delle impostazioni (facoltativamente su una scheda)",
+    "error_unknown_app": "Errore: app sconosciuta '{ID}'."
   },
   "daemon": {
     "already_running": "Il demone è già in esecuzione. Uscita...",

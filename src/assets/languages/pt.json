@@ -44,7 +44,9 @@
       "bar_modules": "Módulos",
       "bar_side_modules": "Módulos laterais",
       "display_lockscreen": "Tela de bloqueio",
-      "screenshot": "Captura de tela"
+      "screenshot": "Captura de tela",
+      "theme_appearance": "Aparência",
+      "theme_apps": "Tema dos aplicativos"
     },
     "launcher": {
       "position": {
@@ -277,6 +279,10 @@
         "hide_bar": {
           "title": "Ocultar a barra no editor",
           "desc": "Oculta a barra automaticamente ao editar widgets no modo editor"
+        },
+        "show_distances": {
+          "title": "Mostrar distâncias",
+          "desc": "Mostrar as distâncias entre widgets ao movê-los ou redimensioná-los no editor"
         },
         "hide_presets": "Ocultar predefinições",
         "choose_preset": "Escolher predefinição",
@@ -663,6 +669,43 @@
           "blur": "Desfoque",
           "liquid": "Vidro líquido"
         }
+      },
+      "apps": {
+        "loading": "Procurando aplicativos instalados...",
+        "status": {
+          "error": "Não foi possível aplicar: {detail}"
+        },
+        "issue": {
+          "missing_config": "Configuração não encontrada. Adicione isto a {file}: {line}",
+          "system_config": "Sua configuração é {file}. Adicione isto a ela: {line}",
+          "read_only": "{file} é somente leitura. Adicione isto a ele: {line}",
+          "manual": "Não foi possível editar a configuração com segurança. Adicione isto a {file}: {line}",
+          "no_theme": "Instale o tema {line} para que os aplicativos GTK 3 também sigam a paleta",
+          "env": "Defina {line} no ambiente da sessão",
+          "requires": "Instale {line} para aplicar o tema aos aplicativos Qt",
+          "failed": "Não foi possível atualizar a configuração: {line}"
+        },
+        "hint": {
+          "select_in_app": "Escolha o tema Serpantinum nas configurações do aplicativo",
+          "restart": "Reinicie as janelas abertas para ver as novas cores",
+          "neovim": "Execute :colorscheme serpantinum para usá-lo",
+          "helix": "Execute :config-reload nos editores abertos para ver as novas cores",
+          "fastfetch": "Execute fastfetch -c serpantinum para usá-lo",
+          "spicetify": "Execute spicetify config current_theme Serpantinum e depois spicetify apply",
+          "discord": "Ative Serpantinum nas configurações de tema do cliente",
+          "emacs": "Execute M-x load-theme serpantinum para usá-lo",
+          "steam": "Instale o Material-Theme com o Millennium e depois escolha Matugen nas configurações de cor",
+          "heroic": "Defina o caminho de temas personalizados do Heroic para a pasta de temas e depois escolha serpantinum",
+          "telegram": "Carregue o arquivo de tema nas configurações de chat do Telegram"
+        },
+        "list": {
+          "title": "Aplicativos com tema",
+          "desc": "Aplicativos que seguem as cores do shell. Adicione mais pela lista"
+        },
+        "add": {
+          "title": "Adicionar aplicativo"
+        },
+        "empty": "Nenhum aplicativo com tema ainda. Adicione um pela lista"
       }
     },
     "file_picker": {
@@ -1425,7 +1468,8 @@
       "generating_thumbnails": "Gerando miniaturas...",
       "no_wallpapers_found": "Nenhum papel de parede encontrado",
       "videos": "Vídeos",
-      "history": "Aplicados recentemente"
+      "history": "Aplicados recentemente",
+      "favorites": "Favoritos"
     },
     "filters": {
       "all": "Todos",
@@ -1688,7 +1732,8 @@
     "info_desc": "Mostrar o estado atual de uma configuração (notifications, idle, dock, sfx, theme, lang, wallpaper, monitors, updates)",
     "set_desc": "Alterar uma configuração (notifications, idle, dock, sfx, theme, lang, wallpaper)",
     "trigger_desc": "Executar uma ação pontual (idle, notifications, theme, firstlaunch)",
-    "settings_desc": "Abre a janela de configurações (opcionalmente num separador)"
+    "settings_desc": "Abre a janela de configurações (opcionalmente num separador)",
+    "error_unknown_app": "Erro: aplicativo desconhecido '{ID}'."
   },
   "daemon": {
     "already_running": "O daemon já está em execução. Saindo...",

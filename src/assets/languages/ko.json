@@ -44,7 +44,9 @@
       "bar_modules": "모듈",
       "bar_side_modules": "사이드 모듈",
       "display_lockscreen": "잠금 화면",
-      "screenshot": "스크린샷"
+      "screenshot": "스크린샷",
+      "theme_appearance": "모양",
+      "theme_apps": "앱 테마"
     },
     "launcher": {
       "position": {
@@ -277,6 +279,10 @@
         "hide_bar": {
           "title": "편집기에서 바 숨기기",
           "desc": "편집기 모드에서 위젯을 수정할 때 자동으로 바를 숨깁니다"
+        },
+        "show_distances": {
+          "title": "거리 표시",
+          "desc": "편집기에서 위젯을 이동하거나 크기를 조정할 때 위젯 사이의 거리를 표시합니다"
         },
         "hide_presets": "프리셋 숨기기",
         "choose_preset": "프리셋 선택",
@@ -663,6 +669,43 @@
           "blur": "흐림",
           "liquid": "리퀴드 글라스"
         }
+      },
+      "apps": {
+        "loading": "설치된 앱을 찾는 중...",
+        "status": {
+          "error": "적용하지 못함: {detail}"
+        },
+        "issue": {
+          "missing_config": "설정을 찾을 수 없습니다. {file}에 다음을 추가하세요: {line}",
+          "system_config": "설정 파일은 {file}입니다. 다음을 추가하세요: {line}",
+          "read_only": "{file}은(는) 읽기 전용입니다. 다음을 추가하세요: {line}",
+          "manual": "설정을 안전하게 수정할 수 없습니다. {file}에 다음을 추가하세요: {line}",
+          "no_theme": "GTK 3 앱도 팔레트를 따르도록 {line} 테마를 설치하세요",
+          "env": "세션 환경에 {line}을(를) 설정하세요",
+          "requires": "Qt 앱에 테마를 적용하려면 {line}을(를) 설치하세요",
+          "failed": "설정을 업데이트하지 못함: {line}"
+        },
+        "hint": {
+          "select_in_app": "앱 설정에서 Serpantinum 테마를 선택하세요",
+          "restart": "새 색상을 보려면 열린 창을 다시 시작하세요",
+          "neovim": ":colorscheme serpantinum을 실행해 사용하세요",
+          "helix": "새 색상을 보려면 열린 편집기에서 :config-reload를 실행하세요",
+          "fastfetch": "fastfetch -c serpantinum을 실행해 사용하세요",
+          "spicetify": "spicetify config current_theme Serpantinum을 실행한 뒤 spicetify apply를 실행하세요",
+          "discord": "클라이언트의 테마 설정에서 Serpantinum을 켜세요",
+          "emacs": "M-x load-theme serpantinum을 실행하면 사용할 수 있습니다",
+          "steam": "Millennium으로 Material-Theme을 설치한 다음 색상 설정에서 Matugen을 선택하세요",
+          "heroic": "Heroic의 사용자 테마 경로를 테마 폴더로 지정한 다음 serpantinum을 선택하세요",
+          "telegram": "Telegram 채팅 설정에서 테마 파일을 불러오세요"
+        },
+        "list": {
+          "title": "테마 적용 앱",
+          "desc": "셸 색상을 따르는 앱입니다. 목록에서 더 추가하세요"
+        },
+        "add": {
+          "title": "앱 추가"
+        },
+        "empty": "아직 테마가 적용된 앱이 없습니다. 목록에서 추가하세요"
       }
     },
     "file_picker": {
@@ -1425,7 +1468,8 @@
       "generating_thumbnails": "미리보기를 만드는 중...",
       "no_wallpapers_found": "배경화면을 찾을 수 없습니다",
       "videos": "동영상",
-      "history": "최근 적용됨"
+      "history": "최근 적용됨",
+      "favorites": "즐겨찾기"
     },
     "filters": {
       "all": "전체",
@@ -1688,7 +1732,8 @@
     "info_desc": "설정의 현재 상태 표시 (notifications, idle, dock, sfx, theme, lang, wallpaper, monitors, updates)",
     "set_desc": "설정 변경 (notifications, idle, dock, sfx, theme, lang, wallpaper)",
     "trigger_desc": "일회성 작업 실행 (idle, notifications, theme, firstlaunch)",
-    "settings_desc": "설정 창을 엽니다 (원하는 탭 지정 가능)"
+    "settings_desc": "설정 창을 엽니다 (원하는 탭 지정 가능)",
+    "error_unknown_app": "오류: 알 수 없는 앱 '{ID}'."
   },
   "daemon": {
     "already_running": "데몬이 이미 실행 중입니다. 종료합니다...",

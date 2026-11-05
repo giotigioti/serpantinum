@@ -44,7 +44,9 @@
       "bar_modules": "模块",
       "bar_side_modules": "侧边模块",
       "display_lockscreen": "锁屏",
-      "screenshot": "截图"
+      "screenshot": "截图",
+      "theme_appearance": "外观",
+      "theme_apps": "应用主题"
     },
     "launcher": {
       "position": {
@@ -277,6 +279,10 @@
         "hide_bar": {
           "title": "在编辑器中隐藏顶栏",
           "desc": "在小组件编辑模式下自动隐藏顶栏"
+        },
+        "show_distances": {
+          "title": "显示间距",
+          "desc": "在编辑器中移动或调整小组件大小时显示它们之间的间距"
         },
         "hide_presets": "隐藏预设",
         "choose_preset": "选择预设",
@@ -663,6 +669,43 @@
           "blur": "模糊",
           "liquid": "液态玻璃"
         }
+      },
+      "apps": {
+        "loading": "正在查找已安装的应用...",
+        "status": {
+          "error": "无法应用：{detail}"
+        },
+        "issue": {
+          "missing_config": "未找到配置。请将以下内容添加到 {file}：{line}",
+          "system_config": "你的配置是 {file}。请添加：{line}",
+          "read_only": "{file} 为只读。请添加：{line}",
+          "manual": "无法安全地修改配置。请将以下内容添加到 {file}：{line}",
+          "no_theme": "安装 {line} 主题，让 GTK 3 应用也跟随调色板",
+          "env": "请在会话环境中设置 {line}",
+          "requires": "安装 {line} 以为 Qt 应用应用主题",
+          "failed": "无法更新配置：{line}"
+        },
+        "hint": {
+          "select_in_app": "在应用设置中选择 Serpantinum 主题",
+          "restart": "重新启动已打开的窗口以查看新颜色",
+          "neovim": "运行 :colorscheme serpantinum 以使用",
+          "helix": "在已打开的编辑器中运行 :config-reload 以查看新颜色",
+          "fastfetch": "运行 fastfetch -c serpantinum 以使用",
+          "spicetify": "运行 spicetify config current_theme Serpantinum，然后运行 spicetify apply",
+          "discord": "在客户端的主题设置中启用 Serpantinum",
+          "emacs": "运行 M-x load-theme serpantinum 即可使用",
+          "steam": "使用 Millennium 安装 Material-Theme，然后在其颜色设置中选择 Matugen",
+          "heroic": "将 Heroic 的自定义主题路径设为其主题文件夹，然后选择 serpantinum",
+          "telegram": "在 Telegram 的聊天设置中加载主题文件"
+        },
+        "list": {
+          "title": "已应用主题的应用",
+          "desc": "跟随桌面颜色的应用。可从列表中添加更多"
+        },
+        "add": {
+          "title": "添加应用"
+        },
+        "empty": "还没有应用主题。请从列表中添加"
       }
     },
     "file_picker": {
@@ -1428,7 +1471,8 @@
       "generating_thumbnails": "正在生成缩略图...",
       "no_wallpapers_found": "未找到壁纸",
       "videos": "视频",
-      "history": "最近应用"
+      "history": "最近应用",
+      "favorites": "收藏"
     },
     "filters": {
       "all": "全部",
@@ -1688,7 +1732,8 @@
     "info_desc": "显示设置的当前状态 (notifications, idle, dock, sfx, theme, lang, wallpaper, monitors, updates)",
     "set_desc": "更改设置 (notifications, idle, dock, sfx, theme, lang, wallpaper)",
     "trigger_desc": "执行一次性操作 (idle, notifications, theme, firstlaunch)",
-    "settings_desc": "打开设置窗口（可指定标签页）"
+    "settings_desc": "打开设置窗口（可指定标签页）",
+    "error_unknown_app": "错误：未知应用 '{ID}'。"
   },
   "daemon": {
     "already_running": "守护进程已在运行。正在退出...",
