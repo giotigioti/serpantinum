@@ -561,7 +561,17 @@ Item {
 
     property var tabsModel: [
         { id: "Welcome", key: "welcome", name: "Welcome", icon: "󰋜", file: "WelcomeTab.qml" },
-        { id: "General", key: "general", name: "General", icon: "󰒓", file: "general/GeneralTab.qml" },
+        {
+            id: "General",
+            key: "general",
+            name: "General",
+            icon: "󰒓",
+            file: "general/GeneralTab.qml",
+            subtabs: [
+                { id: "GeneralMain", key: "general_main", name: "General", icon: "󰒓", file: "general/GeneralTab.qml" },
+                { id: "GeneralPresets", key: "general_presets", name: "Presets", icon: "󰆓", file: "general/GeneralPresetsTab.qml" }
+            ]
+        },
         {
             id: "Display",
             key: "display",
@@ -582,6 +592,7 @@ Item {
             file: "theme/ThemeTab.qml",
             subtabs: [
                 { id: "ThemeAppearance", key: "theme_appearance", name: "Appearance", icon: "󰏘", file: "theme/ThemeTab.qml" },
+                { id: "ThemeWallpapers", key: "theme_wallpapers", name: "Wallpapers", icon: "󰸉", file: "wallpaper/WallpaperTab.qml" },
                 { id: "ThemeApps", key: "theme_apps", name: "App theming", icon: "󰏗", file: "theme/ThemeAppsTab.qml" }
             ]
         },
