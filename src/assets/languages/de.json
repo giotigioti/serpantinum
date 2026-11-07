@@ -271,7 +271,7 @@
       }
     },
     "display": {
-      "bluelight": {
+      "gamma": {
         "title": "Blaulichtfilter",
         "desc": "Warme Bildschirmfarben umschalten"
       },
@@ -1817,10 +1817,9 @@
       "location": "Geografische Koordinaten abrufen und aktualisieren",
       "screenshot": "Bildschirm aufnehmen, Video aufzeichnen oder QR-Codes scannen",
       "brightness": "Bildschirmhelligkeit anpassen",
-      "current_focus": "Fokuswechsel des aktiven Fensters überwachen und protokollieren",
       "monitors_detect": "Aktive Bildschirmausgänge und Bildwiederholraten abfragen",
       "location_manual": "Geografische Koordinaten und Zeitzone manuell festlegen",
-      "blue_light_filter": "Farbtemperatur und Tag/Nacht-Zeitplan anpassen",
+      "gamma": "Farbtemperatur und Tag/Nacht-Zeitplan anpassen",
       "translate": "Sofortige Text- und Auswahlübersetzung",
       "suspend": "Bildschirm sperren und System in Bereitschaft versetzen",
       "hibernate": "System in den Ruhezustand versetzen",

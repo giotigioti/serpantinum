@@ -270,7 +270,7 @@
       }
     },
     "display": {
-      "bluelight": {
+      "gamma": {
         "title": "Filtro de luz azul",
         "desc": "Alterna iluminação quente da tela"
       },
@@ -1770,10 +1770,9 @@
       "location": "Obtém e atualiza coordenadas geográficas",
       "screenshot": "Captura telas, grava vídeo ou lê QR codes",
       "brightness": "Ajusta o brilho da tela",
-      "current_focus": "Monitora e registra mudanças de foco de janela",
       "monitors_detect": "Consulta saídas de vídeo ativas e taxas de atualização",
       "location_manual": "Define coordenadas e fuso manualmente",
-      "blue_light_filter": "Ajusta temperatura de cor e ciclo dia/noite automático",
+      "gamma": "Ajusta temperatura de cor e ciclo dia/noite automático",
       "translate": "Tradutor instantâneo de texto e seleção",
       "suspend": "Bloquear a tela e suspender o sistema",
       "hibernate": "Hibernar o sistema",
