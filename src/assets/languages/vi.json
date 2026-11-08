@@ -149,7 +149,7 @@
       "warning_command": {
         "title": "Lệnh cảnh báo",
         "desc": "Độ trễ và lệnh thực thi trước tác vụ",
-        "placeholder": "VD: notify-send 'cảnh báo'"
+        "placeholder": "VD: serpantinum-core notify 'cảnh báo'"
       },
       "before_command": {
         "title": "Lệnh trước tác vụ",
@@ -159,7 +159,7 @@
       "resume_command": {
         "title": "Lệnh khi khôi phục",
         "desc": "Thực thi khi người dùng tiếp tục hoạt động",
-        "placeholder": "VD: notify-send 'đã khôi phục'"
+        "placeholder": "VD: serpantinum-core notify 'đã khôi phục'"
       },
       "dim": {
         "title": "Làm mờ màn hình",
@@ -346,7 +346,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "Trình hiển thị âm thanh (cava)",
+        "vis": "Trình hiển thị âm thanh",
         "actions": "Thao tác",
         "workspaces": {
           "style": {
@@ -692,6 +692,10 @@
           "swipe": {
             "name": "Quét",
             "desc": "Quét qua màn hình từ một cạnh hoặc góc"
+          },
+          "paint": {
+            "name": "Sơn",
+            "desc": "Tô hình nền mới từng ô từ những quần thể lan rộng khắp màn hình"
           },
           "orientation": {
             "title": "Hướng mở",
@@ -1532,7 +1536,8 @@
       "no_wallpapers_found": "Không tìm thấy hình nền nào",
       "videos": "Video",
       "history": "Đã áp dụng gần đây",
-      "favorites": "Yêu thích"
+      "favorites": "Yêu thích",
+      "recently_added": "Đã thêm gần đây"
     },
     "filters": {
       "all": "Tất cả",

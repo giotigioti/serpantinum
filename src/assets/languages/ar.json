@@ -315,7 +315,7 @@
           }
         },
         "tray": "صينية النظام (Tray)",
-        "vis": "المرئيات الصوتية (Cava)",
+        "vis": "المرئيات الصوتية",
         "volume": "الصوت",
         "weather": "الطقس",
         "workspaces": {
@@ -851,7 +851,7 @@
       },
       "resume_command": {
         "desc": "يُنفذ فور استئناف المستخدم لنشاطه",
-        "placeholder": "مثال: notify-send 'تم استئناف النشاط'",
+        "placeholder": "مثال: serpantinum-core notify 'تم استئناف النشاط'",
         "title": "أمر الاستئناف"
       },
       "suspend": {
@@ -860,7 +860,7 @@
       },
       "warning_command": {
         "desc": "المهلة الزمنية والأمر التحذيري قبل تنفيذ الإجراء",
-        "placeholder": "مثال: notify-send 'تحذير خمول'",
+        "placeholder": "مثال: serpantinum-core notify 'تحذير خمول'",
         "title": "أمر التحذير"
       },
       "lock_on_sleep": {
@@ -1064,6 +1064,10 @@
           "swipe": {
             "name": "سحب",
             "desc": "المرور عبر الشاشة من حافة أو زاوية"
+          },
+          "paint": {
+            "name": "طلاء",
+            "desc": "ارسم الخلفية الجديدة خلية بخلية من مستعمرات تنمو عبر الشاشة"
           },
           "orientation": {
             "title": "الاتجاه المحوري",
@@ -1810,7 +1814,8 @@
       "searching_ddg": "جارٍ البحث عن خلفيات...",
       "type_to_search": "اكتب شيئًا للبحث...",
       "videos": "مقاطع الفيديو",
-      "favorites": "المفضلة"
+      "favorites": "المفضلة",
+      "recently_added": "المضافة مؤخرًا"
     }
   },
   "weather": {

@@ -149,7 +149,7 @@
       "warning_command": {
         "title": "Uyarı komutu",
         "desc": "Eylemden önce çalıştırılacak uzaklık ve komut",
-        "placeholder": "örn. notify-send 'uyarı'"
+        "placeholder": "örn. serpantinum-core notify 'uyarı'"
       },
       "before_command": {
         "title": "Önceki komut",
@@ -159,7 +159,7 @@
       "resume_command": {
         "title": "Devam etme komutu",
         "desc": "Kullanıcı etkinliği devam ettiğinde çalıştırılır",
-        "placeholder": "örn. notify-send 'devam edildi'"
+        "placeholder": "örn. serpantinum-core notify 'devam edildi'"
       },
       "dim": {
         "title": "Ekranı karart",
@@ -346,7 +346,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "Görselleştirici (cava)",
+        "vis": "Görselleştirici",
         "actions": "Eylemler",
         "workspaces": {
           "style": {
@@ -692,6 +692,10 @@
           "swipe": {
             "name": "Kaydırma",
             "desc": "Ekranı bir kenardan veya köşeden süpür"
+          },
+          "paint": {
+            "name": "Boya",
+            "desc": "Yeni duvar kağıdını ekrana yayılan kolonilerden hücre hücre boya"
           },
           "orientation": {
             "title": "Yön ekseni",
@@ -1535,7 +1539,8 @@
       "no_wallpapers_found": "Duvar kâğıdı bulunamadı",
       "videos": "Videolar",
       "history": "Son uygulananlar",
-      "favorites": "Favoriler"
+      "favorites": "Favoriler",
+      "recently_added": "Son eklenenler"
     },
     "filters": {
       "all": "Tümü",

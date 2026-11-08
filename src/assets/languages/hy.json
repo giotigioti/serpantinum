@@ -149,7 +149,7 @@
       "warning_command": {
         "title": "Նախազգուշացման հրաման",
         "desc": "Գործողությունից առաջ կատարվող հրամանն ու ժամանակային շեղումը",
-        "placeholder": "օր.՝ notify-send 'warning'"
+        "placeholder": "օր.՝ serpantinum-core notify 'warning'"
       },
       "before_command": {
         "title": "Նախորդող հրաման",
@@ -159,7 +159,7 @@
       "resume_command": {
         "title": "Վերսկսման հրաման",
         "desc": "Կատարվում է օգտատիրոջ ակտիվության վերսկսման ժամանակ",
-        "placeholder": "օր.՝ notify-send 'resumed'"
+        "placeholder": "օր.՝ serpantinum-core notify 'resumed'"
       },
       "dim": {
         "title": "Մգացնել էկրանը",
@@ -346,7 +346,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "Տեսապատկերիչ (cava)",
+        "vis": "Տեսապատկերիչ",
         "actions": "Գործողություններ",
         "workspaces": {
           "style": {
@@ -692,6 +692,10 @@
           "swipe": {
             "name": "Սահեցում",
             "desc": "Անցնել էկրանով եզրից կամ անկյունից"
+          },
+          "paint": {
+            "name": "Ներկ",
+            "desc": "Նկարիր նոր պաստառը բջիջ առ բջիջ՝ էկրանով մեկ աճող գաղութներից"
           },
           "orientation": {
             "title": "Կողմնորոշում",
@@ -1532,7 +1536,8 @@
       "no_wallpapers_found": "Պաստառներ չեն գտնվել",
       "videos": "Տեսանյութեր",
       "history": "Վերջերս կիրառվածներ",
-      "favorites": "Ընտրյալներ"
+      "favorites": "Ընտրյալներ",
+      "recently_added": "Վերջերս ավելացվածներ"
     },
     "filters": {
       "all": "Բոլորը",

@@ -149,7 +149,7 @@
       "warning_command": {
         "title": "Waarschuwingsopdracht",
         "desc": "Verschuiving en opdracht die vóór de actie wordt uitgevoerd",
-        "placeholder": "bijv. notify-send 'waarschuwing'"
+        "placeholder": "bijv. serpantinum-core notify 'waarschuwing'"
       },
       "before_command": {
         "title": "Voorafgaande opdracht",
@@ -159,7 +159,7 @@
       "resume_command": {
         "title": "Hervattingsopdracht",
         "desc": "Wordt uitgevoerd wanneer gebruikersactiviteit wordt hervat",
-        "placeholder": "bijv. notify-send 'hervat'"
+        "placeholder": "bijv. serpantinum-core notify 'hervat'"
       },
       "dim": {
         "title": "Scherm dimmen",
@@ -346,7 +346,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "Visualisator (cava)",
+        "vis": "Visualisator",
         "actions": "Acties",
         "workspaces": {
           "style": {
@@ -692,6 +692,10 @@
           "swipe": {
             "name": "Vegen",
             "desc": "Over het scherm vegen vanaf een rand of hoek"
+          },
+          "paint": {
+            "name": "Verf",
+            "desc": "Schilder de nieuwe achtergrond cel voor cel in vanuit kolonies die over het scherm groeien"
           },
           "orientation": {
             "title": "Richting",
@@ -1535,7 +1539,8 @@
       "no_wallpapers_found": "Geen achtergronden gevonden",
       "videos": "Video's",
       "history": "Recent toegepast",
-      "favorites": "Favorieten"
+      "favorites": "Favorieten",
+      "recently_added": "Recent toegevoegd"
     },
     "filters": {
       "all": "Alles",

@@ -149,7 +149,7 @@
       "warning_command": {
         "title": "Commande d'avertissement",
         "desc": "Délai et commande à exécuter avant l'action",
-        "placeholder": "ex. notify-send 'avertissement'"
+        "placeholder": "ex. serpantinum-core notify 'avertissement'"
       },
       "before_command": {
         "title": "Commande préalable",
@@ -159,7 +159,7 @@
       "resume_command": {
         "title": "Commande de reprise",
         "desc": "Exécutée lorsque l'activité utilisateur reprend",
-        "placeholder": "ex. notify-send 'reprise'"
+        "placeholder": "ex. serpantinum-core notify 'reprise'"
       },
       "dim": {
         "title": "Atténuer l'écran",
@@ -346,7 +346,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "Visualiseur (cava)",
+        "vis": "Visualiseur",
         "actions": "Actions",
         "workspaces": {
           "style": {
@@ -692,6 +692,10 @@
           "swipe": {
             "name": "Balayage",
             "desc": "Balayer l'écran depuis un bord ou un coin"
+          },
+          "paint": {
+            "name": "Peinture",
+            "desc": "Peint le nouveau fond d'écran cellule par cellule à partir de colonies qui envahissent l'écran"
           },
           "orientation": {
             "title": "Orientation",
@@ -1535,7 +1539,8 @@
       "no_wallpapers_found": "Aucun fond d'écran trouvé",
       "videos": "Vidéos",
       "history": "Récemment appliqués",
-      "favorites": "Favoris"
+      "favorites": "Favoris",
+      "recently_added": "Récemment ajoutés"
     },
     "filters": {
       "all": "Tous",

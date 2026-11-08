@@ -147,7 +147,7 @@
       "warning_command": {
         "title": "Команда попередження",
         "desc": "Зміщення і команда, що виконується перед дією",
-        "placeholder": "напр. notify-send 'попередження'"
+        "placeholder": "напр. serpantinum-core notify 'попередження'"
       },
       "before_command": {
         "title": "Команда перед дією",
@@ -157,7 +157,7 @@
       "resume_command": {
         "title": "Команда відновлення",
         "desc": "Виконується під час відновлення активності",
-        "placeholder": "напр. notify-send 'відновлено'"
+        "placeholder": "напр. serpantinum-core notify 'відновлено'"
       },
       "dim": {
         "title": "Затемнення екрана",
@@ -344,7 +344,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "Візуалізатор (cava)",
+        "vis": "Візуалізатор",
         "actions": "Дії",
         "workspaces": {
           "name": "Робочі простори"
@@ -676,6 +676,10 @@
           "swipe": {
             "name": "Зсув",
             "desc": "Проходити екраном від краю або кута"
+          },
+          "paint": {
+            "name": "Фарба",
+            "desc": "Промальовує нові шпалери клітинка за клітинкою з колоній, що розростаються екраном"
           },
           "orientation": {
             "title": "Орієнтація",
@@ -1555,7 +1559,8 @@
       "no_wallpapers_found": "Шпалер не знайдено",
       "videos": "Відео",
       "history": "Нещодавно застосовані",
-      "favorites": "Обране"
+      "favorites": "Обране",
+      "recently_added": "Нещодавно додані"
     },
     "filters": {
       "all": "Усі",

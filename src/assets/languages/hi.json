@@ -149,7 +149,7 @@
       "warning_command": {
         "title": "चेतावनी कमांड",
         "desc": "क्रिया से पहले निष्पादित करने के लिए ऑफ़सेट और कमांड",
-        "placeholder": "उदा. notify-send 'चेतावनी'"
+        "placeholder": "उदा. serpantinum-core notify 'चेतावनी'"
       },
       "before_command": {
         "title": "पूर्व कमांड",
@@ -159,7 +159,7 @@
       "resume_command": {
         "title": "पुनः आरंभ कमांड",
         "desc": "उपयोगकर्ता गतिविधि फिर से शुरू होने पर निष्पादित",
-        "placeholder": "उदा. notify-send 'पुनः आरंभ'"
+        "placeholder": "उदा. serpantinum-core notify 'पुनः आरंभ'"
       },
       "dim": {
         "title": "स्क्रीन मद्धिम करें",
@@ -346,7 +346,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "विज़ुअलाइज़र (cava)",
+        "vis": "विज़ुअलाइज़र",
         "actions": "क्रियाएं",
         "workspaces": {
           "style": {
@@ -692,6 +692,10 @@
           "swipe": {
             "name": "स्वाइप",
             "desc": "किसी किनारे या कोने से स्क्रीन पर स्वीप करें"
+          },
+          "paint": {
+            "name": "पेंट",
+            "desc": "स्क्रीन पर फैलती कॉलोनियों से नया वॉलपेपर सेल-दर-सेल पेंट करें"
           },
           "orientation": {
             "title": "दिशा अक्ष",
@@ -1535,7 +1539,8 @@
       "no_wallpapers_found": "कोई वॉलपेपर नहीं मिला",
       "videos": "वीडियो",
       "history": "हाल ही में लागू किए गए",
-      "favorites": "पसंदीदा"
+      "favorites": "पसंदीदा",
+      "recently_added": "हाल ही में जोड़े गए"
     },
     "filters": {
       "all": "सभी",

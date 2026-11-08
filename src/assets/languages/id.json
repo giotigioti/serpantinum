@@ -149,7 +149,7 @@
       "warning_command": {
         "title": "Perintah peringatan",
         "desc": "Selang waktu dan perintah untuk dieksekusi sebelum tindakan",
-        "placeholder": "misalnya notify-send 'peringatan'"
+        "placeholder": "misalnya serpantinum-core notify 'peringatan'"
       },
       "before_command": {
         "title": "Perintah sebelum tindakan",
@@ -159,7 +159,7 @@
       "resume_command": {
         "title": "Perintah saat kembali aktif",
         "desc": "Dieksekusi saat aktivitas pengguna kembali dilanjutkan",
-        "placeholder": "misalnya notify-send 'dilanjutkan'"
+        "placeholder": "misalnya serpantinum-core notify 'dilanjutkan'"
       },
       "dim": {
         "title": "Redupkan layar",
@@ -346,7 +346,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "Visualisator (cava)",
+        "vis": "Visualisator",
         "actions": "Tindakan",
         "workspaces": {
           "style": {
@@ -692,6 +692,10 @@
           "swipe": {
             "name": "Geser",
             "desc": "Menyapu layar dari tepi atau sudut"
+          },
+          "paint": {
+            "name": "Cat",
+            "desc": "Lukis wallpaper baru sel demi sel dari koloni yang tumbuh di seluruh layar"
           },
           "orientation": {
             "title": "Orientasi",
@@ -1535,7 +1539,8 @@
       "no_wallpapers_found": "Gambar latar tidak ditemukan",
       "videos": "Video",
       "history": "Baru saja diterapkan",
-      "favorites": "Favorit"
+      "favorites": "Favorit",
+      "recently_added": "Baru saja ditambahkan"
     },
     "filters": {
       "all": "Semua",

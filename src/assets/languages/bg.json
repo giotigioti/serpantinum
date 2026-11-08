@@ -149,7 +149,7 @@
       "warning_command": {
         "title": "Предупредителна команда",
         "desc": "Интервал и команда за изпълнение преди действието",
-        "placeholder": "напр. notify-send 'внимание'"
+        "placeholder": "напр. serpantinum-core notify 'внимание'"
       },
       "before_command": {
         "title": "Команда преди действие",
@@ -159,7 +159,7 @@
       "resume_command": {
         "title": "Команда при възобновяване",
         "desc": "Изпълнява се при възобновяване на потребителската активност",
-        "placeholder": "напр. notify-send 'възобновено'"
+        "placeholder": "напр. serpantinum-core notify 'възобновено'"
       },
       "dim": {
         "title": "Затъмняване на екрана",
@@ -346,7 +346,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "Визуализатор (cava)",
+        "vis": "Визуализатор",
         "actions": "Действия",
         "workspaces": {
           "style": {
@@ -692,6 +692,10 @@
           "swipe": {
             "name": "Плъзгане",
             "desc": "Премини през екрана от ръб или ъгъл"
+          },
+          "paint": {
+            "name": "Боя",
+            "desc": "Изрисувай новия тапет клетка по клетка от колонии, които растат по екрана"
           },
           "orientation": {
             "title": "Ориентация",
@@ -1535,7 +1539,8 @@
       "no_wallpapers_found": "Няма намерени тапети",
       "videos": "Видеа",
       "history": "Наскоро приложени",
-      "favorites": "Любими"
+      "favorites": "Любими",
+      "recently_added": "Наскоро добавени"
     },
     "filters": {
       "all": "Всички",

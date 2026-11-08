@@ -149,7 +149,7 @@
       "warning_command": {
         "title": "Comando preavviso",
         "desc": "Tempo di anticipo e comando da eseguire prima di avviare l'azione",
-        "placeholder": "es. invio-notifica 'avviso'"
+        "placeholder": "es. serpantinum-core notify 'avviso'"
       },
       "before_command": {
         "title": "Prima del comando",
@@ -159,7 +159,7 @@
       "resume_command": {
         "title": "Comando al ripristino",
         "desc": "Eseguito quando l'utente ritorna ad usare il dispositivo",
-        "placeholder": "es. invio-notifica 'ripristinato'"
+        "placeholder": "es. serpantinum-core notify 'ripristinato'"
       },
       "dim": {
         "title": "Oscura schermo",
@@ -346,7 +346,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "Visualizzatore (cava)",
+        "vis": "Visualizzatore",
         "actions": "Azioni",
         "workspaces": {
           "style": {
@@ -691,6 +691,10 @@
           "swipe": {
             "name": "Scorrimento",
             "desc": "Attraversa lo schermo da un bordo o da un angolo"
+          },
+          "paint": {
+            "name": "Pittura",
+            "desc": "Dipingi il nuovo sfondo cella per cella da colonie che crescono sullo schermo"
           },
           "orientation": {
             "title": "Orientamento",
@@ -1531,7 +1535,8 @@
       "no_wallpapers_found": "Nessuno sfondo trovato",
       "videos": "Video",
       "history": "Applicati di recente",
-      "favorites": "Preferiti"
+      "favorites": "Preferiti",
+      "recently_added": "Aggiunti di recente"
     },
     "filters": {
       "all": "Tutti",

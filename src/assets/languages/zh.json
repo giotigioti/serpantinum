@@ -149,7 +149,7 @@
       "warning_command": {
         "title": "预警命令",
         "desc": "操作触发前执行的偏移时间与命令",
-        "placeholder": "例如 notify-send '警告'"
+        "placeholder": "例如 serpantinum-core notify '警告'"
       },
       "before_command": {
         "title": "前置命令",
@@ -159,7 +159,7 @@
       "resume_command": {
         "title": "恢复命令",
         "desc": "用户活动恢复时执行的命令",
-        "placeholder": "例如 notify-send '已恢复'"
+        "placeholder": "例如 serpantinum-core notify '已恢复'"
       },
       "dim": {
         "title": "调暗屏幕",
@@ -346,7 +346,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "音频可视化 (cava)",
+        "vis": "音频可视化",
         "actions": "快捷操作",
         "workspaces": {
           "style": {
@@ -692,6 +692,10 @@
           "swipe": {
             "name": "滑动",
             "desc": "从边缘或角落扫过屏幕"
+          },
+          "paint": {
+            "name": "绘染",
+            "desc": "从在屏幕上蔓延的菌落开始，逐格绘出新壁纸"
           },
           "orientation": {
             "title": "方向",
@@ -1535,7 +1539,8 @@
       "no_wallpapers_found": "未找到壁纸",
       "videos": "视频",
       "history": "最近应用",
-      "favorites": "收藏"
+      "favorites": "收藏",
+      "recently_added": "最近添加"
     },
     "filters": {
       "all": "全部",

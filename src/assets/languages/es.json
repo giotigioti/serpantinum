@@ -150,7 +150,7 @@
       "warning_command": {
         "title": "Comando de advertencia",
         "desc": "Desfase y comando a ejecutar antes de la acción",
-        "placeholder": "ej. notify-send 'advertencia'"
+        "placeholder": "ej. serpantinum-core notify 'advertencia'"
       },
       "before_command": {
         "title": "Comando previo",
@@ -160,7 +160,7 @@
       "resume_command": {
         "title": "Comando de reanudación",
         "desc": "Se ejecuta cuando se reanuda la actividad del usuario",
-        "placeholder": "ej. notify-send 'reanudado'"
+        "placeholder": "ej. serpantinum-core notify 'reanudado'"
       },
       "dim": {
         "title": "Atenuar pantalla",
@@ -347,7 +347,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "Visualizador (cava)",
+        "vis": "Visualizador",
         "actions": "Acciones",
         "workspaces": {
           "style": {
@@ -693,6 +693,10 @@
           "swipe": {
             "name": "Deslizar",
             "desc": "Barrer la pantalla desde un borde o una esquina"
+          },
+          "paint": {
+            "name": "Pintura",
+            "desc": "Pinta el nuevo fondo celda a celda desde colonias que crecen por la pantalla"
           },
           "orientation": {
             "title": "Orientación",
@@ -1576,7 +1580,8 @@
       "no_wallpapers_found": "No se encontraron fondos de pantalla",
       "videos": "Videos",
       "history": "Aplicados recientemente",
-      "favorites": "Favoritos"
+      "favorites": "Favoritos",
+      "recently_added": "Añadidos recientemente"
     },
     "filters": {
       "all": "Todos",

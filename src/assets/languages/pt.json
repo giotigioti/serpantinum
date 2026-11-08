@@ -149,7 +149,7 @@
       "warning_command": {
         "title": "Comando de aviso",
         "desc": "Antecedência e comando antes da ação",
-        "placeholder": "ex.: notify-send 'aviso'"
+        "placeholder": "ex.: serpantinum-core notify 'aviso'"
       },
       "before_command": {
         "title": "Comando anterior",
@@ -159,7 +159,7 @@
       "resume_command": {
         "title": "Comando ao retomar",
         "desc": "Executado quando a atividade volta",
-        "placeholder": "ex.: notify-send 'retomado'"
+        "placeholder": "ex.: serpantinum-core notify 'retomado'"
       },
       "dim": {
         "title": "Escurecer tela",
@@ -346,7 +346,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "Visualizador (cava)",
+        "vis": "Visualizador",
         "actions": "Ações",
         "workspaces": {
           "style": {
@@ -692,6 +692,10 @@
           "swipe": {
             "name": "Deslizar",
             "desc": "Varrer a tela a partir de uma borda ou canto"
+          },
+          "paint": {
+            "name": "Pintura",
+            "desc": "Pinta o novo papel de parede célula a célula a partir de colónias que crescem pelo ecrã"
           },
           "orientation": {
             "title": "Orientação",
@@ -1532,7 +1536,8 @@
       "no_wallpapers_found": "Nenhum papel de parede encontrado",
       "videos": "Vídeos",
       "history": "Aplicados recentemente",
-      "favorites": "Favoritos"
+      "favorites": "Favoritos",
+      "recently_added": "Adicionados recentemente"
     },
     "filters": {
       "all": "Todos",

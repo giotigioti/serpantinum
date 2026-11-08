@@ -149,7 +149,7 @@
       "warning_command": {
         "title": "دستور هشدار",
         "desc": "فاصله زمانی و دستوری که قبل از کنش اجرا می‌شود",
-        "placeholder": "مانند: notify-send 'warning'"
+        "placeholder": "مانند: serpantinum-core notify 'warning'"
       },
       "before_command": {
         "title": "دستور پیش از کنش",
@@ -159,7 +159,7 @@
       "resume_command": {
         "title": "دستور ازسرگیری",
         "desc": "هنگام ازسرگیری فعالیت کاربر اجرا می‌شود",
-        "placeholder": "مانند: notify-send 'resumed'"
+        "placeholder": "مانند: serpantinum-core notify 'resumed'"
       },
       "dim": {
         "title": "تاریک کردن صفحه",
@@ -346,7 +346,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "رقص نور (cava)",
+        "vis": "رقص نور",
         "actions": "کنش‌ها",
         "workspaces": {
           "style": {
@@ -692,6 +692,10 @@
           "swipe": {
             "name": "کشیدن",
             "desc": "عبور از صفحه از یک لبه یا گوشه"
+          },
+          "paint": {
+            "name": "نقاشی",
+            "desc": "والپیپر جدید را سلول به سلول از کلونی‌هایی که روی صفحه رشد می‌کنند نقاشی کن"
           },
           "orientation": {
             "title": "جهت محور",
@@ -1535,7 +1539,8 @@
       "no_wallpapers_found": "هیچ پس‌زمینه‌ای پیدا نشد",
       "videos": "ویدیوها",
       "history": "اخیراً اِعمال‌شده",
-      "favorites": "علاقه‌مندی‌ها"
+      "favorites": "علاقه‌مندی‌ها",
+      "recently_added": "اخیراً افزوده‌شده"
     },
     "filters": {
       "all": "همه",

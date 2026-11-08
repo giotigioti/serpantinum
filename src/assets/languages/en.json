@@ -149,7 +149,7 @@
       "warning_command": {
         "title": "Warning command",
         "desc": "Offset and command to execute before action",
-        "placeholder": "e.g. notify-send 'warning'"
+        "placeholder": "e.g. serpantinum-core notify 'warning'"
       },
       "before_command": {
         "title": "Before command",
@@ -159,7 +159,7 @@
       "resume_command": {
         "title": "Resume command",
         "desc": "Executed when user activity resumes",
-        "placeholder": "e.g. notify-send 'resumed'"
+        "placeholder": "e.g. serpantinum-core notify 'resumed'"
       },
       "dim": {
         "title": "Dim screen",
@@ -346,7 +346,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "Visualizer (cava)",
+        "vis": "Visualizer",
         "actions": "Actions",
         "workspaces": {
           "style": {
@@ -717,6 +717,10 @@
           "swipe": {
             "name": "Swipe",
             "desc": "Sweep across the screen from an edge or a corner"
+          },
+          "paint": {
+            "name": "Paint",
+            "desc": "Paint the new wallpaper in, cell by cell, from colonies that grow across the screen"
           },
           "orientation": {
             "title": "Orientation",
@@ -1567,7 +1571,8 @@
       "no_wallpapers_found": "No wallpapers found",
       "videos": "Videos",
       "history": "Recently applied",
-      "favorites": "Favorites"
+      "favorites": "Favorites",
+      "recently_added": "Recently added"
     },
     "filters": {
       "all": "All",

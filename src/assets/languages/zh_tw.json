@@ -149,7 +149,7 @@
       "warning_command": {
         "title": "警告指令",
         "desc": "動作執行前的時間差與要執行的指令",
-        "placeholder": "例如 notify-send 'warning'"
+        "placeholder": "例如 serpantinum-core notify 'warning'"
       },
       "before_command": {
         "title": "前置指令",
@@ -159,7 +159,7 @@
       "resume_command": {
         "title": "恢復指令",
         "desc": "當使用者活動恢復時執行",
-        "placeholder": "例如 notify-send 'resumed'"
+        "placeholder": "例如 serpantinum-core notify 'resumed'"
       },
       "dim": {
         "title": "調暗螢幕",
@@ -346,7 +346,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "視覺效果 (cava)",
+        "vis": "視覺效果",
         "actions": "控制項目",
         "workspaces": {
           "style": {
@@ -692,6 +692,10 @@
           "swipe": {
             "name": "滑動",
             "desc": "從邊緣或角落掃過螢幕"
+          },
+          "paint": {
+            "name": "繪染",
+            "desc": "從在螢幕上蔓延的菌落開始，逐格繪出新桌布"
           },
           "orientation": {
             "title": "方向",
@@ -1535,7 +1539,8 @@
       "no_wallpapers_found": "找不到任何桌布",
       "videos": "影片",
       "history": "最近套用",
-      "favorites": "收藏"
+      "favorites": "收藏",
+      "recently_added": "最近新增"
     },
     "filters": {
       "all": "全部",

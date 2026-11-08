@@ -450,7 +450,8 @@
       "no_wallpapers_found": "壁紙が見つかりませんでした",
       "videos": "動画",
       "history": "最近適用した壁紙",
-      "favorites": "お気に入り"
+      "favorites": "お気に入り",
+      "recently_added": "最近追加した壁紙"
     },
     "filters": {
       "all": "すべて",
@@ -1001,7 +1002,7 @@
       "warning_command": {
         "title": "警告コマンド",
         "desc": "アクションの前に実行するオフセットとコマンド",
-        "placeholder": "例: notify-send 'warning'"
+        "placeholder": "例: serpantinum-core notify 'warning'"
       },
       "before_command": {
         "title": "直前コマンド",
@@ -1011,7 +1012,7 @@
       "resume_command": {
         "title": "復帰時コマンド",
         "desc": "ユーザーのアクティビティが再開されたときに実行されます",
-        "placeholder": "例: notify-send 'resumed'"
+        "placeholder": "例: serpantinum-core notify 'resumed'"
       },
       "dim": {
         "title": "画面の減光",
@@ -1198,7 +1199,7 @@
     },
     "bar": {
       "modules": {
-        "vis": "ビジュアライザー (cava)",
+        "vis": "ビジュアライザー",
         "actions": "アクション",
         "workspaces": {
           "style": {
@@ -1544,6 +1545,10 @@
           "swipe": {
             "name": "スワイプ",
             "desc": "端または角から画面を横切ります"
+          },
+          "paint": {
+            "name": "ペイント",
+            "desc": "画面に広がるコロニーから新しい壁紙をセルごとに描き込みます"
           },
           "orientation": {
             "title": "向き",
