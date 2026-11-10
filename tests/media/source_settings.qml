@@ -12,6 +12,7 @@ Window {
     visible: true
     property string role: Quickshell.env("MEDIA_TEST_ROLE")
     property int step: 0
+    property int localeStep: 0
     QtObject {
         id: context
         property bool visible: true
@@ -40,6 +41,43 @@ Window {
     function verify(value, message) {
         if (!value) throw new Error(message);
     }
+    function findRow(item, id) {
+        if (item.settingId === id) return item;
+        for (let child of item.children || []) {
+            let row = findRow(child, id);
+            if (row) return row;
+        }
+        return null;
+    }
+    function checkTranslations() {
+        if (!S.I18n.isReady) return false;
+        verify(S.I18n.i18nDir === Quickshell.env("SERPANTINUM_DIR") + "/assets/languages",
+            "Settings uses the shell asset directory");
+        if (localeStep === 0) {
+            S.I18n.currentLang = "ru";
+            localeStep = 1;
+            return false;
+        }
+        if (localeStep === 1 && !S.I18n.resolveKey("ru", "guide.bar.media.source.title")) return false;
+        for (let pair of [["source", "media_music_source"], ["hide_idle", "media_hide_when_idle"],
+                          ["hide_lyrics", "media_hide_unavailable_lyrics"]]) {
+            let row = findRow(card, pair[1]);
+            verify(row !== null, "native settings row exists");
+            for (let field of ["title", "desc"]) {
+                let key = "guide.bar.media." + pair[0] + "." + field;
+                let text = S.I18n.resolveKey(localeStep === 1 ? "ru" : "en", key);
+                verify(!!text && text !== key, "translated " + key);
+                verify(row[field === "title" ? "title" : "description"] === text,
+                    "native control displays " + key);
+            }
+        }
+        if (localeStep === 1) {
+            S.I18n.currentLang = "en";
+            localeStep = 2;
+            return false;
+        }
+        return true;
+    }
     Process {
         id: closePlayer
         command: ["dbus-send", "--session", "--print-reply", "--dest=org.serpantinum.MediaTest",
@@ -51,6 +89,7 @@ Window {
         running: S.Config.dataReady
         onTriggered: {
             try {
+                if (!test.checkTranslations()) return;
                 let dropdown = test.find(card);
                 test.verify(dropdown !== null, "native source dropdown exists");
                 let index = card.musicSources.indexOf("desktop:brave");

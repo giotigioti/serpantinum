@@ -30,7 +30,8 @@ that require a live Wayland session, without instantiating their windows.
   playback controls, paused instances, metadata updates and reconnection.
 - `source_settings.qml` / `source_settings.py`: native Settings controls,
   updates in a second process, unavailable labels and restoration in a fresh
-  process. Only the runner's temporary settings file is used.
+  process. Checks English/Russian row titles and descriptions against the same
+  asset directory used by the shell. Only temporary settings are used.
 - `components.qml`: bar Media visibility, fade and layout animation reversal,
   preview immunity, disabled input, retained lyrics subscriptions and QML
   component imports.

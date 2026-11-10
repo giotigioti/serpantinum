@@ -5,7 +5,7 @@ import Quickshell
 // their objects/windows or activate popup audio integrations.
 ShellRoot {
     Component.onCompleted: Qt.callLater(function() {
-        let paths = ["media/MusicPopup.qml", "widgets/Widget.qml",
+        let paths = ["SettingsApp.qml", "media/MusicPopup.qml", "widgets/Widget.qml",
             "widgets/faces/music/MusicFaceLyrics.qml", "guide/bar/modules/BarMediaCard.qml"];
         let failed = false;
         for (let path of paths) {
