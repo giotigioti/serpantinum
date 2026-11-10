@@ -189,7 +189,7 @@ get_data() {
             ;;
     esac
 
-    forecast_url="https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&timezone=${tz}&current=temperature_2m,weather_code,is_day&hourly=temperature_2m,apparent_temperature,precipitation_probability,weather_code,relative_humidity_2m,wind_speed_10m,precipitation,snowfall,visibility,wind_gusts_10m,uv_index&past_days=1${OM_TEMP_UNIT}${OM_WIND_UNIT}"
+    forecast_url="https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&timezone=${tz}&current=temperature_2m,weather_code,is_day&hourly=temperature_2m,apparent_temperature,precipitation_probability,weather_code,relative_humidity_2m,wind_speed_10m,precipitation,snowfall,visibility,wind_gusts_10m,uv_index&daily=sunrise,sunset&past_days=1${OM_TEMP_UNIT}${OM_WIND_UNIT}"
     log_debug "Constructed Open-Meteo Target URL: $forecast_url"
 
     if [[ "$VERBOSE" == "true" ]]; then
@@ -278,6 +278,10 @@ process_forecast() {
           ([$day_hours[].temp] | min) as $min_t |
           ([$day_hours[].feels_like] | max) as $feels_t |
           ([$day_hours[].pop] | max) as $pop_max |
+          ($day_hours[0].time_raw | split("T")[0]) as $day_key |
+          (($root.daily.time // []) | index($day_key)) as $d_idx |
+          (if $d_idx == null then null else ($root.daily.sunrise[$d_idx] // null) end) as $sunrise_raw |
+          (if $d_idx == null then null else ($root.daily.sunset[$d_idx] // null) end) as $sunset_raw |
           ([$day_hours[].wind] | max | round) as $wind_max |
           (([$day_hours[].humidity] | add / length) | round) as $humidity_avg |
           
@@ -293,9 +297,12 @@ process_forecast() {
             wmo_map(.code; $slot_day) as $s_map |
             {
               time: $t_str,
+              pop: (.pop // 0),
               temp: fmt_t(.temp),
               icon: $s_map.icon,
-              hex: $s_map.hex
+              hex: $s_map.hex,
+              code: .code,
+              is_day: $slot_day
             }
           ] as $hourly_slots |
 
@@ -310,8 +317,11 @@ process_forecast() {
             wind: ($wind_max | tostring),
             humidity: ($humidity_avg | tostring),
             pop: ($pop_max | tostring),
+            sunrise: ($sunrise_raw | if . == null then null else split("T")[1] end),
+            sunset: ($sunset_raw | if . == null then null else split("T")[1] end),
             icon: $d_map.icon,
             hex: $d_map.hex,
+            code: $d_code,
             desc: $d_map.desc,
             hourly: $hourly_slots
           }
@@ -330,6 +340,8 @@ process_forecast() {
         current_temp_formatted: (fmt_t($root.current.temperature_2m) + $unit_sym),
         current_icon: $c_map.icon,
         current_hex: $c_map.hex,
+        current_code: $c_code,
+        current_is_day: $c_day,
         forecast: $forecast
       }
     '
