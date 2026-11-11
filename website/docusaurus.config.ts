@@ -30,7 +30,7 @@ const config: Config = {
   scripts: [
     {
       src: 'https://static.cloudflareinsights.com/beacon.min.js',
-      type: 'module',
+      defer: true,
       'data-cf-beacon': JSON.stringify({token: CF_BEACON_TOKEN, spa: true}),
     },
   ],
@@ -120,6 +120,20 @@ const config: Config = {
           position: 'right',
           className: 'navbar-github-link',
           'aria-label': 'GitHub repository',
+        },
+        {
+          href: 'https://www.reddit.com/r/serpantinum',
+          label: 'Reddit',
+          position: 'right',
+          className: 'navbar-reddit-link',
+          'aria-label': 'Reddit community',
+        },
+        {
+          href: 'https://t.me/serpantinum_git',
+          label: 'Telegram',
+          position: 'right',
+          className: 'navbar-telegram-link',
+          'aria-label': 'Telegram channel',
         },
         {
           href: 'https://ko-fi.com/ilyamiro',
