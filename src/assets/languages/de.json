@@ -719,6 +719,31 @@
             "name": "Malen",
             "desc": "Male das neue Hintergrundbild Zelle für Zelle aus Kolonien, die über den Bildschirm wachsen"
           },
+          "wave": {
+            "name": "Flüssige Welle",
+            "desc": "Wischt mit einer geschwungenen Flüssigkeitswelle über den Bildschirm",
+            "direction_desc": "Kante oder Ecke, von der die Welle ausgeht"
+          },
+          "blinds": {
+            "name": "Jalousie",
+            "desc": "Öffnet parallele Lamellen versetzt wie eine Welle über den Bildschirm",
+            "orientation_desc": "Achse, entlang der sich die Jalousie öffnet"
+          },
+          "clock": {
+            "name": "Uhrzeiger-Wisch",
+            "desc": "Streicht wie ein Radarstrahl im Uhrzeigersinn um einen Punkt",
+            "origin_desc": "Drehpunkt der Wischbewegung"
+          },
+          "hex": {
+            "name": "Sechseckraster",
+            "desc": "Enthüllt das neue Hintergrundbild über eine wogende Wabenstruktur",
+            "size_title": "Sechseckgröße",
+            "size_desc": "Größe jeder Sechseckkachel im Raster"
+          },
+          "ink": {
+            "name": "Tintenverlauf",
+            "desc": "Breitet sich organisch wie Aquarelltinte über den Bildschirm aus"
+          },
           "orientation": {
             "title": "Ausrichtung",
             "desc": "Achse, entlang der sich der Übergang öffnet",
