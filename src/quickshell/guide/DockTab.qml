@@ -31,6 +31,7 @@ GuideTab {
         "visibleElements": 7,
         "hoverScale": 120,
         "cascadeScale": false,
+        "iconsOnly": false,
         "focusRunning": true,
         "showRunningIndicators": true,
         "showRunningApps": true,
@@ -56,6 +57,7 @@ GuideTab {
     property bool currentOverrideBoundsCorrection: dockSettings && dockSettings.overrideBoundsCorrection !== undefined ? dockSettings.overrideBoundsCorrection : false
     property int currentHoverScale: (dockSettings && dockSettings.hoverScale !== undefined && !isNaN(parseInt(dockSettings.hoverScale))) ? parseInt(dockSettings.hoverScale) : 120
     property bool currentCascadeScale: dockSettings && dockSettings.cascadeScale !== undefined ? Boolean(dockSettings.cascadeScale) : false
+    property bool currentIconsOnly: dockSettings && dockSettings.iconsOnly !== undefined ? Boolean(dockSettings.iconsOnly) : false
     property bool currentEnableScrolling: dockSettings && dockSettings.enableScrolling !== undefined ? dockSettings.enableScrolling : false
     property int currentVisibleElements: (dockSettings && dockSettings.visibleElements !== undefined && !isNaN(parseInt(dockSettings.visibleElements)) && parseInt(dockSettings.visibleElements) > 0) ? parseInt(dockSettings.visibleElements) : 7
     property bool currentSmartAutohide: dockSettings && dockSettings.smartAutohide !== undefined ? dockSettings.smartAutohide : true
@@ -83,6 +85,7 @@ GuideTab {
         dockTabRoot.currentOverrideBoundsCorrection = s.overrideBoundsCorrection !== undefined ? s.overrideBoundsCorrection : false;
         dockTabRoot.currentHoverScale = (s.hoverScale !== undefined && !isNaN(parseInt(s.hoverScale))) ? parseInt(s.hoverScale) : 120;
         dockTabRoot.currentCascadeScale = s.cascadeScale !== undefined ? Boolean(s.cascadeScale) : false;
+        dockTabRoot.currentIconsOnly = s.iconsOnly !== undefined ? Boolean(s.iconsOnly) : false;
         dockTabRoot.currentEnableScrolling = s.enableScrolling !== undefined ? s.enableScrolling : false;
         dockTabRoot.currentVisibleElements = (s.visibleElements !== undefined && !isNaN(parseInt(s.visibleElements)) && parseInt(dockSettings.visibleElements) > 0) ? parseInt(s.visibleElements) : 7;
         dockTabRoot.currentSmartAutohide = s.smartAutohide !== undefined ? s.smartAutohide : true;
@@ -152,33 +155,9 @@ GuideTab {
         }
     }
 
-    Flickable {
+    GuideScrollView {
         id: mainFlickable
-        anchors.fill: parent
-        anchors.topMargin: rootObj.s(8)
-        anchors.leftMargin: rootObj.s(8)
-        anchors.rightMargin: rootObj.s(8)
-        anchors.bottomMargin: rootObj.s(8)
-        contentHeight: settingsCol.implicitHeight + rootObj.s(16)
-        contentWidth: width
-        clip: true
-        boundsBehavior: Flickable.StopAtBounds
-
-        ScrollBar.vertical: ScrollBar {
-            active: parent.moving || parent.movingVertically
-            width: rootObj.s(4)
-            policy: ScrollBar.AsNeeded
-            contentItem: Rectangle {
-                implicitWidth: rootObj.s(4)
-                radius: rootObj.s(2)
-                color: ThemeBackend.surface2
-            }
-        }
-
-        ColumnLayout {
-            id: settingsCol
-            width: parent.width - (parent.contentHeight > parent.height ? rootObj.s(6) : 0)
-            spacing: rootObj.s(6)
+        rootObj: dockTabRoot.rootObj
 
             SettingsRow {
                 settingId: "dock_enabled"
@@ -186,6 +165,7 @@ GuideTab {
                 icon: "󰅀"
                 title: I18n.t("guide.dock.enabled.title", "Enable dock")
                 description: I18n.t("guide.dock.enabled.desc", "Enable floating application dock")
+                searchKeywords: "dock enable toggle show taskbar panel launcher apps"
 
                 Toggle {
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
@@ -571,6 +551,7 @@ GuideTab {
                         icon: "󰍹"
                         title: I18n.t("guide.dock.position.title", "Dock position")
                         description: I18n.t("guide.dock.position.desc", "Select the screen edge to anchor the dock")
+                        searchKeywords: "dock position edge side bottom top left right anchor placement"
                         revealWhenClosed: !dockTabRoot.currentEnabled
 
                         Dropdown {
@@ -621,6 +602,7 @@ GuideTab {
                         icon: "󰹤"
                         title: I18n.t("guide.dock.on_top.title", "Place dock on top of windows")
                         description: I18n.t("guide.dock.on_top.desc", "Keep the dock visible above application windows")
+                        searchKeywords: "dock top above overlay layer windows z-index"
                         revealWhenClosed: !dockTabRoot.currentEnabled
 
                         Toggle {
@@ -649,6 +631,7 @@ GuideTab {
                         icon: "󰉈"
                         title: I18n.t("guide.dock.floating.title", "Floating dock")
                         description: I18n.t("guide.dock.floating.desc", "Detach dock from screen edge with rounded corners")
+                        searchKeywords: "dock floating margin gap detached rounded pill"
                         revealWhenClosed: !dockTabRoot.currentEnabled
 
                         Toggle {
@@ -677,6 +660,7 @@ GuideTab {
                         icon: "󰂵"
                         title: I18n.t("guide.dock.background.title", "Draw a background behind apps")
                         description: I18n.t("guide.dock.background.desc", "Show the dock panel behind app icons")
+                        searchKeywords: "dock background panel backdrop transparent surface"
                         revealWhenClosed: !dockTabRoot.currentEnabled
 
                         Toggle {
@@ -695,6 +679,35 @@ GuideTab {
                 }
 
                 CollapsibleSection {
+                    open: dockTabRoot.currentEnabled || iconsOnlyRow.tempVisible
+                    row: iconsOnlyRow
+
+                    RevealableSettingsRow {
+                        id: iconsOnlyRow
+                        settingId: "dock_icons_only"
+                        rootObj: dockTabRoot.rootObj
+                        icon: "󰀻"
+                        title: I18n.t("guide.dock.icons_only.title", "Icons only")
+                        description: I18n.t("guide.dock.icons_only.desc", "Hide the box behind each app and show only its icon")
+                        searchKeywords: "dock icons only minimal transparent tiles boxes"
+                        revealWhenClosed: !dockTabRoot.currentEnabled
+
+                        Toggle {
+                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                            checked: dockTabRoot.currentIconsOnly
+                            accentColor: ThemeBackend.mauve
+                            baseColor: ThemeBackend.surface1
+                            handleColor: ThemeBackend.crust
+                            handleOffColor: ThemeBackend.text
+                            onToggled: function(val) {
+                                dockTabRoot.currentIconsOnly = val;
+                                dockTabRoot.updateDockSetting("iconsOnly", val);
+                            }
+                        }
+                    }
+                }
+
+                CollapsibleSection {
                     open: dockTabRoot.currentEnabled || exclusiveRow.tempVisible
                     row: exclusiveRow
 
@@ -705,6 +718,7 @@ GuideTab {
                         icon: "󰖲"
                         title: I18n.t("guide.dock.exclusive.title", "Exclusive mode")
                         description: I18n.t("guide.dock.exclusive.desc", "Prevent windows from taking space occupied by the dock")
+                        searchKeywords: "dock exclusive zone reserve space overlap tiling windows"
                         revealWhenClosed: !dockTabRoot.currentEnabled
 
                         Toggle {
@@ -738,6 +752,7 @@ GuideTab {
                             icon: "󰘖"
                             title: I18n.t("guide.dock.size.title", "Element size")
                             description: I18n.t("guide.dock.size.desc", "Dimensions of individual app buttons in pixels")
+                            searchKeywords: "dock icon size height width pixels scale buttons"
                             revealWhenClosed: !dockTabRoot.currentEnabled
 
                             Draggable {
@@ -784,6 +799,7 @@ GuideTab {
                             icon: "󰜤"
                             title: I18n.t("guide.dock.override_bounds.title", "Override out-of-screen-bounds size correction")
                             description: I18n.t("guide.dock.override_bounds.desc", "Keep custom element size even if dock exceeds screen limits")
+                            searchKeywords: "dock bounds overflow size clamp shrink limit"
                             revealWhenClosed: !dockTabRoot.currentEnabled
 
                             Toggle {
@@ -811,6 +827,7 @@ GuideTab {
                             anchors.left: parent.left
                             anchors.right: parent.right
                             settingId: "dock_scrolling"
+                            searchKeywords: "dock scroll wheel touchpad pagination overflow items"
                             rootObj: dockTabRoot.rootObj
                             icon: "󰍽"
                             title: I18n.t("guide.dock.scrolling.title", "Enable element scrolling")
@@ -820,18 +837,10 @@ GuideTab {
 
                             property bool tempVisible: false
 
-                            function checkHighlight() {
-                                let r = effectiveRootObj;
-                                if (!r) return;
-                                if (r.highlightToken === handledHighlightToken) return;
-                                if (r.highlightedSettingId && (r.highlightedSettingId === effectiveSettingId || r.highlightedSettingId === settingId)) {
-                                    handledHighlightToken = r.highlightToken;
-                                    r.highlightedSettingId = "";
-                                    if (!dockTabRoot.currentEnabled) {
-                                        tempVisible = true;
-                                        scrollingCollapseTimer.restart();
-                                    }
-                                    highlightDelayTimer.restart();
+                            onHighlighted: {
+                                if (!dockTabRoot.currentEnabled) {
+                                    tempVisible = true;
+                                    scrollingCollapseTimer.restart();
                                 }
                             }
 
@@ -859,6 +868,7 @@ GuideTab {
                                 RevealableSettingsRow {
                                     id: visibleElementsRow
                                     settingId: "dock_visible_elements"
+                                    searchKeywords: "dock visible items count limit scroll max icons"
                                     rootObj: dockTabRoot.rootObj
                                     icon: "󰅫"
                                     title: I18n.t("guide.dock.visible_elements.title", "Visible elements")
@@ -913,6 +923,7 @@ GuideTab {
                         RevealableSettingsRow {
                             id: hoverScaleRow
                             settingId: "dock_hover_scale"
+                            searchKeywords: "dock hover zoom magnification macos bounce grow scale"
                             rootObj: dockTabRoot.rootObj
                             icon: "󰍔"
                             title: I18n.t("guide.dock.hover_scale.title", "Hover scale effect")
@@ -959,6 +970,7 @@ GuideTab {
                         RevealableSettingsRow {
                             id: cascadeScaleRow
                             settingId: "dock_cascade_scale"
+                            searchKeywords: "dock cascade wave neighbors magnification hover zoom macos"
                             rootObj: dockTabRoot.rootObj
                             icon: "󰘚"
                             title: I18n.t("guide.dock.cascade_scale.title", "Scale nearest elements")
@@ -996,6 +1008,7 @@ GuideTab {
                             anchors.left: parent.left
                             anchors.right: parent.right
                             settingId: "dock_autohide"
+                            searchKeywords: "dock autohide auto hide intellihide edge hover conceal"
                             rootObj: dockTabRoot.rootObj
                             icon: "󰘓"
                             title: I18n.t("guide.dock.autohide.title", "Auto-hide")
@@ -1005,18 +1018,10 @@ GuideTab {
 
                             property bool tempVisible: false
 
-                            function checkHighlight() {
-                                let r = effectiveRootObj;
-                                if (!r) return;
-                                if (r.highlightToken === handledHighlightToken) return;
-                                if (r.highlightedSettingId && (r.highlightedSettingId === effectiveSettingId || r.highlightedSettingId === settingId)) {
-                                    handledHighlightToken = r.highlightToken;
-                                    r.highlightedSettingId = "";
-                                    if (!dockTabRoot.currentEnabled) {
-                                        tempVisible = true;
-                                        autohideCollapseTimer.restart();
-                                    }
-                                    highlightDelayTimer.restart();
+                            onHighlighted: {
+                                if (!dockTabRoot.currentEnabled) {
+                                    tempVisible = true;
+                                    autohideCollapseTimer.restart();
                                 }
                             }
 
@@ -1044,6 +1049,7 @@ GuideTab {
                                 RevealableSettingsRow {
                                     id: autohideTimeoutRow
                                     settingId: "dock_autohide_delay"
+                                    searchKeywords: "dock autohide timeout delay ms duration hide"
                                     rootObj: dockTabRoot.rootObj
                                     icon: "󰔛"
                                     title: I18n.t("guide.dock.timeout.title", "Auto-hide delay")
@@ -1094,6 +1100,7 @@ GuideTab {
                         RevealableSettingsRow {
                             id: smartAutohideRow
                             settingId: "dock_smart_autohide"
+                            searchKeywords: "dock smart autohide intellihide dodge windows desktop"
                             rootObj: dockTabRoot.rootObj
                             icon: "󱂬"
                             title: I18n.t("guide.dock.smart_autohide.title", "Smart auto-hide")
@@ -1131,6 +1138,7 @@ GuideTab {
                             anchors.left: parent.left
                             anchors.right: parent.right
                             settingId: "dock_focus_running"
+                            searchKeywords: "dock focus raise switch existing running window click activate"
                             rootObj: dockTabRoot.rootObj
                             icon: "󱂬"
                             title: I18n.t("guide.dock.focus_running.title", "Focus existing window")
@@ -1163,6 +1171,7 @@ GuideTab {
                             anchors.left: parent.left
                             anchors.right: parent.right
                             settingId: "dock_show_running_indicators"
+                            searchKeywords: "dock running indicators dots pills open apps active"
                             rootObj: dockTabRoot.rootObj
                             icon: "󰄯"
                             title: I18n.t("guide.dock.show_running_indicators.title", "Running indicators")
@@ -1195,6 +1204,7 @@ GuideTab {
                             anchors.left: parent.left
                             anchors.right: parent.right
                             settingId: "dock_show_running_apps"
+                            searchKeywords: "dock running open unpinned apps taskbar windows"
                             rootObj: dockTabRoot.rootObj
                             icon: "󰘓"
                             title: I18n.t("guide.dock.show_running_apps.title", "Show open applications")
@@ -1227,6 +1237,7 @@ GuideTab {
                             anchors.left: parent.left
                             anchors.right: parent.right
                             settingId: "dock_running_scope"
+                            searchKeywords: "dock scope filter monitor workspace output active windows"
                             rootObj: dockTabRoot.rootObj
                             icon: "󰍹"
                             title: I18n.t("guide.dock.running_scope.title", "Active window scope")
@@ -1274,4 +1285,3 @@ GuideTab {
             }
         }
     }
-}

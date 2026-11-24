@@ -115,6 +115,23 @@
         "title": "오른쪽 클릭으로 닫기",
         "desc": "마우스 오른쪽 클릭으로 알림을 닫습니다"
       },
+      "timeout_low": {
+        "title": "낮은 긴급도 시간 제한",
+        "desc": "낮은 긴급도 알림이 화면에 표시되는 시간"
+      },
+      "timeout_normal": {
+        "title": "일반 시간 제한",
+        "desc": "일반 알림이 화면에 표시되는 시간"
+      },
+      "timeout_critical": {
+        "title": "긴급 시간 제한",
+        "desc": "긴급 알림이 화면에 표시되는 시간"
+      },
+      "override_timeouts": {
+        "title": "앱 시간 제한 무시",
+        "desc": "기본적으로 위의 값은 앱이 자체 시간 제한을 지정하지 않을 때만 사용됩니다. 켜면 항상 사용합니다"
+      },
+      "timeout_never": "사용 안 함",
       "test": "알림 테스트",
       "test_desc": "이것은 테스트 알림입니다"
     },
@@ -401,6 +418,10 @@
         "bottom": "아래",
         "left": "왼쪽",
         "right": "오른쪽"
+      },
+      "monitors": {
+        "title": "모니터",
+        "desc": "바를 표시할 모니터 선택"
       },
       "width": {
         "title": "바 너비",
@@ -998,6 +1019,9 @@
       "orientation": {
         "horizontal": "가로",
         "vertical": "세로"
+      },
+      "keyboard_layout": {
+        "title": "키보드 레이아웃 전환 시 표시"
       }
     },
     "common": {
@@ -1835,7 +1859,8 @@
       "lumen": "루멘",
       "lyrics": "가사",
       "simpleLyrics": "단순 가사",
-      "circle": "원"
+      "circle": "원",
+      "graph": "그래프"
     },
     "presets": {
       "minimal": {
@@ -1872,7 +1897,9 @@
       "hideText": "텍스트 숨기기",
       "lineThickness": "두께",
       "usageStyle": "스타일",
-      "visualizerStyle": "비주얼라이저 스타일"
+      "visualizerStyle": "비주얼라이저 스타일",
+      "updateRate": "분당 업데이트",
+      "perMinute": "/분"
     },
     "align": {
       "left": "왼쪽",
@@ -1888,6 +1915,10 @@
     "style": {
       "circle": "원",
       "wave": "파형"
+    },
+    "usageGraph": {
+      "average": "평균",
+      "peak": "최고"
     }
   },
   "cli": {
@@ -2046,6 +2077,12 @@
       "menu_reinstall": "재설치",
       "menu_install": "설치",
       "menu_exit": "종료",
+      "menu_uninstall": "제거",
+      "uninstall_title": "Serpantinum을 제거하시겠습니까?",
+      "uninstall_removes": "셸, serpantinum-core, serpantinum-audio, serpantinum-gamma, SDDM 테마와 Serpantinum 설정, 상태, 캐시가 삭제되고, 테마가 적용된 앱, Qt, SDDM은 시스템 기본값으로 되돌아갑니다.",
+      "uninstall_keeps": "Ski, 컴포지터, 컴포지터 설정, 배경화면, 시스템 패키지는 그대로 유지됩니다.",
+      "uninstall_cancel": "아니요, 돌아가기",
+      "uninstall_confirm": "예, Serpantinum 제거",
       "error_no_compositor": "계속하려면 지원되는 컴포지터를 최소 하나 선택해야 합니다.",
       "tagline": "당신을 위해 만든 데스크톱 셸",
       "support_creator": "제작자 후원하기:",
@@ -2113,6 +2150,12 @@
       "installing": "파일 관리자 Ski 설치 중...",
       "unsupported_arch": "사전 빌드된 Ski 패키지는 x86_64에만 있어 건너뜁니다.",
       "up_to_date": "-> Ski {version}이(가) 이미 설치되어 있습니다."
+    },
+    "uninstall": {
+      "stopping": "Serpantinum과 관련 서비스를 중지하는 중...",
+      "resetting": "앱 테마를 시스템 기본값으로 되돌리는 중...",
+      "removing": "Serpantinum 파일을 삭제하는 중...",
+      "done": "Serpantinum이 제거되었습니다. 더 이상 필요하지 않다면 컴포지터 설정에서 자동 시작 줄을 삭제하세요."
     }
   },
   "datetime": {
@@ -2258,5 +2301,8 @@
   },
   "common": {
     "select": "선택..."
+  },
+  "osd": {
+    "keyboard_layout": "키보드 레이아웃"
   }
 }

@@ -94,6 +94,7 @@ The configuration file is located at `~/.config/serpantinum/settings.json` (or `
 | Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `bar.position` | `string` | `"top"` | Screen edge where the bar attaches: `"top"`, `"bottom"`, `"left"`, or `"right"`. |
+| `bar.monitors` | `array \| null` | `null` | Monitor output names on which to display the bar (e.g., `["DP-1"]`). `null` or unset displays the bar on all monitors; `[]` hides it on all monitors. |
 | `bar.width` | `number` | `100` | Bar length percentage (`10` to `100`). Values below 100 render a floating dock-style bar, or in `"fill"` style a bar that rounds down into the screen edge. |
 | `bar.opacity` | `number` | `100` | Background opacity percentage (`0` to `100`). |
 | `bar.style` | `string` | `"modular"` | Visual bar style: `"modular"`, `"fill"`, or `"solid"`. |
@@ -166,6 +167,7 @@ The configuration file is located at `~/.config/serpantinum/settings.json` (or `
 | `dock.elementSize` | `number` | `44` | Base icon size in pixels (`24` to `96`). |
 | `dock.hoverScale` | `number` | `120` | Hover zoom factor percentage (`100` to `200`). |
 | `dock.cascadeScale` | `boolean` | `false` | Applies parabolic wave magnification to neighboring icons on hover. |
+| `dock.iconsOnly` | `boolean` | `false` | Hides the box behind each app, leaving only the icon. |
 | `dock.autohide` | `boolean` | `false` | Hides the dock until hovered. |
 | `dock.smartAutohide` | `boolean` | `true` | Automatically hides the dock only when a window overlaps its area (intellihide). |
 | `dock.autohideTimeout` | `number` | `1000` | Delay in milliseconds before hiding. |
@@ -188,6 +190,7 @@ The configuration file is located at `~/.config/serpantinum/settings.json` (or `
 | `osd.showCapsLock` | `boolean` | `true` | Displays popout banner when toggling CapsLock. |
 | `osd.showNumLock` | `boolean` | `true` | Displays popout banner when toggling NumLock. |
 | `osd.showAirplane` | `boolean` | `true` | Displays popout banner when toggling Airplane mode. |
+| `osd.showKeyboardLayout` | `boolean` | `false` | Displays popout banner when switching keyboard layout. |
 | `osd.attachToBar` | `boolean` | `true` | Automatically offsets position relative to status bar when placed near the same edge. |
 
 ### Notifications
@@ -201,6 +204,10 @@ The configuration file is located at `~/.config/serpantinum/settings.json` (or `
 | `notifications.sound` | `boolean` | `true` | Plays an audio chime when notifications arrive. |
 | `notifications.soundFile` | `string` | `""` | Absolute path to custom notification sound file (`.wav` or `.ogg`). |
 | `notifications.showEmptyGraphic` | `boolean` | `true` | Displays decorative art in notification center when no notifications remain. |
+| `notifications.timeoutLow` | `number` | `5` | Seconds a low urgency popup stays on screen when the app does not request a timeout. `0` keeps it until dismissed. |
+| `notifications.timeoutNormal` | `number` | `5` | Seconds a normal urgency popup stays on screen when the app does not request a timeout. `0` keeps it until dismissed. |
+| `notifications.timeoutCritical` | `number` | `15` | Seconds a critical urgency popup stays on screen when the app does not request a timeout. `0` keeps it until dismissed. |
+| `notifications.overrideAppTimeouts` | `boolean` | `false` | Ignores the timeout requested by the app and always uses the per-urgency timeouts above. |
 
 ### Idle
 

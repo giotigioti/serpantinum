@@ -115,6 +115,23 @@
         "title": "Sağ tıkla kapat",
         "desc": "Bildirimi sağ tıklayarak kapat"
       },
+      "timeout_low": {
+        "title": "Düşük öncelik zaman aşımı",
+        "desc": "Düşük öncelikli bildirimlerin ekranda ne kadar kalacağı"
+      },
+      "timeout_normal": {
+        "title": "Normal zaman aşımı",
+        "desc": "Normal bildirimlerin ekranda ne kadar kalacağı"
+      },
+      "timeout_critical": {
+        "title": "Acil zaman aşımı",
+        "desc": "Acil bildirimlerin ekranda ne kadar kalacağı"
+      },
+      "override_timeouts": {
+        "title": "Uygulama zaman aşımlarını geçersiz kıl",
+        "desc": "Varsayılan olarak yukarıdaki değerler yalnızca uygulama kendi zaman aşımını belirtmediğinde kullanılır. Her zaman kullanmak için açın"
+      },
+      "timeout_never": "Asla",
       "test": "Test bildirimi",
       "test_desc": "Bu bir test bildirimidir"
     },
@@ -401,6 +418,10 @@
         "bottom": "Alt",
         "left": "Sol",
         "right": "Sağ"
+      },
+      "monitors": {
+        "title": "Monitörler",
+        "desc": "Çubuğun hangi monitörlerde görüntüleneceğini seçin"
       },
       "width": {
         "title": "Çubuk genişliği",
@@ -998,6 +1019,9 @@
       "orientation": {
         "horizontal": "Yatay",
         "vertical": "Dikey"
+      },
+      "keyboard_layout": {
+        "title": "Klavye düzeni değiştiğinde göster"
       }
     },
     "common": {
@@ -1835,7 +1859,8 @@
       "lumen": "Lumen",
       "lyrics": "Şarkı Sözleri",
       "simpleLyrics": "Basit Şarkı Sözleri",
-      "circle": "Daire"
+      "circle": "Daire",
+      "graph": "Grafik"
     },
     "presets": {
       "minimal": {
@@ -1872,7 +1897,9 @@
       "hideText": "Metni gizle",
       "lineThickness": "Kalınlık",
       "usageStyle": "Stil",
-      "visualizerStyle": "Görselleştirici stili"
+      "visualizerStyle": "Görselleştirici stili",
+      "updateRate": "Dakikadaki güncelleme",
+      "perMinute": "/dk"
     },
     "align": {
       "left": "Sol",
@@ -1888,6 +1915,10 @@
     "style": {
       "circle": "Daire",
       "wave": "Dalga"
+    },
+    "usageGraph": {
+      "average": "Ort.",
+      "peak": "Zirve"
     }
   },
   "cli": {
@@ -2046,6 +2077,12 @@
       "menu_reinstall": "Yeniden yükle",
       "menu_install": "Yükle",
       "menu_exit": "Çıkış",
+      "menu_uninstall": "Kaldır",
+      "uninstall_title": "Serpantinum'u kaldırmak istediğinizden emin misiniz?",
+      "uninstall_removes": "Bu işlem kabuğu, serpantinum-core, serpantinum-audio, serpantinum-gamma, SDDM temasını ve Serpantinum ayarlarını, durumunu ve önbelleğini kaldırır; temalı uygulamalar, Qt ve SDDM sistem varsayılanlarına döndürülür.",
+      "uninstall_keeps": "Ski, bileşikleyiciler, yapılandırmaları, duvar kâğıtları ve sistem paketlerine dokunulmaz.",
+      "uninstall_cancel": "Hayır, geri dön",
+      "uninstall_confirm": "Evet, Serpantinum'u kaldır",
       "error_no_compositor": "Devam etmeden önce desteklenen en az bir birleştirici seçmelisiniz.",
       "tagline": "Sizin için oluşturulmuş bir masaüstü kabuğu",
       "support_creator": "Geliştiriciyi destekleyin:",
@@ -2113,6 +2150,12 @@
       "installing": "Ski dosya yöneticisi kuruluyor...",
       "unsupported_arch": "Hazır Ski paketleri yalnızca x86_64 için mevcut, atlanıyor.",
       "up_to_date": "-> Ski {version} zaten kurulu."
+    },
+    "uninstall": {
+      "stopping": "Serpantinum ve hizmetleri durduruluyor...",
+      "resetting": "Uygulama temaları sistem varsayılanlarına sıfırlanıyor...",
+      "removing": "Serpantinum dosyaları kaldırılıyor...",
+      "done": "Serpantinum kaldırıldı. Artık gerekmiyorsa otomatik başlatma satırını bileşikleyici yapılandırmanızdan silin."
     }
   },
   "datetime": {
@@ -2258,5 +2301,8 @@
   },
   "common": {
     "select": "Seç..."
+  },
+  "osd": {
+    "keyboard_layout": "Klavye düzeni"
   }
 }

@@ -38,6 +38,7 @@ let
 
   barSubmodule = freeform {
     position = mkOpt (types.enum [ "left" "right" "top" "bottom" ]) "Which screen edge the bar docks to.";
+    monitors = mkOpt (types.listOf types.str) "Monitor output names on which to display the bar. Null or unset shows the bar on all monitors; an empty list hides it on all monitors.";
     width = mkOpt types.ints.positive "Bar thickness in pixels or percentage.";
     opacity = mkOpt (types.ints.between 0 100) "Bar background opacity, 0-100.";
     style = mkOpt (types.enum [ "solid" "fill" "modular" ]) "Bar visual style.";
@@ -115,6 +116,7 @@ let
     visibleElements = mkOpt types.ints.positive "Number of visible dock elements when scrolling is enabled.";
     hoverScale = mkOpt types.ints.positive "Hover magnification percentage (e.g. 120).";
     cascadeScale = mkOpt types.bool "Cascading magnification on neighboring icons.";
+    iconsOnly = mkOpt types.bool "Hide the box behind each app, leaving only the icon.";
     focusRunning = mkOpt types.bool "Clicking a running application focuses its existing window.";
     showRunningIndicators = mkOpt types.bool "Show indicator dots beneath running applications.";
     showRunningApps = mkOpt types.bool "Automatically add unpinned running applications to the dock.";
@@ -136,6 +138,7 @@ let
     showCapsLock = mkOpt types.bool "Show OSD notification on Caps Lock toggle.";
     showNumLock = mkOpt types.bool "Show OSD notification on Num Lock toggle.";
     showAirplane = mkOpt types.bool "Show OSD notification on Airplane mode toggle.";
+    showKeyboardLayout = mkOpt types.bool "Show OSD notification on keyboard layout switch.";
     attachToBar = mkOpt types.bool "Snap OSD popups to the status bar in solid or fill mode.";
   };
 
@@ -201,6 +204,10 @@ let
     sound = mkOpt types.bool "Play a sound on incoming notifications.";
     soundFile = mkOpt types.str "Path to the notification sound file.";
     showEmptyGraphic = mkOpt types.bool "Show empty illustration graphic when notification history is clear.";
+    timeoutLow = mkOpt types.ints.unsigned "Seconds low urgency popups stay on screen (0 = never expire).";
+    timeoutNormal = mkOpt types.ints.unsigned "Seconds normal urgency popups stay on screen (0 = never expire).";
+    timeoutCritical = mkOpt types.ints.unsigned "Seconds critical urgency popups stay on screen (0 = never expire).";
+    overrideAppTimeouts = mkOpt types.bool "Ignore timeouts requested by apps and always use the configured per-urgency timeouts.";
   };
 
   monitorSubmodule = freeform {

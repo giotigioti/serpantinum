@@ -115,6 +115,23 @@
         "title": "按右鍵關閉",
         "desc": "按滑鼠右鍵即可關閉通知"
       },
+      "timeout_low": {
+        "title": "低優先級逾時",
+        "desc": "低優先級通知在螢幕上停留的時間"
+      },
+      "timeout_normal": {
+        "title": "一般逾時",
+        "desc": "一般通知在螢幕上停留的時間"
+      },
+      "timeout_critical": {
+        "title": "緊急逾時",
+        "desc": "緊急通知在螢幕上停留的時間"
+      },
+      "override_timeouts": {
+        "title": "覆寫應用程式逾時",
+        "desc": "預設情況下，僅在應用程式未設定自己的逾時時才使用上方的值。開啟後將一律使用這些值"
+      },
+      "timeout_never": "永不",
       "test": "測試通知",
       "test_desc": "這是一則測試通知"
     },
@@ -401,6 +418,10 @@
         "bottom": "底部",
         "left": "左側",
         "right": "右側"
+      },
+      "monitors": {
+        "title": "顯示器",
+        "desc": "選擇要顯示狀態列的顯示器"
       },
       "width": {
         "title": "狀態列寬度",
@@ -998,6 +1019,9 @@
       "orientation": {
         "horizontal": "水平",
         "vertical": "垂直"
+      },
+      "keyboard_layout": {
+        "title": "切換鍵盤配置時顯示"
       }
     },
     "common": {
@@ -1835,7 +1859,8 @@
       "lumen": "Lumen",
       "lyrics": "歌詞",
       "simpleLyrics": "簡約歌詞",
-      "circle": "圓形"
+      "circle": "圓形",
+      "graph": "圖表"
     },
     "presets": {
       "minimal": {
@@ -1872,7 +1897,9 @@
       "hideText": "隱藏文字",
       "lineThickness": "粗細",
       "usageStyle": "樣式",
-      "visualizerStyle": "視覺化器樣式"
+      "visualizerStyle": "視覺化器樣式",
+      "updateRate": "每分鐘更新次數",
+      "perMinute": "/分"
     },
     "align": {
       "left": "靠左",
@@ -1888,6 +1915,10 @@
     "style": {
       "circle": "圓形",
       "wave": "波形"
+    },
+    "usageGraph": {
+      "average": "平均",
+      "peak": "峰值"
     }
   },
   "cli": {
@@ -2046,6 +2077,12 @@
       "menu_reinstall": "重新安裝",
       "menu_install": "安裝",
       "menu_exit": "結束",
+      "menu_uninstall": "解除安裝",
+      "uninstall_title": "確定要解除安裝 Serpantinum 嗎？",
+      "uninstall_removes": "這將移除 Shell、serpantinum-core, serpantinum-audio, serpantinum-gamma、SDDM 主題以及 Serpantinum 的設定、狀態和快取，並將已套用主題的應用程式、Qt 和 SDDM 還原為系統預設外觀。",
+      "uninstall_keeps": "Ski、合成器及其設定、桌布和系統套件將保持不變。",
+      "uninstall_cancel": "不，返回",
+      "uninstall_confirm": "是，解除安裝 Serpantinum",
       "error_no_compositor": "在繼續之前，您必須至少選擇一個支援的合成器。",
       "tagline": "為您量身打造的桌面 Shell",
       "support_creator": "贊助創作者：",
@@ -2113,6 +2150,12 @@
       "installing": "正在安裝檔案管理員 Ski...",
       "unsupported_arch": "預先編譯的 Ski 套件僅提供 x86_64 版本，已略過。",
       "up_to_date": "-> Ski {version} 已安裝。"
+    },
+    "uninstall": {
+      "stopping": "正在停止 Serpantinum 及其服務...",
+      "resetting": "正在將應用程式主題還原為系統預設...",
+      "removing": "正在移除 Serpantinum 檔案...",
+      "done": "Serpantinum 已解除安裝。如果不再需要，請從合成器設定中移除其自動啟動行。"
     }
   },
   "datetime": {
@@ -2258,5 +2301,8 @@
   },
   "common": {
     "select": "選取..."
+  },
+  "osd": {
+    "keyboard_layout": "鍵盤配置"
   }
 }

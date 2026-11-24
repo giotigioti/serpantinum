@@ -115,6 +115,23 @@
         "title": "Cerrar con clic derecho",
         "desc": "Descartar una notificación con clic derecho"
       },
+      "timeout_low": {
+        "title": "Tiempo para urgencia baja",
+        "desc": "Cuánto tiempo permanecen en pantalla las notificaciones de urgencia baja"
+      },
+      "timeout_normal": {
+        "title": "Tiempo normal",
+        "desc": "Cuánto tiempo permanecen en pantalla las notificaciones normales"
+      },
+      "timeout_critical": {
+        "title": "Tiempo para urgentes",
+        "desc": "Cuánto tiempo permanecen en pantalla las notificaciones urgentes"
+      },
+      "override_timeouts": {
+        "title": "Anular tiempos de las aplicaciones",
+        "desc": "De forma predeterminada, los valores de arriba solo se usan cuando la aplicación no define su propio tiempo. Actívalo para usarlos siempre"
+      },
+      "timeout_never": "Nunca",
       "test": "Probar notificación",
       "test_desc": "Esta es una notificación de prueba"
     },
@@ -401,6 +418,10 @@
         "bottom": "Abajo",
         "left": "Izquierda",
         "right": "Derecha"
+      },
+      "monitors": {
+        "title": "Monitores",
+        "desc": "Selecciona en qué monitores se muestra la barra"
       },
       "width": {
         "title": "Ancho de la barra",
@@ -999,6 +1020,9 @@
       "orientation": {
         "horizontal": "Horizontal",
         "vertical": "Vertical"
+      },
+      "keyboard_layout": {
+        "title": "Mostrar al cambiar la distribución"
       }
     },
     "common": {
@@ -1836,7 +1860,8 @@
       "lumen": "Lumen",
       "lyrics": "Letra",
       "simpleLyrics": "Letra simple",
-      "circle": "Círculo"
+      "circle": "Círculo",
+      "graph": "Gráfico"
     },
     "presets": {
       "minimal": {
@@ -1873,7 +1898,9 @@
       "hideText": "Ocultar texto",
       "lineThickness": "Grosor",
       "usageStyle": "Estilo",
-      "visualizerStyle": "Estilo del visualizador"
+      "visualizerStyle": "Estilo del visualizador",
+      "updateRate": "Actualizaciones por minuto",
+      "perMinute": "/min"
     },
     "align": {
       "left": "Izquierda",
@@ -1889,6 +1916,10 @@
     "style": {
       "circle": "Círculo",
       "wave": "Onda"
+    },
+    "usageGraph": {
+      "average": "Media",
+      "peak": "Pico"
     }
   },
   "cli": {
@@ -2047,6 +2078,12 @@
       "menu_reinstall": "Reinstalar",
       "menu_install": "Instalar",
       "menu_exit": "Salir",
+      "menu_uninstall": "Desinstalar",
+      "uninstall_title": "¿Seguro que quieres desinstalar Serpantinum?",
+      "uninstall_removes": "Se eliminarán el shell, serpantinum-core, serpantinum-audio, serpantinum-gamma, el tema de SDDM y la configuración, el estado y la caché de Serpantinum, y las apps tematizadas, Qt y SDDM volverán a los valores predeterminados del sistema.",
+      "uninstall_keeps": "Ski, los compositores, sus configuraciones, los fondos de pantalla y los paquetes del sistema no se tocarán.",
+      "uninstall_cancel": "No, volver",
+      "uninstall_confirm": "Sí, desinstalar Serpantinum",
       "error_no_compositor": "Debes elegir al menos un compositor compatible antes de continuar.",
       "tagline": "Un entorno de escritorio creado para ti",
       "support_creator": "Apoya al creador:",
@@ -2114,6 +2151,12 @@
       "installing": "Instalando el gestor de archivos Ski...",
       "unsupported_arch": "Los paquetes precompilados de Ski solo existen para x86_64, se omite.",
       "up_to_date": "-> Ski {version} ya está instalado."
+    },
+    "uninstall": {
+      "stopping": "Deteniendo Serpantinum y sus servicios...",
+      "resetting": "Restableciendo los temas de las apps a los valores predeterminados del sistema...",
+      "removing": "Eliminando archivos de Serpantinum...",
+      "done": "Serpantinum se ha desinstalado. Quita su línea de inicio automático de la configuración del compositor si ya no la necesitas."
     }
   },
   "datetime": {
@@ -2259,5 +2302,8 @@
   },
   "common": {
     "select": "Seleccionar..."
+  },
+  "osd": {
+    "keyboard_layout": "Distribución del teclado"
   }
 }

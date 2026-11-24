@@ -115,6 +115,23 @@
         "title": "Sağ klikləmə ilə bağla",
         "desc": "Bildirişi sağ klikləməklə bağla"
       },
+      "timeout_low": {
+        "title": "Aşağı təcililik vaxt limiti",
+        "desc": "Aşağı təcililikli bildirişlərin ekranda nə qədər qalacağı"
+      },
+      "timeout_normal": {
+        "title": "Normal vaxt limiti",
+        "desc": "Adi bildirişlərin ekranda nə qədər qalacağı"
+      },
+      "timeout_critical": {
+        "title": "Təcili vaxt limiti",
+        "desc": "Təcili bildirişlərin ekranda nə qədər qalacağı"
+      },
+      "override_timeouts": {
+        "title": "Tətbiq vaxt limitlərini əvəz et",
+        "desc": "Defolt olaraq yuxarıdakı dəyərlər yalnız tətbiq öz vaxt limitini təyin etmədikdə istifadə olunur. Həmişə istifadə etmək üçün aktivləşdirin"
+      },
+      "timeout_never": "Heç vaxt",
       "test": "Sınaq bildirişi",
       "test_desc": "Bu, sınaq bildirişidir"
     },
@@ -401,6 +418,10 @@
         "bottom": "Aşağı",
         "left": "Sol",
         "right": "Sağ"
+      },
+      "monitors": {
+        "title": "Monitorlar",
+        "desc": "Panelin hansı monitorlarda göstəriləcəyini seçin"
       },
       "width": {
         "title": "Zolağın eni",
@@ -998,6 +1019,9 @@
       "orientation": {
         "horizontal": "Üfüqi",
         "vertical": "Şaquli"
+      },
+      "keyboard_layout": {
+        "title": "Klaviatura düzümü dəyişəndə göstər"
       }
     },
     "common": {
@@ -1835,7 +1859,8 @@
       "lumen": "Lümen",
       "lyrics": "Mahnı sözləri",
       "simpleLyrics": "Sadə mahnı mətni",
-      "circle": "Dairə"
+      "circle": "Dairə",
+      "graph": "Qrafik"
     },
     "presets": {
       "minimal": {
@@ -1872,7 +1897,9 @@
       "hideText": "Mətni gizlət",
       "lineThickness": "Qalınlıq",
       "usageStyle": "Üslub",
-      "visualizerStyle": "Vizuallaşdırıcı üslubu"
+      "visualizerStyle": "Vizuallaşdırıcı üslubu",
+      "updateRate": "Dəqiqədə yeniləmə",
+      "perMinute": "/dəq"
     },
     "align": {
       "left": "Sol",
@@ -1888,6 +1915,10 @@
     "style": {
       "circle": "Dairə",
       "wave": "Dalğa"
+    },
+    "usageGraph": {
+      "average": "Orta",
+      "peak": "Pik"
     }
   },
   "cli": {
@@ -2046,6 +2077,12 @@
       "menu_reinstall": "Yenidən quraşdır",
       "menu_install": "Quraşdır",
       "menu_exit": "Çıx",
+      "menu_uninstall": "Sil",
+      "uninstall_title": "Serpantinum-u silmək istədiyinizə əminsiniz?",
+      "uninstall_removes": "Bu, qabığı, serpantinum-core, serpantinum-audio, serpantinum-gamma, SDDM mövzusunu və Serpantinum ayarlarını, vəziyyətini və keşini silir, mövzulu tətbiqləri, Qt və SDDM-i sistem standartlarına qaytarır.",
+      "uninstall_keeps": "Ski, kompozitorlar, onların konfiqurasiyaları, divar kağızları və sistem paketlərinə toxunulmur.",
+      "uninstall_cancel": "Xeyr, geri",
+      "uninstall_confirm": "Bəli, Serpantinum-u sil",
       "error_no_compositor": "Davam etməzdən əvvəl ən azı bir dəstəklənən görüntü birləşdiricisi seçməlisiniz.",
       "tagline": "Sizin üçün hazırlanmış iş masası mühiti",
       "support_creator": "Müəllifə dəstək olun:",
@@ -2113,6 +2150,12 @@
       "installing": "Ski fayl meneceri quraşdırılır...",
       "unsupported_arch": "Ski-nin hazır paketləri yalnız x86_64 üçün mövcuddur, keçilir.",
       "up_to_date": "-> Ski {version} artıq quraşdırılıb."
+    },
+    "uninstall": {
+      "stopping": "Serpantinum və onun xidmətləri dayandırılır...",
+      "resetting": "Tətbiq mövzuları sistem standartlarına qaytarılır...",
+      "removing": "Serpantinum faylları silinir...",
+      "done": "Serpantinum silindi. Artıq lazım deyilsə, avtomatik başlatma sətrini kompozitor konfiqurasiyasından silin."
     }
   },
   "datetime": {
@@ -2258,5 +2301,8 @@
   },
   "common": {
     "select": "Seçin..."
+  },
+  "osd": {
+    "keyboard_layout": "Klaviatura düzümü"
   }
 }

@@ -299,6 +299,10 @@
         "title": "موقع الشريط",
         "top": "أعلى"
       },
+      "monitors": {
+        "title": "الشاشات",
+        "desc": "اختر الشاشات التي يُعرض عليها الشريط"
+      },
       "style": {
         "desc": "اختر بين النمط المجزأ (Modular) أو المصمت (Solid) أو الممتلئ (Fill)",
         "fill": "ممتلئ",
@@ -904,6 +908,23 @@
         "title": "الإغلاق بالنقر الأيمن",
         "desc": "إغلاق الإشعار بالنقر عليه بزر الماوس الأيمن"
       },
+      "timeout_low": {
+        "title": "مهلة الأولوية المنخفضة",
+        "desc": "مدة بقاء الإشعارات منخفضة الأولوية على الشاشة"
+      },
+      "timeout_normal": {
+        "title": "المهلة العادية",
+        "desc": "مدة بقاء الإشعارات العادية على الشاشة"
+      },
+      "timeout_critical": {
+        "title": "مهلة العاجلة",
+        "desc": "مدة بقاء الإشعارات العاجلة على الشاشة"
+      },
+      "override_timeouts": {
+        "title": "تجاوز مهلات التطبيقات",
+        "desc": "افتراضيًا تُستخدم القيم أعلاه فقط عندما لا يحدد التطبيق مهلته الخاصة. فعّل هذا الخيار لاستخدامها دائمًا"
+      },
+      "timeout_never": "أبدًا",
       "position": {
         "bottom_center": "أسفل الوسط",
         "bottom_left": "أسفل اليسار",
@@ -957,7 +978,10 @@
         "top_left": "أعلى اليسار",
         "top_right": "أعلى اليمين"
       },
-      "test": "اختبار مؤشر OSD"
+      "test": "اختبار مؤشر OSD",
+      "keyboard_layout": {
+        "title": "عرض عند تبديل لغة لوحة المفاتيح"
+      }
     },
     "position": {
       "custom": "مخصص"
@@ -1443,6 +1467,12 @@
       "installed": " (مثبت)",
       "installed_success": "تم تثبيت Serpantinum الإصدار {ver} ({commit}) بنجاح!",
       "menu_exit": "خروج",
+      "menu_uninstall": "إلغاء التثبيت",
+      "uninstall_title": "هل أنت متأكد من أنك تريد إلغاء تثبيت Serpantinum؟",
+      "uninstall_removes": "سيؤدي هذا إلى إزالة الواجهة وserpantinum-core, serpantinum-audio, serpantinum-gamma وسمة SDDM وإعدادات Serpantinum وحالته وذاكرته المؤقتة، وإعادة التطبيقات المنسّقة وQt وSDDM إلى الإعدادات الافتراضية للنظام.",
+      "uninstall_keeps": "لن يتم المساس بـ Ski والمؤلفات وإعداداتها والخلفيات وحزم النظام.",
+      "uninstall_cancel": "لا، رجوع",
+      "uninstall_confirm": "نعم، ألغِ تثبيت Serpantinum",
       "menu_install": "بدء التثبيت الكامل",
       "menu_overview": "المهام المحددة: {count}",
       "menu_reinstall": "إعادة التثبيت",
@@ -1511,6 +1541,12 @@
       "installing": "جارٍ تثبيت مدير الملفات Ski...",
       "unsupported_arch": "حزم Ski المُجمَّعة مسبقًا متوفرة فقط لمعمارية x86_64، سيتم التخطي.",
       "up_to_date": "-> Ski {version} مثبّت بالفعل."
+    },
+    "uninstall": {
+      "stopping": "جارٍ إيقاف Serpantinum وخدماته...",
+      "resetting": "جارٍ إعادة سمات التطبيقات إلى الإعدادات الافتراضية للنظام...",
+      "removing": "جارٍ إزالة ملفات Serpantinum...",
+      "done": "تم إلغاء تثبيت Serpantinum. احذف سطر التشغيل التلقائي من إعدادات المؤلف إذا لم تعد بحاجة إليه."
     }
   },
   "lock": {
@@ -2062,7 +2098,9 @@
       "hideText": "إخفاء النص",
       "lineThickness": "السماكة",
       "usageStyle": "النمط",
-      "visualizerStyle": "نمط المرئي"
+      "visualizerStyle": "نمط المرئي",
+      "updateRate": "التحديثات في الدقيقة",
+      "perMinute": "/دقيقة"
     },
     "system": {
       "desc": "مراقب الأداء ومفاتيح الطاقة والإعدادات السريعة",
@@ -2101,7 +2139,8 @@
       "round": "دائري",
       "rounded": "حواف مستديرة",
       "simpleLyrics": "كلمات مبسطة",
-      "circle": "دائرة"
+      "circle": "دائرة",
+      "graph": "رسم بياني"
     },
     "volume": {
       "desc": "إدارة أجهزة الصوت ومستويات الشدة",
@@ -2120,6 +2159,10 @@
     "style": {
       "circle": "دائرة",
       "wave": "موجة"
+    },
+    "usageGraph": {
+      "average": "متوسط",
+      "peak": "ذروة"
     }
   },
   "gov_alerts": {
@@ -2259,5 +2302,8 @@
   },
   "common": {
     "select": "اختيار..."
+  },
+  "osd": {
+    "keyboard_layout": "تخطيط لوحة المفاتيح"
   }
 }

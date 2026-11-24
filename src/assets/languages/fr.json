@@ -115,6 +115,23 @@
         "title": "Fermer avec le clic droit",
         "desc": "Fermer une notification avec un clic droit"
       },
+      "timeout_low": {
+        "title": "Délai pour urgence faible",
+        "desc": "Durée d'affichage des notifications de faible urgence"
+      },
+      "timeout_normal": {
+        "title": "Délai normal",
+        "desc": "Durée d'affichage des notifications normales"
+      },
+      "timeout_critical": {
+        "title": "Délai pour urgentes",
+        "desc": "Durée d'affichage des notifications urgentes"
+      },
+      "override_timeouts": {
+        "title": "Remplacer les délais des applications",
+        "desc": "Par défaut, les valeurs ci-dessus ne sont utilisées que si l'application ne définit pas son propre délai. Activez pour toujours les utiliser"
+      },
+      "timeout_never": "Jamais",
       "test": "Notification de test",
       "test_desc": "Ceci est une notification de test"
     },
@@ -401,6 +418,10 @@
         "bottom": "Bas",
         "left": "Gauche",
         "right": "Droite"
+      },
+      "monitors": {
+        "title": "Moniteurs",
+        "desc": "Choisissez les moniteurs sur lesquels afficher la barre"
       },
       "width": {
         "title": "Largeur de la barre",
@@ -998,6 +1019,9 @@
       "orientation": {
         "horizontal": "Horizontal",
         "vertical": "Vertical"
+      },
+      "keyboard_layout": {
+        "title": "Afficher au changement de disposition"
       }
     },
     "common": {
@@ -1835,7 +1859,8 @@
       "lumen": "Lumen",
       "lyrics": "Paroles",
       "simpleLyrics": "Paroles simples",
-      "circle": "Cercle"
+      "circle": "Cercle",
+      "graph": "Graphique"
     },
     "presets": {
       "minimal": {
@@ -1872,7 +1897,9 @@
       "hideText": "Masquer le texte",
       "lineThickness": "Épaisseur",
       "usageStyle": "Style",
-      "visualizerStyle": "Style du visualiseur"
+      "visualizerStyle": "Style du visualiseur",
+      "updateRate": "Mises à jour par minute",
+      "perMinute": "/min"
     },
     "align": {
       "left": "Gauche",
@@ -1888,6 +1915,10 @@
     "style": {
       "circle": "Cercle",
       "wave": "Onde"
+    },
+    "usageGraph": {
+      "average": "Moy.",
+      "peak": "Pic"
     }
   },
   "cli": {
@@ -2046,6 +2077,12 @@
       "menu_reinstall": "Réinstaller",
       "menu_install": "Installer",
       "menu_exit": "Quitter",
+      "menu_uninstall": "Désinstaller",
+      "uninstall_title": "Voulez-vous vraiment désinstaller Serpantinum ?",
+      "uninstall_removes": "Cela supprime le shell, serpantinum-core, serpantinum-audio, serpantinum-gamma, le thème SDDM ainsi que les paramètres, l'état et le cache de Serpantinum, et rétablit l'apparence système par défaut des apps thématisées, de Qt et de SDDM.",
+      "uninstall_keeps": "Ski, les compositeurs, leurs configurations, les fonds d'écran et les paquets système ne sont pas modifiés.",
+      "uninstall_cancel": "Non, retour",
+      "uninstall_confirm": "Oui, désinstaller Serpantinum",
       "error_no_compositor": "Vous devez choisir au moins un compositeur pris en charge avant de continuer.",
       "tagline": "Un shell de bureau conçu pour vous",
       "support_creator": "Soutenez le créateur :",
@@ -2113,6 +2150,12 @@
       "installing": "Installation du gestionnaire de fichiers Ski...",
       "unsupported_arch": "Les paquets précompilés de Ski n'existent que pour x86_64, ignoré.",
       "up_to_date": "-> Ski {version} est déjà installé."
+    },
+    "uninstall": {
+      "stopping": "Arrêt de Serpantinum et de ses services...",
+      "resetting": "Rétablissement des thèmes des apps aux valeurs système par défaut...",
+      "removing": "Suppression des fichiers de Serpantinum...",
+      "done": "Serpantinum a été désinstallé. Retirez sa ligne de démarrage automatique de la configuration du compositeur si vous n'en avez plus besoin."
     }
   },
   "datetime": {
@@ -2258,5 +2301,8 @@
   },
   "common": {
     "select": "Sélectionner..."
+  },
+  "osd": {
+    "keyboard_layout": "Disposition du clavier"
   }
 }

@@ -17,6 +17,7 @@ LoaderIcon 1.0 display/LoaderIcon.qml
 NotificationBox 1.0 display/NotificationBox.qml
 SystemUsageCard 1.0 display/SystemUsageCard.qml
 SystemUsageCircle 1.0 display/SystemUsageCircle.qml
+SystemUsageGraph 1.0 display/SystemUsageGraph.qml
 FluidWave 1.0 display/FluidWave.qml
 FocusPanel 1.0 display/focustimer/FocusPanel.qml
 FocusTimeCard 1.0 display/focustimer/FocusTimeCard.qml
@@ -45,6 +46,7 @@ FilePicker 1.0 inputs/FilePicker.qml
 ImagePicker 1.0 inputs/ImagePicker.qml
 Input 1.0 inputs/Input.qml
 LyricsPicker 1.0 inputs/LyricsPicker.qml
+MonitorSelector 1.0 inputs/MonitorSelector.qml
 NumberSelector 1.0 inputs/NumberSelector.qml
 PasswordInput 1.0 inputs/PasswordInput.qml
 SliderProgress 1.0 inputs/SliderProgress.qml
@@ -60,3 +62,4 @@ SettingsBlob 1.0 guide/SettingsBlob.qml
 CollapsibleSection 1.0 guide/CollapsibleSection.qml
 RevealableSettingsRow 1.0 guide/RevealableSettingsRow.qml
 DragChipEditor 1.0 guide/DragChipEditor.qml
+GuideScrollView 1.0 guide/GuideScrollView.qml

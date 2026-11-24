@@ -58,7 +58,11 @@ GuideTab {
         "sound": true,
         "soundFile": "",
         "showEmptyGraphic": true,
-        "rightClickClose": true
+        "rightClickClose": true,
+        "timeoutLow": 5,
+        "timeoutNormal": 5,
+        "timeoutCritical": 15,
+        "overrideAppTimeouts": false
     })
 
     property var notifSettings: {
@@ -94,6 +98,11 @@ GuideTab {
     property bool showEmptyGraphic: notifSettings && notifSettings.showEmptyGraphic !== undefined ? notifSettings.showEmptyGraphic : true
 
     property bool rightClickClose: notifSettings && notifSettings.rightClickClose !== undefined ? notifSettings.rightClickClose : true
+
+    property int timeoutLow: notifSettings && notifSettings.timeoutLow !== undefined ? notifSettings.timeoutLow : 5
+    property int timeoutNormal: notifSettings && notifSettings.timeoutNormal !== undefined ? notifSettings.timeoutNormal : 5
+    property int timeoutCritical: notifSettings && notifSettings.timeoutCritical !== undefined ? notifSettings.timeoutCritical : 15
+    property bool overrideAppTimeouts: notifSettings && notifSettings.overrideAppTimeouts !== undefined ? notifSettings.overrideAppTimeouts : false
 
     function getPresetIndex(h, v) {
         if (Math.abs(v - presetTopV) <= 2 && Math.abs(h - presetRightH) <= 2) return 0;
@@ -184,6 +193,10 @@ GuideTab {
         notificationsTabRoot.selectedSound = s.soundFile !== undefined ? s.soundFile : "";
         notificationsTabRoot.showEmptyGraphic = s.showEmptyGraphic !== undefined ? s.showEmptyGraphic : true;
         notificationsTabRoot.rightClickClose = s.rightClickClose !== undefined ? s.rightClickClose : true;
+        notificationsTabRoot.timeoutLow = s.timeoutLow !== undefined ? s.timeoutLow : 5;
+        notificationsTabRoot.timeoutNormal = s.timeoutNormal !== undefined ? s.timeoutNormal : 5;
+        notificationsTabRoot.timeoutCritical = s.timeoutCritical !== undefined ? s.timeoutCritical : 15;
+        notificationsTabRoot.overrideAppTimeouts = s.overrideAppTimeouts !== undefined ? s.overrideAppTimeouts : false;
         notificationsTabRoot.notifSettings = s;
     }
 
@@ -353,58 +366,46 @@ GuideTab {
         }
     }
 
-    Flickable {
-        anchors.fill: parent
-        anchors.topMargin: rootObj.s(8)
-        anchors.leftMargin: rootObj.s(8)
-        anchors.rightMargin: rootObj.s(8)
-        anchors.bottomMargin: rootObj.s(8)
-        contentHeight: settingsCol.implicitHeight
-        contentWidth: width
-        clip: true
-        boundsBehavior: Flickable.StopAtBounds
+    GuideScrollView {
+        rootObj: notificationsTabRoot.rootObj
 
-        ColumnLayout {
-            id: settingsCol
-            width: parent.width
-            spacing: rootObj.s(6)
+        NotificationPositionRow { id: positionRow; tab: notificationsTabRoot }
 
-            NotificationPositionRow { id: positionRow; tab: notificationsTabRoot }
+        NotificationsBehaviorSection { tab: notificationsTabRoot }
 
-            NotificationsBehaviorSection { tab: notificationsTabRoot }
+        NotificationsTimeoutSection { tab: notificationsTabRoot }
 
-            NotificationsSoundSection { id: soundSection; tab: notificationsTabRoot }
+        NotificationsSoundSection { id: soundSection; tab: notificationsTabRoot }
 
-            RowLayout {
-                Layout.fillWidth: true
-                Layout.topMargin: rootObj.s(4)
-                Layout.leftMargin: rootObj.s(4)
-                Layout.rightMargin: rootObj.s(4)
-                spacing: rootObj.s(12)
+        RowLayout {
+            Layout.fillWidth: true
+            Layout.topMargin: rootObj.s(4)
+            Layout.leftMargin: rootObj.s(4)
+            Layout.rightMargin: rootObj.s(4)
+            spacing: rootObj.s(12)
 
-                Item { Layout.fillWidth: true }
+            Item { Layout.fillWidth: true }
 
-                ClickButton {
-                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                    implicitHeight: rootObj.s(36)
-                    horizontalPadding: rootObj.s(16)
-                    buttonText: I18n.t("guide.notifications.test", "Test notification")
-                    buttonIcon: "󰂚"
-                    iconFontSize: rootObj.s(16)
-                    textFontSize: rootObj.s(12)
-                    accentColor: ThemeBackend.mauve
-                    textColor: ThemeBackend.crust
-                    cornerRadius: ThemeBackend.borderRadius
-                    onClicked: {
-                        Quickshell.execDetached([
-                            "serpantinum-core", "notify",
-                            "--urgency",
-                            "critical",
-                            "--",
-                            I18n.t("guide.notifications.test", "Test notification"),
-                            I18n.t("guide.notifications.test_desc", "This is a test notification")
-                        ]);
-                    }
+            ClickButton {
+                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                implicitHeight: rootObj.s(36)
+                horizontalPadding: rootObj.s(16)
+                buttonText: I18n.t("guide.notifications.test", "Test notification")
+                buttonIcon: "󰂚"
+                iconFontSize: rootObj.s(16)
+                textFontSize: rootObj.s(12)
+                accentColor: ThemeBackend.mauve
+                textColor: ThemeBackend.crust
+                cornerRadius: ThemeBackend.borderRadius
+                onClicked: {
+                    Quickshell.execDetached([
+                        "serpantinum-core", "notify",
+                        "--urgency",
+                        "critical",
+                        "--",
+                        I18n.t("guide.notifications.test", "Test notification"),
+                        I18n.t("guide.notifications.test_desc", "This is a test notification")
+                    ]);
                 }
             }
         }

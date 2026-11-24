@@ -48,6 +48,7 @@ PanelWindow {
         "maxElements": 7,
         "hoverScale": 120,
         "cascadeScale": false,
+        "iconsOnly": false,
         "focusRunning": true,
         "showRunningIndicators": true,
         "showRunningApps": false,
@@ -264,6 +265,16 @@ PanelWindow {
         return Boolean(val);
     }
 
+    property bool dockIconsOnly: {
+        let val = undefined;
+        if (rawDockSettings && rawDockSettings.iconsOnly !== undefined) val = rawDockSettings.iconsOnly;
+        else if (typeof Config !== "undefined" && Config.rawSettings && Config.rawSettings["dock.iconsOnly"] !== undefined) val = Config.rawSettings["dock.iconsOnly"];
+        if (val === undefined || val === null) return false;
+        if (typeof val === "boolean") return val;
+        if (typeof val === "string") return val.toLowerCase() === "true" || val === "1";
+        return Boolean(val);
+    }
+
     property bool focusRunning: {
         let val = undefined;
         if (rawDockSettings && rawDockSettings.focusRunning !== undefined) val = rawDockSettings.focusRunning;
@@ -394,7 +405,7 @@ PanelWindow {
     // OsdController.isFullscreen is shared by every screen, so on Hyprland the per-monitor check replaces it.
     readonly property bool isFullscreenActive: hyprMonitor ? (isHyprlandFullscreen || isToplevelFullscreen) : (isOsdFullscreen || isToplevelFullscreen)
 
-    readonly property bool isBarEffectivelyHidden: barAutohide || isFullscreenActive
+    readonly property bool isBarEffectivelyHidden: barAutohide || isFullscreenActive || !Config.isBarEnabledOnScreen(dockWindow.screen)
     readonly property bool sameSideAsBar: (dockPosition === barPosition) && !isBarEffectivelyHidden
     readonly property real barMarginOffset: (!isBarSolid && !barAutohide) ? s(4) : 0
     readonly property real barOffset: sameSideAsBar ? (barHeight + barMarginOffset) : 0

@@ -115,6 +115,23 @@
         "title": "Fechar com clique direito",
         "desc": "Dispensar uma notificação com o clique direito"
       },
+      "timeout_low": {
+        "title": "Tempo para urgência baixa",
+        "desc": "Quanto tempo as notificações de urgência baixa ficam na tela"
+      },
+      "timeout_normal": {
+        "title": "Tempo normal",
+        "desc": "Quanto tempo as notificações normais ficam na tela"
+      },
+      "timeout_critical": {
+        "title": "Tempo para urgentes",
+        "desc": "Quanto tempo as notificações urgentes ficam na tela"
+      },
+      "override_timeouts": {
+        "title": "Substituir tempos dos aplicativos",
+        "desc": "Por padrão, os valores acima só são usados quando o aplicativo não define o próprio tempo. Ative para usá-los sempre"
+      },
+      "timeout_never": "Nunca",
       "test": "Testar notificação",
       "test_desc": "Esta é uma notificação de teste"
     },
@@ -401,6 +418,10 @@
         "bottom": "Embaixo",
         "left": "Esquerda",
         "right": "Direita"
+      },
+      "monitors": {
+        "title": "Monitores",
+        "desc": "Selecione em quais monitores exibir a barra"
       },
       "width": {
         "title": "Largura da barra",
@@ -998,6 +1019,9 @@
       "orientation": {
         "horizontal": "Horizontal",
         "vertical": "Vertical"
+      },
+      "keyboard_layout": {
+        "title": "Exibir ao trocar o layout do teclado"
       }
     },
     "common": {
@@ -1835,7 +1859,8 @@
       "lumen": "Lúmen",
       "lyrics": "Letra",
       "simpleLyrics": "Letra simples",
-      "circle": "Círculo"
+      "circle": "Círculo",
+      "graph": "Gráfico"
     },
     "presets": {
       "minimal": {
@@ -1872,7 +1897,9 @@
       "hideText": "Ocultar texto",
       "lineThickness": "Espessura",
       "usageStyle": "Estilo",
-      "visualizerStyle": "Estilo do visualizador"
+      "visualizerStyle": "Estilo do visualizador",
+      "updateRate": "Atualizações por minuto",
+      "perMinute": "/min"
     },
     "align": {
       "left": "Esquerda",
@@ -1888,6 +1915,10 @@
     "style": {
       "circle": "Círculo",
       "wave": "Onda"
+    },
+    "usageGraph": {
+      "average": "Média",
+      "peak": "Pico"
     }
   },
   "cli": {
@@ -2046,6 +2077,12 @@
       "menu_reinstall": "Reinstalar",
       "menu_install": "Instalar",
       "menu_exit": "Sair",
+      "menu_uninstall": "Desinstalar",
+      "uninstall_title": "Tem certeza de que deseja desinstalar o Serpantinum?",
+      "uninstall_removes": "Isso remove o shell, serpantinum-core, serpantinum-audio, serpantinum-gamma, o tema do SDDM e as configurações, o estado e o cache do Serpantinum, e restaura os padrões do sistema nos apps tematizados, no Qt e no SDDM.",
+      "uninstall_keeps": "Ski, compositores, suas configurações, papéis de parede e pacotes do sistema não serão alterados.",
+      "uninstall_cancel": "Não, voltar",
+      "uninstall_confirm": "Sim, desinstalar o Serpantinum",
       "error_no_compositor": "Escolha ao menos um compositor suportado antes de prosseguir.",
       "tagline": "Um shell de desktop feito para você",
       "support_creator": "Apoie o criador:",
@@ -2113,6 +2150,12 @@
       "installing": "Instalando o gerenciador de arquivos Ski...",
       "unsupported_arch": "Pacotes pré-compilados do Ski existem apenas para x86_64, ignorado.",
       "up_to_date": "-> O Ski {version} já está instalado."
+    },
+    "uninstall": {
+      "stopping": "Parando o Serpantinum e seus serviços...",
+      "resetting": "Restaurando os temas dos apps para os padrões do sistema...",
+      "removing": "Removendo arquivos do Serpantinum...",
+      "done": "O Serpantinum foi desinstalado. Remova a linha de inicialização automática da configuração do compositor se não precisar mais dela."
     }
   },
   "datetime": {
@@ -2258,5 +2301,8 @@
   },
   "common": {
     "select": "Selecionar..."
+  },
+  "osd": {
+    "keyboard_layout": "Layout do teclado"
   }
 }

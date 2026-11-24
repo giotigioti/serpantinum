@@ -9,9 +9,12 @@ SettingsBlob {
     required property var tab
     readonly property var rootObj: tab.rootObj
     property alias barPosDropdown: barPosDropdown
+    property alias barMonitorSelector: barMonitorSelector
 
     SettingsRow {
         rootObj: section.tab.rootObj
+        settingId: "bar_position"
+        searchKeywords: "bar position placement side edge top bottom left right sidebar"
         icon: "󱂬"
         title: I18n.t("guide.bar.position.title")
         description: I18n.t("guide.bar.position.desc")
@@ -44,8 +47,42 @@ SettingsBlob {
     }
 
     SettingsRow {
+        rootObj: section.tab.rootObj
+        settingId: "bar_monitors"
+        searchKeywords: "bar monitors displays screens outputs multi-monitor visibility show hide"
+        icon: "󰍹"
+        title: I18n.t("guide.bar.monitors.title", "Monitors")
+        description: I18n.t("guide.bar.monitors.desc", "Select which monitors display the bar")
+
+        MonitorSelector {
+            id: barMonitorSelector
+            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+            allowEmpty: true
+            manageSelection: false
+            selectedMonitors: section.tab.barMonitors
+            buttonHeight: rootObj.s(32)
+            buttonCornerRadius: rootObj.s(8)
+            buttonHorizontalPadding: rootObj.s(12)
+            textFontSize: Math.round(rootObj.s(11))
+            spacing: rootObj.s(8)
+            activeColor: ThemeBackend.mauve
+            activeTextColor: ThemeBackend.crust
+            inactiveColor: ThemeBackend.surface1
+            inactiveTextColor: ThemeBackend.text
+            bgOpacity: 1.0
+            onSelectionChanged: function(selected) {
+                section.tab.clearPendingGroup();
+                section.tab.barMonitors = selected;
+                section.tab.updateBarSettings();
+            }
+        }
+    }
+
+    SettingsRow {
         id: widthInnerBox
         rootObj: section.tab.rootObj
+        settingId: "bar_width"
+        searchKeywords: "bar width height length size percentage span"
         icon: "󰘖"
         title: {
             if (section.tab.barPosition === "left" || section.tab.barPosition === "right") {
@@ -104,6 +141,8 @@ SettingsBlob {
 
     SettingsRow {
         rootObj: section.tab.rootObj
+        settingId: "bar_thickness"
+        searchKeywords: "bar thickness height size scale slim compact tall"
         icon: "󰘖"
         title: I18n.t("guide.bar.thickness.title", "Bar thickness")
         description: I18n.t("guide.bar.thickness.desc", "Change how thick the bar is, modules scale to fit")
@@ -143,6 +182,8 @@ SettingsBlob {
     SettingsRow {
         id: centerByEdgesBox
         rootObj: section.tab.rootObj
+        settingId: "bar_center_by_edges"
+        searchKeywords: "bar center alignment edges balance modules middle"
         icon: "󰉹"
         title: I18n.t("guide.bar.center_by_edges.title")
         description: (section.tab.barPosition === "left" || section.tab.barPosition === "right") ? I18n.t("guide.bar.center_by_edges.desc_vertical") : I18n.t("guide.bar.center_by_edges.desc")

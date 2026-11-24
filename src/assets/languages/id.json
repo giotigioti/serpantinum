@@ -115,6 +115,23 @@
         "title": "Tutup dengan klik kanan",
         "desc": "Tutup notifikasi dengan klik kanan"
       },
+      "timeout_low": {
+        "title": "Batas waktu urgensi rendah",
+        "desc": "Berapa lama notifikasi urgensi rendah tetap di layar"
+      },
+      "timeout_normal": {
+        "title": "Batas waktu normal",
+        "desc": "Berapa lama notifikasi biasa tetap di layar"
+      },
+      "timeout_critical": {
+        "title": "Batas waktu mendesak",
+        "desc": "Berapa lama notifikasi mendesak tetap di layar"
+      },
+      "override_timeouts": {
+        "title": "Timpa batas waktu aplikasi",
+        "desc": "Secara bawaan, nilai di atas hanya dipakai saat aplikasi tidak menetapkan batas waktunya sendiri. Aktifkan untuk selalu memakainya"
+      },
+      "timeout_never": "Tidak pernah",
       "test": "Uji notifikasi",
       "test_desc": "Ini adalah notifikasi uji coba"
     },
@@ -401,6 +418,10 @@
         "bottom": "Bawah",
         "left": "Kiri",
         "right": "Kanan"
+      },
+      "monitors": {
+        "title": "Monitor",
+        "desc": "Pilih monitor mana yang menampilkan bilah"
       },
       "width": {
         "title": "Lebar bilah",
@@ -998,6 +1019,9 @@
       "orientation": {
         "horizontal": "Horizontal",
         "vertical": "Vertikal"
+      },
+      "keyboard_layout": {
+        "title": "Tampilkan saat tata letak papan ketik berubah"
       }
     },
     "common": {
@@ -1835,7 +1859,8 @@
       "lumen": "Lumen",
       "lyrics": "Lirik",
       "simpleLyrics": "Lirik Sederhana",
-      "circle": "Lingkaran"
+      "circle": "Lingkaran",
+      "graph": "Grafik"
     },
     "presets": {
       "minimal": {
@@ -1872,7 +1897,9 @@
       "hideText": "Sembunyikan teks",
       "lineThickness": "Ketebalan",
       "usageStyle": "Gaya",
-      "visualizerStyle": "Gaya visualizer"
+      "visualizerStyle": "Gaya visualizer",
+      "updateRate": "Pembaruan per menit",
+      "perMinute": "/mnt"
     },
     "align": {
       "left": "Kiri",
@@ -1888,6 +1915,10 @@
     "style": {
       "circle": "Lingkaran",
       "wave": "Gelombang"
+    },
+    "usageGraph": {
+      "average": "Rata-rata",
+      "peak": "Puncak"
     }
   },
   "cli": {
@@ -2046,6 +2077,12 @@
       "menu_reinstall": "Instal ulang",
       "menu_install": "Instal",
       "menu_exit": "Keluar",
+      "menu_uninstall": "Copot",
+      "uninstall_title": "Yakin ingin mencopot Serpantinum?",
+      "uninstall_removes": "Ini akan menghapus shell, serpantinum-core, serpantinum-audio, serpantinum-gamma, tema SDDM, serta pengaturan, status, dan cache Serpantinum, lalu mengembalikan aplikasi bertema, Qt, dan SDDM ke bawaan sistem.",
+      "uninstall_keeps": "Ski, compositor, konfigurasinya, wallpaper, dan paket sistem tidak akan diubah.",
+      "uninstall_cancel": "Tidak, kembali",
+      "uninstall_confirm": "Ya, copot Serpantinum",
       "error_no_compositor": "Anda harus memilih setidaknya satu kompositor yang didukung sebelum melanjutkan.",
       "tagline": "Shell desktop yang dibangun untuk Anda",
       "support_creator": "Dukung pembuat:",
@@ -2113,6 +2150,12 @@
       "installing": "Memasang pengelola file Ski...",
       "unsupported_arch": "Paket prakompilasi Ski hanya tersedia untuk x86_64, dilewati.",
       "up_to_date": "-> Ski {version} sudah terpasang."
+    },
+    "uninstall": {
+      "stopping": "Menghentikan Serpantinum dan layanannya...",
+      "resetting": "Mengembalikan tema aplikasi ke bawaan sistem...",
+      "removing": "Menghapus berkas Serpantinum...",
+      "done": "Serpantinum telah dicopot. Hapus baris autostart dari konfigurasi compositor jika tidak diperlukan lagi."
     }
   },
   "datetime": {
@@ -2258,5 +2301,8 @@
   },
   "common": {
     "select": "Pilih..."
+  },
+  "osd": {
+    "keyboard_layout": "Tata letak papan ketik"
   }
 }
