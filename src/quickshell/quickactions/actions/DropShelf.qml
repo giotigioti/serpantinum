@@ -315,7 +315,7 @@ Item {
         Rectangle {
             anchors.fill: parent
             radius: root.radius()
-            color: alpha(ThemeBackend.surface0, 0.98)
+            color: ThemeBackend.faded(ThemeBackend.surface0)
             border.width: Math.max(1, root.s(1))
             border.color: hairlineColor()
             clip: true

@@ -22,7 +22,7 @@ Item {
 
     // ---------- state ----------
     readonly property string home: Quickshell.env("HOME")
-    readonly property string baseDir: home + "/Downloads/YT"
+    readonly property string baseDir: home + "/yt-dlp"
     readonly property string fullPath: home + "/.local/bin:" + (Quickshell.env("PATH") || "/usr/local/bin:/usr/bin:/bin")
     readonly property var commonLangs: [
         { code: "en", label: "English" }, { code: "ur", label: "Urdu" },
@@ -102,12 +102,12 @@ Item {
         Quickshell.execDetached(["bash", "-c", "mkdir -p \"$1\" && printf '%s' \"$2\" > \"$1/history.json\"", "x", home + "/.local/state/serpantinum/ytdl", JSON.stringify(history)])
     }
 
-    function outDir() { return baseDir + "/" + ["Video", "Audio", "Transcript"][mode] }
+    function outDir() { return mode === 1 ? home + "/music/main" : baseDir }
 
     function buildCommand(useFallback) {
         var tmpl = playlist
             ? outDir() + "/%(playlist_title)s/%(playlist_index)03d - %(title)s [%(id)s].%(ext)s"
-            : outDir() + "/%(title)s [%(id)s].%(ext)s"
+            : outDir() + (mode === 1 ? "/%(title)s.%(ext)s" : "/%(title)s [%(id)s].%(ext)s")
         var a = [ytdlpPath, "--newline", "--no-colors", "-o", tmpl]
         a.push(playlist ? "--yes-playlist" : "--no-playlist")
         if (mode === 0) {
@@ -115,7 +115,7 @@ Item {
             a.push("-f", selectedFormat !== "" ? selectedFormat : preset,
                    "--merge-output-format", "mp4")
         } else if (mode === 1) {
-            a.push("-x", "--audio-format", "mp3", "--audio-quality", "0")
+            a.push("-x", "--audio-format", "mp3", "--audio-quality", "0", "--embed-metadata", "--embed-thumbnail")
         } else {
             a.push("--skip-download", "--write-subs", "--write-auto-subs",
                    "--sub-langs", lang, "--convert-subs", "srt")
@@ -591,7 +591,7 @@ Item {
             id: panel
             anchors.fill: parent
             radius: ThemeBackend.borderRadius
-            color: ThemeBackend.base
+            color: ThemeBackend.faded(ThemeBackend.base)
             border.width: 1
             border.color: ThemeBackend.surface1
 
