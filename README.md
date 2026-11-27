@@ -1,13 +1,3 @@
-<div align="center">
-  <a href="https://ko-fi.com/ilyamiro">
-    <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi" />
-  </a>
-</div>
-
-<div align="center">
-  <img src="docs/assets/banner.png" alt="Serpantinum" width="850" />
-</div>
-
 ## Previews
 
 | | |
@@ -27,17 +17,14 @@
 > [!TIP]
 > Full installation and configuration instructions live at **[serpantinum.dev](https://serpantinum.dev)**.
 
-> [!IMPORTANT]
-> **Migrating from v1:** All previous configuration will be backed up and unused. Configuration of compositor settings such as monitors, keybinds, and autostart is now up to you, as the project migrated from being dotfiles to being a shell.
+### Arch Linux, Fedora, Void Linux, Gentoo and their derivatives
 
-### Arch Linux, Fedora, Void Linux and their derivatives
-
-For Arch-based distributions (including systemd, OpenRC, and other init systems), for Fedora-based distributions such as Nobara and Ultramarine, and for Void Linux (glibc and musl), run the automated installation script. It detects your distribution and uses `pacman`, `dnf` or `xbps`.
+For Arch-based distributions (including systemd, OpenRC, and other init systems), for Fedora-based distributions such as Nobara and Ultramarine, for Void Linux (glibc and musl), and for Gentoo-based distributions (systemd and OpenRC), run the automated installation script. It detects your distribution and uses `pacman`, `dnf`, `xbps` or `emerge`.
 
 Use this installer:
 
 ```bash
-curl -fsSL install.serpantinum.dev | bash
+curl -fsSL https://install.serpantinum.dev | bash
 ```
 
 If this doesn't work, use:
@@ -71,7 +58,7 @@ The blue light filter and its day and night schedule run on [serpantinum-gamma](
 
 ## Supported compositors
 
-Hyprland, Niri, Sway, Mango and Umbriel. The installer detects the running compositor and deploys its configuration. On Arch, Umbriel is installed from the AUR. On Fedora, Mango and Umbriel are installed from the Terra repository. On Void Linux, Hyprland is installed from the third-party black-hole.dev repository and Umbriel from the third-party UniversalRepository.
+Hyprland, Niri, Sway, Mango and Umbriel. The installer detects the running compositor and deploys its configuration. On Arch, Umbriel is installed from the AUR. On Fedora, Mango and Umbriel are installed from the Terra repository. On Void Linux, Hyprland is installed from the third-party black-hole.dev repository and Umbriel from the third-party UniversalRepository. On Gentoo, Sway comes from the main tree, Niri, Mango and Umbriel come from the GURU overlay, and Hyprland comes from hyproverlay.
 
 ---
 
