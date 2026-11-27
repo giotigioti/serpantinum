@@ -105,9 +105,11 @@ Item {
     function outDir() { return mode === 1 ? home + "/music/main" : baseDir }
 
     function buildCommand(useFallback) {
-        var tmpl = playlist
-            ? outDir() + "/%(playlist_title)s/%(playlist_index)03d - %(title)s [%(id)s].%(ext)s"
-            : outDir() + (mode === 1 ? "/%(title)s.%(ext)s" : "/%(title)s [%(id)s].%(ext)s")
+        var tmpl = mode === 1
+            ? outDir() + "/%(title)s.%(ext)s"
+            : (playlist
+                ? outDir() + "/%(playlist_title)s/%(playlist_index)03d - %(title)s [%(id)s].%(ext)s"
+                : outDir() + "/%(title)s [%(id)s].%(ext)s")
         var a = [ytdlpPath, "--newline", "--no-colors", "-o", tmpl]
         a.push(playlist ? "--yes-playlist" : "--no-playlist")
         if (mode === 0) {
@@ -121,7 +123,8 @@ Item {
                    "--sub-langs", lang, "--convert-subs", "srt")
         }
         if (useFallback) a.push("--extractor-args", "youtube:player_client=web_embedded")
-        a.push("--", url.trim())
+        a.push("--")
+        url.split(/,\s*(?=https?:\/\/)/).forEach(function(u) { u = u.trim(); if (u !== "") a.push(u) })
         return a
     }
 
@@ -335,7 +338,7 @@ Item {
         recheckDeps()
         placePopup()
         open = true
-        if (url.trim() === "") paste(true)
+        paste(true)
     }
 
     onOpenChanged: { if (open) focusTimer.restart() }
@@ -394,7 +397,7 @@ Item {
             onStreamFinished: {
                 var t = this.text.trim().split("\n")[0]
                 if (t === "") return
-                if (root.pasteAuto && !root.isUrl(t)) return
+                if (root.pasteAuto && (root.busy || root.url.indexOf(",") !== -1)) return
                 root.url = t
             }
         }

@@ -54,6 +54,7 @@ Item {
     }
 
     onOpenChanged: {
+        console.log("EXPOSE open=" + open + " active=" + moduleActive + " bar=" + (barWindow !== null));
         if (ExposeState.open !== open) ExposeState.open = open;
         if (open && Hyprland.refreshToplevels) Hyprland.refreshToplevels();
     }
