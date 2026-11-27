@@ -421,7 +421,8 @@ Variants {
                 "actions/SystemUsage.qml",
                 "actions/Timer.qml",
                 "actions/Notes.qml",
-                "actions/Calculator.qml"
+                "actions/Calculator.qml",
+                "actions/DropShelf.qml"
             ]
 
             property int tabCount: Math.max(1, tabModules.length)
@@ -436,6 +437,8 @@ Variants {
                     return { name: I18n.t("quickactions.tabs.timer"), icon: "󰔛" };
                 } else if (mod.indexOf("Notes") !== -1) {
                     return { name: I18n.t("quickactions.tabs.notes"), icon: "󰈙" };
+                } else if (mod.indexOf("DropShelf") !== -1) {
+                    return { name: "Drop Shelf", icon: "󰉓" };
                 } else if (mod.indexOf("Calculator") !== -1) {
                     return { name: I18n.t("quickactions.tabs.calculator"), icon: "󰃬" };
                 }

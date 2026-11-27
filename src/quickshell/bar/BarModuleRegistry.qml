@@ -19,6 +19,18 @@ QtObject {
     }
 
     property var types: ({
+        "ytdl": {
+            name: "ytdl",
+            icon: "",
+            defaultVariant: "default",
+            face: "faces/ytdl/YtdlFace.qml"
+        },
+        "expose": {
+            name: "expose",
+            icon: "",
+            defaultVariant: "default",
+            face: "faces/expose/ExposeFace.qml"
+        },
         "left": {
             name: typeof I18n !== "undefined" ? I18n.t("guide.bar.modules.actions", "Menu") : "Menu",
             icon: "󰍜",
