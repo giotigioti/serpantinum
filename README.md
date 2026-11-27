@@ -17,9 +17,6 @@
 > [!TIP]
 > Full installation and configuration instructions live at **[serpantinum.dev](https://serpantinum.dev)**.
 
-> [!IMPORTANT]
-> **Migrating from v1:** All previous configuration will be backed up and unused. Configuration of compositor settings such as monitors, keybinds, and autostart is now up to you, as the project migrated from being dotfiles to being a shell.
-
 ### Arch Linux, Fedora, Void Linux, Gentoo and their derivatives
 
 For Arch-based distributions (including systemd, OpenRC, and other init systems), for Fedora-based distributions such as Nobara and Ultramarine, for Void Linux (glibc and musl), and for Gentoo-based distributions (systemd and OpenRC), run the automated installation script. It detects your distribution and uses `pacman`, `dnf`, `xbps` or `emerge`.
