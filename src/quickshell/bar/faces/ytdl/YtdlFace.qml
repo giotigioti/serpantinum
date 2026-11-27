@@ -474,7 +474,7 @@ Item {
             readonly property bool hovered: pillMouse.containsMouse
             readonly property bool lit: root.busy || root.open || root.flash !== 0
             readonly property color accent: root.flash === 2 ? ThemeBackend.peach : (root.flash === 1 ? ThemeBackend.teal : ThemeBackend.mauve)
-            readonly property color idleColor: root.isCompact ? Qt.lighter(ThemeBackend.surface1, 1.12) : ThemeBackend.surface1
+            readonly property color idleColor: ThemeBackend.faded(root.isCompact ? Qt.lighter(ThemeBackend.surface1, 1.12) : ThemeBackend.surface1)
 
             height: sysLayout.pillHeight
             width: Math.max(root.px(root.isCompact ? 36 : 40), pillRow.implicitWidth + root.px(root.isCompact ? 20 : 24))
